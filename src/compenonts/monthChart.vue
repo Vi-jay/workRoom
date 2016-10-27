@@ -90,7 +90,6 @@
         },
         methods: {
             setMonthLineOption(){
-                console.log("i am run")
                 let pageNum = 5;
                 let monthLineYData = [];
                 let allShopName = [];
