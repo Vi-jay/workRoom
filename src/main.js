@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import VueResource from 'vue-resource';
+import axios from 'axios';
 import App from './asd.vue';
 let monthChart = require('./compenonts/monthChart.vue');
 let todayChart = require('./compenonts/todayChart.vue');
@@ -13,8 +13,9 @@ let index = require('./compenonts/index.vue');
 require('./fonts/style.css');
 
 Vue.use(VueRouter);
-Vue.use(VueResource);
+Vue.use(axios);
 Vue.use(wj_component.wj_component);
+Vue.prototype.$http = axios;
 const routes = [
     {path: '/monthChart', component: monthChart},
     {path: '/todayChart', component: todayChart},

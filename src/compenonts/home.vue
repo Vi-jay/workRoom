@@ -47,7 +47,7 @@
         .item
             display block
             width 100%
-            height 410px
+            height 228px
         .itemBorder
             border-bottom  ridge 3px #cccccc
         .title

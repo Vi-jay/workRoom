@@ -93,7 +93,6 @@
         },
         methods: {
             setTodayLineOption(){
-                console.log("i also am run")
                 let pageNum = 5;
                 let todayLineYData = [];
                 let allShopName = [];

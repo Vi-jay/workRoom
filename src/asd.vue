@@ -36,7 +36,9 @@
                 },
                 icon_class: 'icon-arrow_lift',
                 flag: true,
-                today:this.thisDay
+                today: this.NowDateTime(),
+
+                destroyTimer:{}
             }
         },
         methods: {
@@ -62,7 +64,7 @@
             },
             initOrderData(data) {
                 let orderDatas = new Array();
-                for ( let i = 0; i < data.length; i++) {
+                for (let i = 0; i < data.length; i++) {
                     let orderData = {};
                     orderData.shopName = data[i].second_category_name;
                     orderData.numFor5KG = data[i].num_for_5KG;
@@ -74,14 +76,14 @@
                     orderDatas.push(orderData);
                 }
                 return orderDatas;
-        },
+            },
             initOrderTypeData(data) {
 
                 let orderTypeDatas = new Array();
 
                 let orderTypeDataMap = {};
 
-                for ( let i = 0; i < data.length; i++) {
+                for (let i = 0; i < data.length; i++) {
 
                     let orderTypeData = {};
 
@@ -103,8 +105,8 @@
                     orderTypeDataMap[data[i].second_category_name] = orderTypeData;
                 }
 
-                let  tmpData = {};
-                for ( let key in orderTypeDataMap) {
+                let tmpData = {};
+                for (let key in orderTypeDataMap) {
                     tmpData.shopName = '总计';
                     tmpData['门店自提'] = orderTypeDataMap[key].pickUpInSotre == null ? 0
                         : orderTypeDataMap[key].pickUpInSotre;
@@ -116,12 +118,13 @@
                 }
                 return orderTypeDatas;
             },
-
-        },
-        created(){
-            setTimeout(() => {
-                this.$http.get('./JSON/data.json').then((res) => {
-                    let resData = res.body.monthBuyType;
+            getData(){
+                this.$http.get(this.basePath + '/saleModeReport/getSaleModeReportInfo', {
+                    params: { begin_report_time: this.getCurrentMonthFirst(),
+                        end_report_time: this.getCurrentMonthLast()}
+                    }
+                ).then((res) => {
+                    let resData = this.initOrderTypeData(res.data.rows);
                     if (JSON.stringify(resData) != JSON.stringify(this.allResource.monthBuyType)) {
                         this.allResource.monthBuyType = resData;
                         if (this.$refs.compoents.name === "monthBuy") {
@@ -129,8 +132,12 @@
                         }
                     }
                 });
-                this.$http.get('./JSON/data.json').then((res) => {
-                    let resData = res.body.todayBuyType;
+                this.$http.get(this.basePath + '/saleModeReport/getSaleModeReportInfo', {
+                    params: {
+                    begin_report_time: this.today,
+                    end_report_time: this.today}
+                }).then((res) => {
+                    let resData = this.initOrderTypeData(res.data.rows);
                     if (JSON.stringify(resData) != JSON.stringify(this.allResource.todayBuyType)) {
                         this.allResource.todayBuyType = resData;
                         if (this.$refs.compoents.name === "todayBuy") {
@@ -138,20 +145,29 @@
                         }
                     }
                 });
-                this.$http.get('./JSON/data.json').then((res) => {
-                    let resData = res.body.todayOrderData;
-                    if (JSON.stringify(resData) != JSON.stringify(this.allResource.todayOrderData)) {
-                        this.allResource.todayOrderData = resData;
-                        if (this.$refs.compoents.name === "bottleTrack") {
-                            this.$refs.compoents.setOption();
+                this.$http.get(this.basePath + '/saleReport/getSaleReportInfoByAirBottleTypeInfo', {
+                    params: {
+                    begin_report_time: this.today,
+                    end_report_time: this.today}
+                })
+                    .then((res) => {
+                        let resData = this.initOrderData(res.data.rows);
+                        if (JSON.stringify(resData) != JSON.stringify(this.allResource.todayOrderData)) {
+                            this.allResource.todayOrderData = resData;
+                            if (this.$refs.compoents.name === "bottleTrack") {
+                                this.$refs.compoents.setOption();
+                            }
+                            if (this.$refs.compoents.name === "todayBuy") {
+                                this.$refs.compoents.setTodayLineOption();
+                            }
                         }
-                        if (this.$refs.compoents.name === "todayBuy") {
-                            this.$refs.compoents.setTodayLineOption();
-                        }
-                    }
-                });
-                this.$http.get('./JSON/data.json').then((res) => {
-                    let resData = res.body.monthOrderData;
+                    });
+                this.$http.get(this.basePath + '/saleReport/getSaleReportInfoByAirBottleTypeInfo', {
+                    params: {
+                    begin_report_time: this.getCurrentMonthFirst(),
+                    end_report_time: this.getCurrentMonthLast()}
+                }).then((res) => {
+                    let resData = this.initOrderData(res.data.rows);
                     if (JSON.stringify(resData) != JSON.stringify(this.allResource.monthOrderData)) {
                         this.allResource.monthOrderData = resData;
                         if (this.$refs.compoents.name === "monthBuy") {
@@ -159,8 +175,9 @@
                         }
                     }
                 });
-                this.$http.get('./JSON/data.json').then((res) => {
-                    let resData = res.body.shopCallBack;
+                this.$http.post(this.basePath + '/returnBottleRateReport/getStoreReturnBottleDetailReportInfo?begin_report_time='+this.lastTwoMonthDay
+                    +'&end_report_time='+this.today).then((res) => {
+                    let resData = this.initAvgReturnBottleRateData(res.data.rows, this.lastTwoMonthDay, this.lastMonthDay, this.today);
                     if (JSON.stringify(resData) != JSON.stringify(this.allResource.shopCallBack)) {
                         this.allResource.shopCallBack = resData;
                         if (this.$refs.compoents.name === "shopCallBack") {
@@ -168,8 +185,8 @@
                         }
                     }
                 });
-                this.$http.get('./JSON/data.json').then((res) => {
-                    let resData = res.body.shopStock;
+                this.$http.get(this.basePath + '/store/getStoreInventoryInfo').then((res) => {
+                    let resData = this.initStoreInventoryData(res.data.data.rows);
                     if (JSON.stringify(resData) != JSON.stringify(this.allResource.shopStock)) {
                         this.allResource.shopStock = resData;
                         if (this.$refs.compoents.name === "shopStock") {
@@ -177,12 +194,30 @@
                         }
                     }
                 });
+            }
+
+        },
+        created(){
+           this.destroyTimer= setTimeout(() => {
+               this.getData();
+               setInterval(()=>{
+                   this.getData();
+               },20000)
             });
         },
-        computed:{
+        computed: {
             thisDay(){
                 return this.NowDateTime();
+            },
+            lastTwoMonthDay(){
+                return this.getPreDay(this.today, 60);
+            },
+            lastMonthDay(){
+                return this.getPreDay(this.today, 30);
             }
+        },
+        destroyed(){
+            clearTimeout(this.destroyTimer);
         }
     }
 </script>
@@ -201,10 +236,12 @@
             text-align center
             transition all 0.2s
             a
-                color black
-                font-weight 700
+                color #7e8c8d
+                font-weight 500
                 font-size 22px
                 transition all 0.5s
+                &:hover
+                    color #1d90e6
             &:hover
                 transform scale(1.2) translate3d(0, 0, 0)
         .Icons

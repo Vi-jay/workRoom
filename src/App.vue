@@ -63,7 +63,7 @@
         created(){
             setTimeout(() => {
                 this.$http.get('/JSON/monthBuyType').then((res) => {
-                    let resData = res.body.data;
+                    let resData = res.data.data;
                     if (JSON.stringify(resData) != JSON.stringify(this.allResource.monthBuyType)) {
                         this.allResource.monthBuyType = resData;
                         if (this.$refs.compoents.name === "monthBuy") {
@@ -72,7 +72,7 @@
                     }
                 });
                 this.$http.get('/JSON/todayBuyType').then((res) => {
-                    let resData = res.body.data;
+                    let resData = res.data.data;
                     if (JSON.stringify(resData) != JSON.stringify(this.allResource.todayBuyType)) {
                         this.allResource.todayBuyType = resData;
                         if (this.$refs.compoents.name === "todayBuy") {
@@ -81,7 +81,7 @@
                     }
                 });
                 this.$http.get('/JSON/monthOrderData').then((res) => {
-                    let resData = res.body.data;
+                    let resData = res.data.data;
                     if (JSON.stringify(resData) != JSON.stringify(this.allResource.monthOrderData)) {
                         this.allResource.monthOrderData = resData;
                         if (this.$refs.compoents.name === "monthBuy") {
@@ -90,7 +90,7 @@
                     }
                 });
                 this.$http.get('/JSON/todayOrderData').then((res) => {
-                    let resData = res.body.data;
+                    let resData = res.data.data;
                     if (JSON.stringify(resData) != JSON.stringify(this.allResource.todayOrderData)) {
                         this.allResource.todayOrderData = resData;
                         if (this.$refs.compoents.name === "bottleTrack") {
@@ -103,7 +103,7 @@
                 });
 
                 this.$http.get('/JSON/shopCallBack').then((res) => {
-                    let resData = res.body.data;
+                    let resData = res.data.data;
                     if (JSON.stringify(resData) != JSON.stringify(this.allResource.shopCallBack)) {
                         this.allResource.shopCallBack = resData;
                         if (this.$refs.compoents.name === "shopCallBack") {
@@ -112,7 +112,7 @@
                     }
                 });
                 this.$http.get('/JSON/shopStock').then((res) => {
-                    let resData = res.body.data;
+                    let resData = res.data.data;
                     if (JSON.stringify(resData) != JSON.stringify(this.allResource.shopStock)) {
                         this.allResource.shopStock = resData;
                         if (this.$refs.compoents.name === "shopStock") {
