@@ -38,15 +38,11 @@
                         data: []/* Y轴 */
                     },
                     series: []
-                }
-                ,
-                name:"monthBuy",
-                monthChart: {}
-                ,
-                monthMap: {}
-                ,
-                allBottleName: {numFor2KG: "2KG", numFor5KG: "5KG", numFor15KG: "15KG", numFor50KG: "50KG"}
-                ,
+                },
+                name: "monthBuy",
+                monthChart: {},
+                monthMap: {},
+                allBottleName: {numFor2KG: "2KG", numFor5KG: "5KG", numFor15KG: "15KG", numFor50KG: "50KG"},
                 monthMapOption: {
                     tooltip: {
                         trigger: 'item',
@@ -81,50 +77,71 @@
                             },
                         }
                     ]
-                }
-                ,
+                },
                 color: {
                     "numFor2KG": "rgb(144, 237, 125)",
                     "numFor5KG": "rgb(67, 67, 72)",
                     "numFor15KG": "rgb(124, 181, 236)",
                     "numFor50KG": "rgb(247, 163, 92)"
-                }
+                },
+                openMonthChangeFlag: true,
+                monthSetTime:{}
             }
         },
         methods: {
             setMonthLineOption(){
+                console.log("i am run")
+                let pageNum = 5;
                 let monthLineYData = [];
                 let allShopName = [];
                 let changeName;
                 let monthLineXData = {"numFor2KG": [], "numFor5KG": [], "numFor15KG": [], "numFor50KG": []};
                 let _this = this;
-                this.allResource.monthOrderData.forEach(function (shop, i) {
-                    monthLineYData.push(shop['shopName']);
-                    for (let key in monthLineXData) {
-                        monthLineXData[key].push(shop[key]);
-                    }
-                    allShopName.push(shop['shopName']);
-                    _this.monthLineOption.yAxis.data = monthLineYData;
-                    _this.monthLineOption.series.splice(0, _this.monthLineOption.series.length);
-                    for (let key in monthLineXData) {
-                        changeName = _this.allBottleName[key];
-                        _this.monthLineOption.series.push({
-                            name: changeName,
-                            type: 'bar',
-                            stack: '总量',
-                            label: {
-                                normal: {
-                                    position: 'insideRight'
-                                }
-                            },
-                            itemStyle: {
-                                normal: {color: _this.color[key]}
-                            },
-                            data: monthLineXData[key]
-                        });
-                    }
+                let monthData = this.allResource.monthOrderData;
+                monthData.forEach(function (shop, i) {
+                    let cnt = parseInt(i / pageNum);
+                    let changeTime = _this.openMonthChangeFlag ? 500 : (cnt + 1) * 5000;
+                   _this.monthSetTime= setTimeout(() => {
+                       if(!_this.monthChart.isDisposed()){
+                        if (i % pageNum == 0) {
+                            monthLineYData = [];
+                            allShopName = [];
+                            monthLineXData = {"numFor2KG": [], "numFor5KG": [], "numFor15KG": [], "numFor50KG": []};
+                        }
+                        monthLineYData.push(shop['shopName']);
+                        for (let key in monthLineXData) {
+                            monthLineXData[key].push(shop[key]);
+                        }
+                        if ((i + 1) % pageNum == 0 || (i + 1) == monthData.length) {
+                            _this.openMonthChangeFlag = false;
+                            _this.monthLineOption.yAxis.data = monthLineYData;
+                            _this.monthLineOption.series.splice(0, _this.monthLineOption.series.length);
+                            for (let key in monthLineXData) {
+                                changeName = _this.allBottleName[key];
+                                _this.monthLineOption.series.push({
+                                    name: changeName,
+                                    type: 'bar',
+                                    stack: '总量',
+                                    label: {
+                                        normal: {
+                                            position: 'insideRight'
+                                        }
+                                    },
+                                    itemStyle: {
+                                        normal: {color: _this.color[key]}
+                                    },
+                                    data: monthLineXData[key]
+                                });
+                            }
+                            _this.monthChart.setOption(_this.monthLineOption);
+                            if ((i + 1) == monthData.length) {
+
+                                _this.setMonthLineOption();
+                            }
+                            return "";
+                        }}
+                    }, changeTime);
                 })
-                this.monthChart.setOption(this.monthLineOption);
             },
             setMonthMapOption(){
                 let cakeData = [];
@@ -155,20 +172,22 @@
         }
         ,
         destroyed(){
+            clearTimeout(this.monthSetTime);
             this.monthChart.dispose();
             this.monthMap.dispose();
         }
     };
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
-        #monthChart
-            display inline-block
-            width 65%
-            height 100%
-            transform translate3d(0,0,0)
-        #monthMap
-            display inline-block
-            width 30%
-            height 100%
-            transform translate3d(0,0,0)
+    #monthChart
+        display inline-block
+        width 65%
+        height 100%
+        transform translate3d(0, 0, 0)
+
+    #monthMap
+        display inline-block
+        width 30%
+        height 100%
+        transform translate3d(0, 0, 0)
 </style>

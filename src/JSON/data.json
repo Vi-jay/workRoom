@@ -15,6 +15,99 @@
       "numFor50KG": 2,
       "numFor2KG": 6,
       "CountTotal": 11
+    },{
+      "shopName": "博美站",
+      "numFor5KG": 10,
+      "numFor15KG": 11,
+      "numFor50KG": 2,
+      "numFor2KG": 6,
+      "CountTotal": 11
+    },{
+      "shopName": "博美站",
+      "numFor5KG": 10,
+      "numFor15KG": 11,
+      "numFor50KG": 2,
+      "numFor2KG": 6,
+      "CountTotal": 11
+    },{
+      "shopName": "博美站",
+      "numFor5KG": 10,
+      "numFor15KG": 11,
+      "numFor50KG": 2,
+      "numFor2KG": 6,
+      "CountTotal": 11
+    },
+    {
+      "shopName": "博美站9",
+      "numFor5KG": 10,
+      "numFor15KG": 11,
+      "numFor50KG": 2,
+      "numFor2KG": 6,
+      "CountTotal": 11
+    },
+    {
+      "shopName": "博美站8",
+      "numFor5KG": 10,
+      "numFor15KG": 11,
+      "numFor50KG": 2,
+      "numFor2KG": 6,
+      "CountTotal": 11
+    },
+    {
+      "shopName": "博美站7",
+      "numFor5KG": 10,
+      "numFor15KG": 11,
+      "numFor50KG": 2,
+      "numFor2KG": 6,
+      "CountTotal": 11
+    },
+    {
+      "shopName": "博美站1",
+      "numFor5KG": 10,
+      "numFor15KG": 11,
+      "numFor50KG": 2,
+      "numFor2KG": 6,
+      "CountTotal": 11
+    },
+    {
+      "shopName": "博美站6",
+      "numFor5KG": 10,
+      "numFor15KG": 11,
+      "numFor50KG": 2,
+      "numFor2KG": 6,
+      "CountTotal": 11
+    },
+    {
+      "shopName": "博美站5",
+      "numFor5KG": 10,
+      "numFor15KG": 11,
+      "numFor50KG": 2,
+      "numFor2KG": 6,
+      "CountTotal": 11
+    },
+    {
+      "shopName": "博美站4",
+      "numFor5KG": 10,
+      "numFor15KG": 11,
+      "numFor50KG": 2,
+      "numFor2KG": 6,
+      "CountTotal": 11
+    },
+    {
+      "shopName": "博美站3",
+      "numFor5KG": 10,
+      "numFor15KG": 11,
+      "numFor50KG": 2,
+      "numFor2KG": 6,
+      "CountTotal": 11
+    },
+    {
+      "shopName": "博美站2",
+      "numFor5KG": 10,
+      "numFor15KG": 11,
+      "numFor50KG": 2,
+      "numFor2KG": 6,
+      "CountTotal": 11
     },
     {
       "shopName": "博丑站",
@@ -176,7 +269,8 @@
       "numFor15KG": 7,
       "numFor50KG": 8,
       "numFor2KG": 1
-    },{
+    },
+    {
       "shopName": "博丑站",
       "numFor5KG": 1,
       "numFor15KG": 7,
@@ -200,6 +294,62 @@
       "numFor50KG": 0,
       "numFor2KG": 0,
       "CountTotal": 1
+    },
+    {
+      "shopName": "树田站",
+      "numFor5KG": 2,
+      "numFor15KG": 1,
+      "numFor50KG": 0,
+      "numFor2KG": 0,
+      "CountTotal": 20
+    },
+    {
+      "shopName": "树田站",
+      "numFor5KG": 2,
+      "numFor15KG": 1,
+      "numFor50KG": 0,
+      "numFor2KG": 0,
+      "CountTotal": 20
+    },
+    {
+      "shopName": "树田站",
+      "numFor5KG": 2,
+      "numFor15KG": 1,
+      "numFor50KG": 0,
+      "numFor2KG": 0,
+      "CountTotal": 20
+    },
+    {
+      "shopName": "树田站",
+      "numFor5KG": 2,
+      "numFor15KG": 1,
+      "numFor50KG": 0,
+      "numFor2KG": 0,
+      "CountTotal": 20
+    },
+    {
+      "shopName": "树田站",
+      "numFor5KG": 2,
+      "numFor15KG": 1,
+      "numFor50KG": 0,
+      "numFor2KG": 0,
+      "CountTotal": 20
+    },
+    {
+      "shopName": "树田站",
+      "numFor5KG": 2,
+      "numFor15KG": 1,
+      "numFor50KG": 0,
+      "numFor2KG": 0,
+      "CountTotal": 20
+    },
+    {
+      "shopName": "树田站",
+      "numFor5KG": 2,
+      "numFor15KG": 1,
+      "numFor50KG": 0,
+      "numFor2KG": 0,
+      "CountTotal": 20
     },
     {
       "shopName": "树田站",

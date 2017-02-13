@@ -86,43 +86,65 @@
                 },
                 todayMap:{},
                 todayChart:{},
-                name:"todayBuy"
+                name:"todayBuy",
+                todaySetTime:{},
+                openMonthChangeFlag:true
             }
         },
         methods: {
             setTodayLineOption(){
-                let dayLineYData = [];
+                console.log("i also am run")
+                let pageNum = 5;
+                let todayLineYData = [];
                 let allShopName = [];
                 let changeName;
-                let dayLineXData = {"numFor2KG": [], "numFor5KG": [], "numFor15KG": [], "numFor50KG": []};
+                let todayLineXData = {"numFor2KG": [], "numFor5KG": [], "numFor15KG": [], "numFor50KG": []};
                 let _this = this;
-                this.allResource.todayOrderData.forEach(function (shop, i) {
-                    dayLineYData.push(shop['shopName']);
-                    for (let key in dayLineXData) {
-                        dayLineXData[key].push(shop[key]);
-                    }
-                    allShopName.push(shop['shopName']);
-                    _this.todayLineOption.yAxis.data = dayLineYData;
-                    _this.todayLineOption.series.splice(0, _this.todayLineOption.series.length);
-                    for (let key in dayLineXData) {
-                        changeName = _this.allBottleName[key];
-                        _this.todayLineOption.series.push({
-                            name: changeName,
-                            type: 'bar',
-                            stack: '总量',
-                            label: {
-                                normal: {
-                                    position: 'insideRight'
+                let todayData = this.allResource.todayOrderData;
+                todayData.forEach(function (shop, i) {
+                    let cnt = parseInt(i / pageNum);
+                    let changeTime = _this.openMonthChangeFlag ? 500 : (cnt + 1) * 5000;
+                    _this.todaySetTime= setTimeout(() => {
+                        if(!_this.todayChart.isDisposed()){
+                            if (i % pageNum == 0) {
+                                todayLineYData = [];
+                                allShopName = [];
+                                todayLineXData = {"numFor2KG": [], "numFor5KG": [], "numFor15KG": [], "numFor50KG": []};
+                            }
+                            todayLineYData.push(shop['shopName']);
+                            for (let key in todayLineXData) {
+                                todayLineXData[key].push(shop[key]);
+                            }
+                            if ((i + 1) % pageNum == 0 || (i + 1) == todayData.length) {
+                                _this.openMonthChangeFlag = false;
+                                _this.todayLineOption.yAxis.data = todayLineYData;
+                                _this.todayLineOption.series.splice(0, _this.todayLineOption.series.length);
+                                for (let key in todayLineXData) {
+                                    changeName = _this.allBottleName[key];
+                                    _this.todayLineOption.series.push({
+                                        name: changeName,
+                                        type: 'bar',
+                                        stack: '总量',
+                                        label: {
+                                            normal: {
+                                                position: 'insideRight'
+                                            }
+                                        },
+                                        itemStyle: {
+                                            normal: {color: _this.color[key]}
+                                        },
+                                        data: todayLineXData[key]
+                                    });
                                 }
-                            },
-                            itemStyle: {
-                                normal: {color: _this.color[key]}
-                            },
-                            data: dayLineXData[key]
-                        });
-                    }
+                                _this.todayChart.setOption(_this.todayLineOption);
+                                if ((i + 1) == todayData.length) {
+
+                                    _this.setTodayLineOption();
+                                }
+                                return "";
+                            }}
+                    }, changeTime);
                 })
-                this.todayChart.setOption(this.todayLineOption);
             },
             setTodayMapOption(){
                 let cakeData = [];

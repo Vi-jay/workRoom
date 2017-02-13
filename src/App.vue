@@ -62,52 +62,51 @@
         },
         created(){
             setTimeout(() => {
-                this.$http.get('/JSON/monthBuyType').then((res) => {
-                    let resData = res.body.data;
+                this.$http.get('./JSON/data.json').then((res) => {
+                    let resData = res.body.monthBuyType;
                     if(JSON.stringify(resData)!=JSON.stringify(this.allResource.monthBuyType) ){
                         this.allResource.monthBuyType=resData;
                         if(this.$refs.compoents.name === "monthBuy"){
                             this.$refs.compoents.setMonthMapOption();}
                     }
                 });
-                this.$http.get('/JSON/todayBuyType').then((res) => {
-                    let resData = res.body.data;
+                this.$http.get('./JSON/data.json').then((res) => {
+                    let resData = res.body.todayBuyType;
                     if(JSON.stringify(resData)!=JSON.stringify(this.allResource.todayBuyType) ){
                         this.allResource.todayBuyType=resData;
                         if(this.$refs.compoents.name === "todayBuy"){
                             this.$refs.compoents.setTodayMapOption();}
                     }
                 });
-                this.$http.get('/JSON/monthOrderData').then((res) => {
-                    let resData = res.body.data;
+                this.$http.get('./JSON/data.json').then((res) => {
+                    let resData = res.body.todayOrderData;
+                    if(JSON.stringify(resData)!=JSON.stringify(this.allResource.todayOrderData) ){
+                        this.allResource.todayOrderData=resData;
+                        if(this.$refs.compoents.name === "bottleTrack"){
+                            this.$refs.compoents.setOption();}
+                        if(this.$refs.compoents.name === "todayBuy" )  {
+                            this.$refs.compoents.setTodayLineOption();
+                        }
+                    }
+                });
+                this.$http.get('./JSON/data.json').then((res) => {
+                    let resData = res.body.monthOrderData;
                     if(JSON.stringify(resData)!=JSON.stringify(this.allResource.monthOrderData) ){
                         this.allResource.monthOrderData=resData;
                         if(this.$refs.compoents.name === "monthBuy"){
                             this.$refs.compoents.setMonthLineOption();}
                     }
                 });
-                this.$http.get('/JSON/todayOrderData').then((res) => {
-                    let resData = res.body.data;
-                    if(JSON.stringify(resData)!=JSON.stringify(this.allResource.todayOrderData) ){
-                        this.allResource.todayOrderData=resData;
-                        if(this.$refs.compoents.name === "bottleTrack"){
-                            this.$refs.compoents.setOption();}
-                         if(this.$refs.compoents.name === "todayBuy" )  {
-                             this.$refs.compoents.setTodayLineOption();
-                         }
-                    }
-                });
-
-                this.$http.get('/JSON/shopCallBack').then((res) => {
-                    let resData = res.body.data;
+                this.$http.get('./JSON/data.json').then((res) => {
+                    let resData = res.body.shopCallBack;
                     if(JSON.stringify(resData)!=JSON.stringify(this.allResource.shopCallBack) ){
                         this.allResource.shopCallBack=resData;
                         if(this.$refs.compoents.name === "shopCallBack"){
                             this.$refs.compoents.setOption();}
                     }
                 });
-                this.$http.get('/JSON/shopStock').then((res) => {
-                    let resData = res.body.data;
+                this.$http.get('./JSON/data.json').then((res) => {
+                    let resData = res.body.shopStock;
                     if(JSON.stringify(resData)!=JSON.stringify(this.allResource.shopStock) ){
                         this.allResource.shopStock=resData;
                         if(this.$refs.compoents.name === "shopStock"){
