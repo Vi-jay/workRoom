@@ -35,7 +35,8 @@
                     '统计总览': "home",
                 },
                 icon_class: 'icon-arrow_lift',
-                flag: true
+                flag: true,
+                today:this.thisDay
             }
         },
         methods: {
@@ -58,63 +59,130 @@
                     tab_item.style.marginLeft = 0;
                     this.flag = true;
                 }
-            }
+            },
+            initOrderData(data) {
+                let orderDatas = new Array();
+                for ( let i = 0; i < data.length; i++) {
+                    let orderData = {};
+                    orderData.shopName = data[i].second_category_name;
+                    orderData.numFor5KG = data[i].num_for_5KG;
+                    orderData.numFor15KG = data[i].num_for_15KG;
+                    orderData.numFor50KG = data[i].num_for_50KG;
+                    orderData.numFor2KG = data[i].num_for_2KG;
+                    orderData.CountTotal = orderData.numFor5KG + orderData.numFor15KG
+                        + orderData.numFor50KG + orderData.numFor2KG;
+                    orderDatas.push(orderData);
+                }
+                return orderDatas;
+        },
+            initOrderTypeData(data) {
+
+                let orderTypeDatas = new Array();
+
+                let orderTypeDataMap = {};
+
+                for ( let i = 0; i < data.length; i++) {
+
+                    let orderTypeData = {};
+
+                    if (orderTypeDataMap[data[i].second_category_name] != null) {
+                        orderTypeData = orderTypeDataMap[data[i].second_category_name];
+                    }
+                    switch (data[i].mode_name) {
+                        case '门店自提':
+                            orderTypeData['pickUpInSotre'] = data[i].orderNumber;
+                            break;
+                        case '电话订气':
+                            orderTypeData['telephoneOrder'] = data[i].orderNumber;
+                            break;
+                        case '微信订气':
+                            orderTypeData['weiXinOrder'] = data[i].orderNumber;
+                            break;
+                        default:
+                    }
+                    orderTypeDataMap[data[i].second_category_name] = orderTypeData;
+                }
+
+                let  tmpData = {};
+                for ( let key in orderTypeDataMap) {
+                    tmpData.shopName = '总计';
+                    tmpData['门店自提'] = orderTypeDataMap[key].pickUpInSotre == null ? 0
+                        : orderTypeDataMap[key].pickUpInSotre;
+                    tmpData['电话订气'] = orderTypeDataMap[key].telephoneOrder == null ? 0
+                        : orderTypeDataMap[key].telephoneOrder;
+                    tmpData['微信订气'] = orderTypeDataMap[key].weiXinOrder == null ? 0
+                        : orderTypeDataMap[key].weiXinOrder;
+                    orderTypeDatas.push(tmpData);
+                }
+                return orderTypeDatas;
+            },
+
         },
         created(){
             setTimeout(() => {
-                this.$http.get('/JSON/monthBuyType').then((res) => {
-                    let resData = res.body.data;
-                    if(JSON.stringify(resData)!=JSON.stringify(this.allResource.monthBuyType) ){
-                        this.allResource.monthBuyType=resData;
-                        if(this.$refs.compoents.name === "monthBuy"){
-                            this.$refs.compoents.setMonthMapOption();}
+                this.$http.get('./JSON/data.json').then((res) => {
+                    let resData = res.body.monthBuyType;
+                    if (JSON.stringify(resData) != JSON.stringify(this.allResource.monthBuyType)) {
+                        this.allResource.monthBuyType = resData;
+                        if (this.$refs.compoents.name === "monthBuy") {
+                            this.$refs.compoents.setMonthMapOption();
+                        }
                     }
                 });
-                this.$http.get('/JSON/todayBuyType').then((res) => {
-                    let resData = res.body.data;
-                    if(JSON.stringify(resData)!=JSON.stringify(this.allResource.todayBuyType) ){
-                        this.allResource.todayBuyType=resData;
-                        if(this.$refs.compoents.name === "todayBuy"){
-                            this.$refs.compoents.setTodayMapOption();}
+                this.$http.get('./JSON/data.json').then((res) => {
+                    let resData = res.body.todayBuyType;
+                    if (JSON.stringify(resData) != JSON.stringify(this.allResource.todayBuyType)) {
+                        this.allResource.todayBuyType = resData;
+                        if (this.$refs.compoents.name === "todayBuy") {
+                            this.$refs.compoents.setTodayMapOption();
+                        }
                     }
                 });
-                this.$http.get('/JSON/monthOrderData').then((res) => {
-                    let resData = res.body.data;
-                    if(JSON.stringify(resData)!=JSON.stringify(this.allResource.monthOrderData) ){
-                        this.allResource.monthOrderData=resData;
-                        if(this.$refs.compoents.name === "monthBuy"){
-                            this.$refs.compoents.setMonthLineOption();}
-                    }
-                });
-                this.$http.get('/JSON/todayOrderData').then((res) => {
-                    let resData = res.body.data;
-                    if(JSON.stringify(resData)!=JSON.stringify(this.allResource.todayOrderData) ){
-                        this.allResource.todayOrderData=resData;
-                        if(this.$refs.compoents.name === "bottleTrack"){
-                            this.$refs.compoents.setOption();}
-                        if(this.$refs.compoents.name === "todayBuy" )  {
+                this.$http.get('./JSON/data.json').then((res) => {
+                    let resData = res.body.todayOrderData;
+                    if (JSON.stringify(resData) != JSON.stringify(this.allResource.todayOrderData)) {
+                        this.allResource.todayOrderData = resData;
+                        if (this.$refs.compoents.name === "bottleTrack") {
+                            this.$refs.compoents.setOption();
+                        }
+                        if (this.$refs.compoents.name === "todayBuy") {
                             this.$refs.compoents.setTodayLineOption();
                         }
                     }
                 });
-
-                this.$http.get('/JSON/shopCallBack').then((res) => {
-                    let resData = res.body.data;
-                    if(JSON.stringify(resData)!=JSON.stringify(this.allResource.shopCallBack) ){
-                        this.allResource.shopCallBack=resData;
-                        if(this.$refs.compoents.name === "shopCallBack"){
-                            this.$refs.compoents.setOption();}
+                this.$http.get('./JSON/data.json').then((res) => {
+                    let resData = res.body.monthOrderData;
+                    if (JSON.stringify(resData) != JSON.stringify(this.allResource.monthOrderData)) {
+                        this.allResource.monthOrderData = resData;
+                        if (this.$refs.compoents.name === "monthBuy") {
+                            this.$refs.compoents.setMonthLineOption();
+                        }
                     }
                 });
-                this.$http.get('/JSON/shopStock').then((res) => {
-                    let resData = res.body.data;
-                    if(JSON.stringify(resData)!=JSON.stringify(this.allResource.shopStock) ){
-                        this.allResource.shopStock=resData;
-                        if(this.$refs.compoents.name === "shopStock"){
-                            this.$refs.compoents.setOption();}
+                this.$http.get('./JSON/data.json').then((res) => {
+                    let resData = res.body.shopCallBack;
+                    if (JSON.stringify(resData) != JSON.stringify(this.allResource.shopCallBack)) {
+                        this.allResource.shopCallBack = resData;
+                        if (this.$refs.compoents.name === "shopCallBack") {
+                            this.$refs.compoents.setOption();
+                        }
+                    }
+                });
+                this.$http.get('./JSON/data.json').then((res) => {
+                    let resData = res.body.shopStock;
+                    if (JSON.stringify(resData) != JSON.stringify(this.allResource.shopStock)) {
+                        this.allResource.shopStock = resData;
+                        if (this.$refs.compoents.name === "shopStock") {
+                            this.$refs.compoents.setOption();
+                        }
                     }
                 });
             });
+        },
+        computed:{
+            thisDay(){
+                return this.NowDateTime();
+            }
         }
     }
 </script>
@@ -152,5 +220,5 @@
         .viewItem
             display block
             width 100%
-            height 800px
+            height 550px
 </style>
