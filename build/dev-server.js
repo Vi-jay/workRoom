@@ -14,49 +14,49 @@ var port = process.env.PORT || config.dev.port
 // https://github.com/chimurai/http-proxy-middleware
 var proxyTable = config.dev.proxyTable
 
-var app = express()
-var appData = require("../src/JSON/data.json");//导入json
-var monthBuyType = appData.monthBuyType;//创建三个模拟数据
-var monthOrderData = appData.monthOrderData;
-var shopCallBack = appData.shopCallBack;
-var shopStock = appData.shopStock;
-var todayBuyType = appData.todayBuyType;
-var todayOrderData = appData.todayOrderData;
-//创建路由api
-var apiRoutes = express.Router();
-apiRoutes.get("/monthBuyType", function (res, req) {
-    req.json({
-        data: monthBuyType
-    })
-});
-
-apiRoutes.get("/monthOrderData", function (res, req) {
-    req.json({
-        data: monthOrderData
-    })
-});
-
-apiRoutes.get("/shopCallBack", function (res, req) {
-    req.json({
-        data: shopCallBack
-    })
-});
-apiRoutes.get("/shopStock", function (res, req) {
-    req.json({
-        data: shopStock
-    })
-});
-apiRoutes.get("/todayBuyType", function (res, req) {
-    req.json({
-        data: todayBuyType
-    })
-});
-apiRoutes.get("/todayOrderData", function (res, req) {
-    req.json({
-        data: todayOrderData
-    })
-});
-app.use("/JSON", apiRoutes);//当请求路径为/api时就会调用api路由对象
+ var app = express()
+// var appData = require("../src/JSON/data.json");//导入json
+// var monthBuyType = appData.monthBuyType;//创建三个模拟数据
+// var monthOrderData = appData.monthOrderData;
+// var shopCallBack = appData.shopCallBack;
+// var shopStock = appData.shopStock;
+// var todayBuyType = appData.todayBuyType;
+// var todayOrderData = appData.todayOrderData;
+// //创建路由api
+// var apiRoutes = express.Router();
+// apiRoutes.get("/monthBuyType", function (res, req) {
+//     req.json({
+//         data: monthBuyType
+//     })
+// });
+//
+// apiRoutes.get("/monthOrderData", function (res, req) {
+//     req.json({
+//         data: monthOrderData
+//     })
+// });
+//
+// apiRoutes.get("/shopCallBack", function (res, req) {
+//     req.json({
+//         data: shopCallBack
+//     })
+// });
+// apiRoutes.get("/shopStock", function (res, req) {
+//     req.json({
+//         data: shopStock
+//     })
+// });
+// apiRoutes.get("/todayBuyType", function (res, req) {
+//     req.json({
+//         data: todayBuyType
+//     })
+// });
+// apiRoutes.get("/todayOrderData", function (res, req) {
+//     req.json({
+//         data: todayOrderData
+//     })
+// });
+// app.use("/JSON", apiRoutes);//当请求路径为/api时就会调用api路由对象
 
 //路由对象会根据不同请求地址分会不同的数据 例：/api/goods就会返回goods中定义的json
 var compiler = webpack(webpackConfig)
