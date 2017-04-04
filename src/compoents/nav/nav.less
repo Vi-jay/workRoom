@@ -1,0 +1,202 @@
+@font-face {
+  font-family: 'sell-icon';
+  src: url('../fonts/sell-icon.eot?25nqhk');
+  src: url('../fonts/sell-icon.eot?25nqhk#iefix') format('embedded-opentype'),
+  url('../fonts/sell-icon.ttf?25nqhk') format('truetype'),
+  url('../fonts/sell-icon.woff?25nqhk') format('woff'),
+  url('../fonts/sell-icon.svg?25nqhk#sell-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'sell-icon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home:before {
+  content: "\e900";
+}
+
+.icon-file-text:before {
+  content: "\e922";
+}
+
+.icon-equalizer:before {
+  content: "\e992";
+}
+
+a, li {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* Global CSS that are applied for all screen sizes */
+
+.nav ul {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-weight: 300;
+  font-family: 'Lato', Calibri, Arial, sans-serif;
+}
+
+.nav li span {
+  display: block;
+}
+.nav li .icon+span{
+  font-size: 0.8em;
+}
+.nav a {
+  display: block;
+  color: rgba(249, 249, 249, .9);
+  text-decoration: none;
+  -webkit-transition: color .5s, background .5s, height .5s;
+  -moz-transition: color .5s, background .5s, height .5s;
+  -o-transition: color .5s, background .5s, height .5s;
+  -ms-transition: color .5s, background .5s, height .5s;
+  transition: color .5s, background .5s, height .5s;
+}
+
+.nav i {
+  /* Make the font smoother for Chrome */
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* Remove the blue Webkit background when element is tapped */
+
+a, button {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* Hover effect for the whole navigation to make the hovered item stand out */
+
+
+.nav ul a:not(:focus){
+  color: rgba(249, 249, 249, .6);
+}
+.nav ul a:hover,.nav ul a:focus{
+  color: rgba(249, 249, 249, 1);
+}
+
+
+  /* Adding some background color to the different menu items */
+
+.nav li:nth-child(6n+1) {
+  background: rgb(27, 54, 71);
+}
+
+.nav li:nth-child(6n+2) {
+  background: rgb(208, 101, 3);
+
+}
+
+.nav li:nth-child(6n+3) {
+  background: rgb(22, 145, 190);
+}
+
+.nav li:nth-child(6n+4) {
+  background: rgb(22, 107, 162);
+}
+
+.nav li:nth-child(6n+5) {
+
+}
+
+.nav li:nth-child(6n+6) {
+  background: rgb(21, 40, 54);
+}
+
+/* For screen bigger than 800px */
+
+/* Transforms the list into a horizontal navigation */
+.nav li {
+  float: left;
+  width: 33.33%;
+  text-align: center;
+}
+
+.nav a {
+  display: block;
+  width: auto;
+  height: 5em;
+  box-sizing: border-box;
+  -webkit-transition: border .2s;
+  -moz-transition: border .2s;
+  -o-transition: border .2s;
+  -ms-transition: border .2s;
+  transition: border .2s;
+}
+
+/* hover, focused and active effects that add a little colored border to the different items */
+.nav li:nth-child(6n+1) a:hover,
+.nav li:nth-child(6n+1) a:active,
+.nav li:nth-child(6n+1) a:focus {
+  border-bottom: 4px solid rgb(9, 18, 25);
+}
+
+.nav li:nth-child(6n+2) a:hover,
+.nav li:nth-child(6n+2) a:active,
+.nav li:nth-child(6n+2) a:focus {
+  border-bottom: 4px solid rgb(191, 117, 20);
+}
+
+.nav li:nth-child(6n+3) a:hover,
+.nav li:nth-child(6n+3) a:active,
+.nav li:nth-child(6n+3) a:focus {
+  border-bottom: 4px solid rgb(12, 110, 149);
+}
+
+.nav li:nth-child(6n+4) a:hover,
+.nav li:nth-child(6n+4) a:active,
+.nav li:nth-child(6n+4) a:focus {
+  border-bottom: 4px solid rgb(10, 75, 117);
+}
+
+
+/* Placing the icon */
+
+.icon {
+  padding-top: 0.5em;
+}
+
+
+
+/* Making the text follow the height animation */
+.nav a:hover .icon i, .nav a:focus .icon i, .nav a:active .icon i{
+}
+
+/* Positioning the icons and preparing for the animation*/
+.nav i {
+  position: relative;
+  display: inline-block;
+  padding: 0.4em;
+  border-radius: 50%;
+  font-size: 1.5em;
+  box-shadow: 0 0 15px 50px transparent;
+  background: rgba(255, 255, 255, 0.1);
+  transition: box-shadow .6s ease-in-out,transform .1s linear;
+}
+
+/* Animate the box-shadow to create the effect */
+.nav a:hover i,
+.nav a:active i,
+.nav a:focus i {
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2);
+}
+
+

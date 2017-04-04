@@ -1,57 +1,32 @@
 <template>
-    <el-table
-            v-loading.body="loading"
-            :data="tableData"
-            style="width: 100%">
-        <el-table-column
-                prop="date"
-                label="日期"
-                width="180">
-        </el-table-column>
-        <el-table-column
-                prop="name"
-                label="姓名"
-                width="180">
-        </el-table-column>
-        <el-table-column
-                prop="address"
-                label="地址">
-        </el-table-column>
-    </el-table>
-    <!--<router-view :allResource="allResource" ref="compoents" class="viewItem"></router-view>--><!--在此显示路由后显示的内容-->
+    <div>
+        <router-view ref="compoents"></router-view><!--在此显示路由后显示的内容-->
+        <v_nav class="container"></v_nav>
+    </div>
 </template>
 <script type="text/ecmascript-6">
+    let nav = require('./compoents/nav/nav.vue');
     export default {
         data() {
-            return {
-                tableData: [{
-                    date: '2016-05-03',
-                    name: '王小虎',
-                    address: '上海市普陀区金沙江路 1518 弄'
-                }, {
-                    date: '2016-05-02',
-                    name: '王小虎',
-                    address: '上海市普陀区金沙江路 1518 弄'
-                }, {
-                    date: '2016-05-04',
-                    name: '王小虎',
-                    address: '上海市普陀区金沙江路 1518 弄'
-                }],
-                loading: false
-            };
+
         },
         created(){
-            console.log(456);
-            console.log(123);
 
-        }
+        },
+        components: {
+            v_nav: nav
+        },
     }
 </script>
 
 <style lang="less" rel="stylesheet/less">
-    @import "./test";
+    body {
+        height: 1000px;
+    }
 
-    div {
-        color: @color;
+    .container {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
     }
 </style>
