@@ -15,20 +15,16 @@ var port = process.env.PORT || config.dev.port
 var proxyTable = config.dev.proxyTable
 
  var app = express()
-// var appData = require("../src/JSON/data.json");//导入json
-// var monthBuyType = appData.monthBuyType;//创建三个模拟数据
-// var monthOrderData = appData.monthOrderData;
-// var shopCallBack = appData.shopCallBack;
-// var shopStock = appData.shopStock;
-// var todayBuyType = appData.todayBuyType;
-// var todayOrderData = appData.todayOrderData;
-// //创建路由api
-// var apiRoutes = express.Router();
-// apiRoutes.get("/monthBuyType", function (res, req) {
-//     req.json({
-//         data: monthBuyType
-//     })
-// });
+ var appData = require("../JSON/keywords.json");//导入json
+ var keywords = appData;//创建三个模拟数据
+
+ //创建路由api
+ var apiRoutes = express.Router();
+apiRoutes.get("/keywords", function (res, req) {
+    req.json({
+        data: keywords
+    })
+});
 //
 // apiRoutes.get("/monthOrderData", function (res, req) {
 //     req.json({
@@ -56,7 +52,7 @@ var proxyTable = config.dev.proxyTable
 //         data: todayOrderData
 //     })
 // });
-// app.use("/JSON", apiRoutes);//当请求路径为/api时就会调用api路由对象
+ app.use("/JSON", apiRoutes);//当请求路径为/api时就会调用api路由对象
 
 //路由对象会根据不同请求地址分会不同的数据 例：/api/goods就会返回goods中定义的json
 var compiler = webpack(webpackConfig)

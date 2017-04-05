@@ -1,10 +1,15 @@
 <template>
-<div>
-    index
+<div id="index">
+<vform></vform>
 </div>
 </template>
 <script type="text/ecmascript-6">
-    export default {};
+    let form =require('../../compoents/form/form.vue');
+    export default {
+    components:{
+        vform:form
+    }
+    };
 </script>
 <style lang="less" rel="stylesheet/less">
 

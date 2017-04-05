@@ -2,14 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="431d0844-fec6-496e-a847-83365a176be2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/compoents/fonts/sell-icon.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/compoents/fonts/sell-icon.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/compoents/fonts/sell-icon.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/compoents/fonts/sell-icon.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/compoents/nav/nav.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main_page/index/index.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main_page/manage/manage.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main_page/report/report.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/compoents/calculator/bg.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/bg.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JSON/keywords.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/compoents/calculator/calculator.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/compoents/form/form.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/compoents/form/form_dialog.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/compoents/form/form_one.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/compoents/form/form_three.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/compoents/form/form_two.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/compoents/search/search.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/compoents/search/style.less" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/.bin/acorn" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/.bin/acorn.cmd" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/.bin/ansi-html" afterPath="" />
@@ -66,8 +70,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/.bin/sha.js.cmd" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/.bin/shjs" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/.bin/shjs.cmd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/.bin/stylus" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/.bin/stylus.cmd" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/.bin/svgo" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/.bin/svgo.cmd" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/.bin/uglifyjs" afterPath="" />
@@ -202,6 +204,8 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/ajv/lib/refs/json-schema-v5.json" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/ajv/lib/v5.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/ajv/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/ajv/scripts/.eslintrc.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/ajv/scripts/bundle.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/ajv/scripts/compile-dots.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/ajv/scripts/info" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/ajv/scripts/prepare-tests" afterPath="" />
@@ -2746,11 +2750,13 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/qs/LICENSE" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/qs/README.md" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/qs/dist/qs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/qs/lib/formats.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/qs/lib/index.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/qs/lib/parse.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/qs/lib/stringify.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/qs/lib/utils.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/qs/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/qs/test/.eslintrc" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/qs/test/index.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/qs/test/parse.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/qs/test/stringify.js" afterPath="" />
@@ -2774,13 +2780,23 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/send/LICENSE" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/send/README.md" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/send/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/.coveralls.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/.eslintrc" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/LICENSE" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/Makefile" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/README.md" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/bower.json" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/component.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/karma.conf.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/node.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/src/browser.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/src/debug.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/src/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/src/node.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/send/package.json" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sha.js/.travis.yml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sha.js/LICENSE" afterPath="" />
@@ -3001,213 +3017,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/slash/index.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/slash/package.json" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/slash/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/Readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/bin/stylus" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/browserify.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/cache/fs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/cache/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/cache/memory.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/cache/null.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/colors.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/convert/css.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/errors.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/functions/image.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/functions/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/functions/index.styl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/functions/resolver.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/functions/url.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/lexer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/middleware.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/arguments.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/atblock.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/atrule.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/binop.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/block.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/boolean.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/call.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/charset.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/comment.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/each.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/expression.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/extend.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/feature.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/function.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/group.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/hsla.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/ident.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/if.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/import.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/keyframes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/literal.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/media.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/member.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/namespace.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/node.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/null.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/object.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/params.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/property.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/query-list.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/query.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/return.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/rgba.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/root.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/selector.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/string.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/supports.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/ternary.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/unaryop.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/nodes/unit.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/parser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/renderer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/stack/frame.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/stack/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/stack/scope.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/stylus.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/token.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/units.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/utils.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/visitor/compiler.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/visitor/deps-resolver.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/visitor/evaluator.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/visitor/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/visitor/normalizer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/lib/visitor/sourcemapper.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/glob/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/glob/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/glob/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/glob/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/glob/examples/g.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/glob/examples/usr-local.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/glob/glob.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/glob/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/glob/test/00-setup.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/glob/test/bash-comparison.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/glob/test/bash-results.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/glob/test/cwd-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/glob/test/globstar-match.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/glob/test/mark.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/glob/test/new-glob-optional-options.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/glob/test/nocase-nomagic.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/glob/test/pause-resume.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/glob/test/readme-issue.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/glob/test/root-nomount.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/glob/test/root.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/glob/test/stat.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/glob/test/zz-cleanup.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/minimatch/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/minimatch/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/minimatch/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/minimatch/minimatch.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/minimatch/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/minimatch/test/basic.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/minimatch/test/brace-expand.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/minimatch/test/caching.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/minimatch/test/defaults.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/minimatch/test/extglob-ending-with-state-char.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/AUTHORS" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/LICENSE-W3C.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/component.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/examples/big-not-pretty.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/examples/example.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/examples/get-products.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/examples/hello-world.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/examples/not-pretty.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/examples/pretty-print.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/examples/shopping.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/examples/strict.dtd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/examples/test.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/examples/test.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/lib/sax.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/attribute-name.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/attribute-no-space.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/buffer-overrun.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/case.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/cdata-chunked.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/cdata-end-split.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/cdata-fake-end.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/cdata-multiple.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/cdata.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/cyrillic.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/duplicate-attribute.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/end_empty_stream.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/entities.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/entity-mega.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/flush.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/issue-23.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/issue-30.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/issue-35.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/issue-47.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/issue-49.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/issue-84.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/parser-position.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/script-close-better.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/script.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/self-closing-child-strict.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/self-closing-child.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/self-closing-tag.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/stray-ending.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/trailing-attribute-no-value.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/trailing-non-whitespace.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/unclosed-root.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/unquoted.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/utf8-split.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/xmlns-as-tag-name.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/xmlns-issue-41.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/xmlns-rebinding.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/xmlns-strict.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/xmlns-unbound-element.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/xmlns-unbound.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/xmlns-xml-default-ns.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/xmlns-xml-default-prefix-attribute.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/xmlns-xml-default-prefix.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/sax/test/xmlns-xml-default-redefine.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/Makefile.dryice.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/build/assert-shim.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/build/mini-require.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/build/prefix-source-map.jsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/build/prefix-utils.jsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/build/suffix-browser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/build/suffix-source-map.jsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/build/suffix-utils.jsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/build/test-prefix.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/build/test-suffix.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/lib/source-map.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/lib/source-map/array-set.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/lib/source-map/base64-vlq.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/lib/source-map/base64.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/lib/source-map/binary-search.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/lib/source-map/mapping-list.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/lib/source-map/source-map-consumer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/lib/source-map/source-map-generator.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/lib/source-map/source-node.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/lib/source-map/util.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/test/run-tests.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/test/source-map/test-api.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/test/source-map/test-array-set.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/test/source-map/test-base64-vlq.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/test/source-map/test-base64.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/test/source-map/test-binary-search.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/test/source-map/test-dog-fooding.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/test/source-map/test-source-map-consumer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/test/source-map/test-source-map-generator.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/test/source-map/test-source-node.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/test/source-map/test-util.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/node_modules/source-map/test/source-map/util.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/stylus/package.json" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/svgo/.npmignore" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/svgo/.svgo.yml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/svgo/CHANGELOG.md" afterPath="" />
@@ -3572,53 +3381,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue/types/plugin.d.ts" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue/types/vnode.d.ts" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/vue/types/vue.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/LICENSE.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/callbacks.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/cancelable.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/delay.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/es6-shim/Promise.browserify-es6.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/es6-shim/Promise.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/es6-shim/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/function.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/generator.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/guard.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/keys.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/lib/Promise.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/lib/Scheduler.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/lib/TimeoutError.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/lib/apply.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/lib/decorators/array.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/lib/decorators/flow.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/lib/decorators/fold.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/lib/decorators/inspect.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/lib/decorators/iterate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/lib/decorators/progress.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/lib/decorators/timed.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/lib/decorators/unhandledRejection.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/lib/decorators/with.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/lib/env.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/lib/format.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/lib/liftAll.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/lib/makePromise.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/lib/state.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/monitor.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/monitor/ConsoleReporter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/monitor/PromiseMonitor.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/monitor/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/monitor/console.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/monitor/error.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/node.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/node/function.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/parallel.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/pipeline.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/poll.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/sequence.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/timeout.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/unfold.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/unfold/list.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/when/when.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/wrappy/LICENSE" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/wrappy/README.md" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/wrappy/package.json" afterPath="" />
@@ -3646,27 +3408,20 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/yargs/lib/usage.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/yargs/lib/validation.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/yargs/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compoents/search/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compoents/search/keywords.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compoents/search/search.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/compoents/search/style.css" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/dev-server.js" afterPath="$PROJECT_DIR$/build/dev-server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ajv/scripts/.eslintrc.yml" afterPath="$PROJECT_DIR$/node_modules/ajv/scripts/.eslintrc.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ajv/scripts/bundle.js" afterPath="$PROJECT_DIR$/node_modules/ajv/scripts/bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/qs/lib/formats.js" afterPath="$PROJECT_DIR$/node_modules/qs/lib/formats.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/qs/test/.eslintrc" afterPath="$PROJECT_DIR$/node_modules/qs/test/.eslintrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/.coveralls.yml" afterPath="$PROJECT_DIR$/node_modules/send/node_modules/debug/.coveralls.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/.eslintrc" afterPath="$PROJECT_DIR$/node_modules/send/node_modules/debug/.eslintrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/.travis.yml" afterPath="$PROJECT_DIR$/node_modules/send/node_modules/debug/.travis.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/CHANGELOG.md" afterPath="$PROJECT_DIR$/node_modules/send/node_modules/debug/CHANGELOG.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/LICENSE" afterPath="$PROJECT_DIR$/node_modules/send/node_modules/debug/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/karma.conf.js" afterPath="$PROJECT_DIR$/node_modules/send/node_modules/debug/karma.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/src/browser.js" afterPath="$PROJECT_DIR$/node_modules/send/node_modules/debug/src/browser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/src/debug.js" afterPath="$PROJECT_DIR$/node_modules/send/node_modules/debug/src/debug.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/src/index.js" afterPath="$PROJECT_DIR$/node_modules/send/node_modules/debug/src/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/send/node_modules/debug/src/node.js" afterPath="$PROJECT_DIR$/node_modules/send/node_modules/debug/src/node.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.vue" afterPath="$PROJECT_DIR$/src/App.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.js" afterPath="$PROJECT_DIR$/src/main.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/node_modules/sha.js/test/prepare/vectors/byte0000.dat" afterPath="$PROJECT_DIR$/src/compoents/nav/nav.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common.vue" afterPath="$PROJECT_DIR$/src/common.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/compoents/nav/nav.less" afterPath="$PROJECT_DIR$/src/compoents/nav/nav.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/compoents/nav/nav.vue" afterPath="$PROJECT_DIR$/src/compoents/nav/nav.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main_page/index/index.vue" afterPath="$PROJECT_DIR$/src/main_page/index/index.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main_page/report/report.vue" afterPath="$PROJECT_DIR$/src/main_page/report/report.vue" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/node_modules/sha.js/test/prepare/vectors/byte0000.dat" afterPath="$PROJECT_DIR$/src/compoents/calculator/calculator.less" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -3687,104 +3442,131 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+      <file leaf-file-name="form.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/compoents/form/form.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="42" column="30" lean-forward="false" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
+            <state relative-caret-position="864">
+              <caret line="48" column="13" lean-forward="true" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/common.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="23" column="23" lean-forward="true" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nav.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/compoents/nav/nav.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="39" lean-forward="true" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nav.less" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/compoents/nav/nav.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="89" column="31" lean-forward="false" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main_page/index/index.vue">
+      <file leaf-file-name="form_three.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/compoents/form/form_three.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="28" column="6" lean-forward="false" selection-start-line="26" selection-start-column="3" selection-end-line="28" selection-end-column="6" />
+              <caret line="39" column="29" lean-forward="true" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
               <folding>
-                <element signature="e#0#22#0" expanded="true" />
+                <element signature="n#style#0;n#el-date-picker#0;n#el-form-item#0;n#el-col#0;n#el-form-item#2;n#el-form#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#el-time-picker#0;n#el-form-item#0;n#el-col#2;n#el-form-item#2;n#el-form#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dev.env.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/dev.env.js">
+      <file leaf-file-name="form_dialog.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/compoents/form/form_dialog.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="36">
+              <caret line="2" column="72" lean-forward="false" selection-start-line="2" selection-start-column="72" selection-end-line="2" selection-end-column="72" />
+              <folding>
+                <element signature="n#style#0;n#search#0;n#el-form-item#0;n#el-form#0;n#el-dialog#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/compoents/search/search.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="93" column="19" lean-forward="true" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
+                <element signature="e#609#658#0" expanded="false" />
+                <element signature="e#831#1031#0" expanded="false" />
+                <element signature="e#916#985#0" expanded="false" />
+                <element signature="e#1069#1149#0" expanded="false" />
+                <element signature="e#1269#1282#0" expanded="false" />
+                <element signature="e#1524#1718#0" expanded="false" />
+                <element signature="e#1566#1634#0" expanded="false" />
+                <element signature="e#1640#1700#0" expanded="false" />
+                <element signature="e#1830#2188#0" expanded="false" />
+                <element signature="e#1880#2170#0" expanded="false" />
+                <element signature="e#1932#2008#0" expanded="false" />
+                <element signature="e#2014#2148#0" expanded="false" />
+                <element signature="e#2285#2564#0" expanded="false" />
+                <element signature="e#2303#2318#0" expanded="false" />
+                <element signature="e#2378#2548#0" expanded="false" />
+                <element signature="e#2453#2530#0" expanded="false" />
+                <element signature="e#2628#2642#0" expanded="false" />
+                <element signature="e#3363#3372#0" expanded="false" />
+                <element signature="e#3622#3697#0" expanded="false" />
+                <element signature="e#3784#6046#0" expanded="false" />
+                <element signature="e#3823#4054#0" expanded="false" />
+                <element signature="e#4102#4285#0" expanded="false" />
+                <element signature="e#4154#4267#0" expanded="false" />
+                <element signature="e#4526#4678#0" expanded="false" />
+                <element signature="e#4808#5620#0" expanded="false" />
+                <element signature="e#4855#5602#0" expanded="false" />
+                <element signature="e#5029#5479#0" expanded="false" />
+                <element signature="e#5153#5273#0" expanded="false" />
+                <element signature="e#5279#5385#0" expanded="false" />
+                <element signature="e#5485#5580#0" expanded="false" />
+                <element signature="e#5670#5899#0" expanded="false" />
+                <element signature="e#5947#6032#0" expanded="false" />
+                <element signature="e#6086#6476#0" expanded="false" />
+                <element signature="e#6160#6436#0" expanded="false" />
+                <element signature="e#6212#6352#0" expanded="false" />
+                <element signature="e#6358#6418#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="report.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main_page/report/report.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dev-server.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build/dev-server.js">
+      <file leaf-file-name="form_one.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/compoents/form/form_one.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+            <state relative-caret-position="103">
+              <caret line="46" column="62" lean-forward="false" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="62" />
+              <folding>
+                <element signature="n#style#0;n#el-date-picker#0;n#el-form-item#0;n#el-col#0;n#el-form-item#2;n#el-form#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#el-time-picker#0;n#el-form-item#0;n#el-col#2;n#el-form-item#2;n#el-form#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/compoents/search/style.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="1" column="12" lean-forward="false" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form_two.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/compoents/form/form_two.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="463">
+              <caret line="111" column="0" lean-forward="true" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#el-date-picker#0;n#el-form-item#0;n#el-col#0;n#el-form-item#2;n#el-form#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#el-time-picker#0;n#el-form-item#0;n#el-col#2;n#el-form-item#2;n#el-form#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -3797,7 +3579,9 @@
         <option value="JavaScript File" />
         <option value="HTML File" />
         <option value="Vue Component" />
+        <option value="Vue" />
         <option value="Less File" />
+        <option value="vue" />
       </list>
     </option>
   </component>
@@ -3813,6 +3597,7 @@
       <find>font-size</find>
       <find>pos</find>
       <find>position</find>
+      <find>console</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -3828,7 +3613,6 @@
         <option value="$PROJECT_DIR$/src/test.less" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/src/tet.js" />
-        <option value="$PROJECT_DIR$/src/common.vue" />
         <option value="$PROJECT_DIR$/static/css/reset.css" />
         <option value="$PROJECT_DIR$/src/tes.js" />
         <option value="$PROJECT_DIR$/static/css/das.html" />
@@ -3838,16 +3622,42 @@
         <option value="$PROJECT_DIR$/src/page/manage/manage.vue" />
         <option value="$PROJECT_DIR$/src/page/report/report.vue" />
         <option value="$PROJECT_DIR$/src/main.js" />
+        <option value="$PROJECT_DIR$/src/compoents/search/keywords.json" />
+        <option value="$PROJECT_DIR$/src/compoents/search/style.css" />
+        <option value="$PROJECT_DIR$/src/compoents/search/index.html" />
+        <option value="$PROJECT_DIR$/src/compoents/search/search.js" />
+        <option value="$PROJECT_DIR$/src/common.vue" />
+        <option value="$PROJECT_DIR$/src/compoents/search/search.Vue" />
+        <option value="$PROJECT_DIR$/src/compoents/search/searchBegin.js" />
         <option value="$PROJECT_DIR$/build/dev-server.js" />
+        <option value="$PROJECT_DIR$/JSON/keywords.json" />
+        <option value="$PROJECT_DIR$/src/compoents/form/form.Vue" />
+        <option value="$PROJECT_DIR$/src/main_page/index/index.vue" />
         <option value="$PROJECT_DIR$/src/compoents/nav/nav.vue" />
-        <option value="$PROJECT_DIR$/src/App.vue" />
+        <option value="$PROJECT_DIR$/src/main_page/report/report.vue" />
         <option value="$PROJECT_DIR$/src/compoents/nav/nav.less" />
+        <option value="$PROJECT_DIR$/src/compoents/calculator/calculator.vue" />
+        <option value="$PROJECT_DIR$/src/App.vue" />
+        <option value="$PROJECT_DIR$/src/compoents/calculator/calculator.less" />
+        <option value="$PROJECT_DIR$/src/compoents/form/form_two.vue" />
+        <option value="$PROJECT_DIR$/src/compoents/form/form.vue" />
+        <option value="$PROJECT_DIR$/src/compoents/form/form_three.vue" />
+        <option value="$PROJECT_DIR$/src/compoents/search/style.less" />
+        <option value="$PROJECT_DIR$/src/compoents/search/search.vue" />
+        <option value="$PROJECT_DIR$/src/compoents/form/form_one.vue" />
+        <option value="$PROJECT_DIR$/src/compoents/form/form_dialog.vue" />
       </list>
     </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
     <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>false</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>false</other-services-enabled>
   </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
@@ -3859,8 +3669,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -3915,7 +3725,159 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workRoom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workRoom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workRoom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workRoom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workRoom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workRoom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main_page" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="report" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workRoom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workRoom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main_page" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workRoom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workRoom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compoents" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="search" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workRoom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workRoom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compoents" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workRoom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workRoom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compoents" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="form" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workRoom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workRoom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSON" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3935,12 +3897,19 @@
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
     <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="JavaScriptPreferStrict" value="false" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\workRoom\JSON" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\workRoom\src\compoents\calculator" />
+      <recent name="E:\workRoom\static\img" />
+      <recent name="E:\workRoom" />
       <recent name="G:\workRoom\src\compoents" />
       <recent name="G:\workRoom\src\main_page" />
-      <recent name="E:\workRoom\static\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -4051,11 +4020,12 @@
       <workItem from="1490923003449" duration="98000" />
       <workItem from="1490929071557" duration="8349000" />
       <workItem from="1491288552849" duration="9112000" />
+      <workItem from="1491353810524" duration="30579000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26585000" />
+    <option name="totallyTimeSpent" value="57164000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -4067,26 +4037,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2528978" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25223213" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.50595236" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973656" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45178765" sideWeight="0.4940476" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45008183" sideWeight="0.4940476" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -4098,8 +4068,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6824877" sideWeight="0.4940476" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35714287" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4509804" sideWeight="0.4940476" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25223213" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973656" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -4119,63 +4089,12 @@
     <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of github.com:d765139628/workRoom&#10;&#10;# Conflicts:&#10;#&#9;.idea/jsLibraryMappings.xml&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/modules.xml&#10;#&#9;.idea/workspace.xml&#10;" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/compenonts/shopCallBack.vue" />
-    <entry file="file://$PROJECT_DIR$/dist/index.html" />
-    <entry file="file://$PROJECT_DIR$/dist/static/css/app.7168f27672a7159130060c5bb2cf2152.css" />
-    <entry file="file://$PROJECT_DIR$/dist/static/css/reset.css" />
-    <entry file="file://$PROJECT_DIR$/src/compenonts/monthChart.vue" />
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/asd.vue" />
-    <entry file="file://$PROJECT_DIR$/src/compenonts/home.vue" />
-    <entry file="file://$PROJECT_DIR$/src/common.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="17" column="18" lean-forward="false" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/compenonts/monthChart.vue" />
-    <entry file="file://$PROJECT_DIR$/src/compenonts/shopCallBack.vue" />
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/asd.vue" />
-    <entry file="file://$PROJECT_DIR$/src/common.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="18" lean-forward="false" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/compenonts/home.vue" />
-    <entry file="file://$PROJECT_DIR$/src/compenonts/monthChart.vue" />
-    <entry file="file://$PROJECT_DIR$/src/compenonts/shopCallBack.vue" />
     <entry file="file://$PROJECT_DIR$/dist/static/css/reset.css" />
     <entry file="file://$PROJECT_DIR$/src/compenonts/bottleTrack.vue" />
     <entry file="file://$PROJECT_DIR$/build/build.js">
@@ -4211,7 +4130,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4219,18 +4137,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="864">
           <caret line="48" column="7" lean-forward="false" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test.less" />
     <entry file="file://$PROJECT_DIR$/src/tes.js" />
     <entry file="file://$PROJECT_DIR$/static/css/reset.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -4245,7 +4155,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
           <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4257,55 +4166,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/npm-debug.log">
+    <entry file="file://$PROJECT_DIR$/npm-debug.log" />
+    <entry file="file://$PROJECT_DIR$/src/page/index/index.vue" />
+    <entry file="file://$PROJECT_DIR$/src/page/manage/manage.vue" />
+    <entry file="file://$PROJECT_DIR$/src/page/report/report.vue" />
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="38" lean-forward="false" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+        <state relative-caret-position="194">
+          <caret line="158" column="0" lean-forward="false" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
-          <caret line="42" column="30" lean-forward="false" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
+          <caret line="4" column="23" lean-forward="false" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/index/index.vue">
+    <entry file="file://$PROJECT_DIR$/node_modules/vue/dist/vue.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="9" lean-forward="false" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+        <state relative-caret-position="-166513">
+          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/manage/manage.vue">
+    <entry file="file://$PROJECT_DIR$/src/compoents/search/searchBegin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="10" lean-forward="false" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+        <state relative-caret-position="54">
+          <caret line="3" column="6" lean-forward="false" selection-start-line="1" selection-start-column="3" selection-end-line="3" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/report/report.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/dev-server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main_page/index/index.vue">
+    <entry file="file://$PROJECT_DIR$/keywords.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -4313,55 +4210,242 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/common.vue">
+    <entry file="file://$PROJECT_DIR$/src/compoents/search/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        <state relative-caret-position="144">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main_page/manage/manage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/dev-server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="824">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="28" column="6" lean-forward="false" selection-start-line="26" selection-start-column="3" selection-end-line="28" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="450">
+          <caret line="27" column="6" lean-forward="false" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="109">
+          <caret line="49" column="20" lean-forward="true" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSON/keywords.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/compoents/nav/nav.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="39" lean-forward="true" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="23" lean-forward="true" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+        <state relative-caret-position="67">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/compoents/nav/nav.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="89" column="31" lean-forward="false" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
+        <state relative-caret-position="57">
+          <caret line="182" column="0" lean-forward="true" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main_page/index/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="14" lean-forward="false" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compoents/calculator/bg.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="26" column="10" lean-forward="true" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compoents/calculator/calculator.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" column="30" lean-forward="true" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compoents/calculator/calculator.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="40" column="14" lean-forward="false" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compoents/form/form_two.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="111" column="0" lean-forward="true" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#el-date-picker#0;n#el-form-item#0;n#el-col#0;n#el-form-item#2;n#el-form#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-time-picker#0;n#el-form-item#0;n#el-col#2;n#el-form-item#2;n#el-form#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compoents/form/form_three.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="39" column="29" lean-forward="true" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+          <folding>
+            <element signature="n#style#0;n#el-date-picker#0;n#el-form-item#0;n#el-col#0;n#el-form-item#2;n#el-form#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-time-picker#0;n#el-form-item#0;n#el-col#2;n#el-form-item#2;n#el-form#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main_page/report/report.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compoents/form/form.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="48" column="13" lean-forward="true" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compoents/search/style.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="12" lean-forward="false" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compoents/search/search.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="93" column="19" lean-forward="true" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="e#609#658#0" expanded="false" />
+            <element signature="e#831#1031#0" expanded="false" />
+            <element signature="e#916#985#0" expanded="false" />
+            <element signature="e#1069#1149#0" expanded="false" />
+            <element signature="e#1269#1282#0" expanded="false" />
+            <element signature="e#1524#1718#0" expanded="false" />
+            <element signature="e#1566#1634#0" expanded="false" />
+            <element signature="e#1640#1700#0" expanded="false" />
+            <element signature="e#1830#2188#0" expanded="false" />
+            <element signature="e#1880#2170#0" expanded="false" />
+            <element signature="e#1932#2008#0" expanded="false" />
+            <element signature="e#2014#2148#0" expanded="false" />
+            <element signature="e#2285#2564#0" expanded="false" />
+            <element signature="e#2303#2318#0" expanded="false" />
+            <element signature="e#2378#2548#0" expanded="false" />
+            <element signature="e#2453#2530#0" expanded="false" />
+            <element signature="e#2628#2642#0" expanded="false" />
+            <element signature="e#3363#3372#0" expanded="false" />
+            <element signature="e#3622#3697#0" expanded="false" />
+            <element signature="e#3784#6046#0" expanded="false" />
+            <element signature="e#3823#4054#0" expanded="false" />
+            <element signature="e#4102#4285#0" expanded="false" />
+            <element signature="e#4154#4267#0" expanded="false" />
+            <element signature="e#4526#4678#0" expanded="false" />
+            <element signature="e#4808#5620#0" expanded="false" />
+            <element signature="e#4855#5602#0" expanded="false" />
+            <element signature="e#5029#5479#0" expanded="false" />
+            <element signature="e#5153#5273#0" expanded="false" />
+            <element signature="e#5279#5385#0" expanded="false" />
+            <element signature="e#5485#5580#0" expanded="false" />
+            <element signature="e#5670#5899#0" expanded="false" />
+            <element signature="e#5947#6032#0" expanded="false" />
+            <element signature="e#6086#6476#0" expanded="false" />
+            <element signature="e#6160#6436#0" expanded="false" />
+            <element signature="e#6212#6352#0" expanded="false" />
+            <element signature="e#6358#6418#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compoents/form/form_one.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="46" column="62" lean-forward="false" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="62" />
+          <folding>
+            <element signature="n#style#0;n#el-date-picker#0;n#el-form-item#0;n#el-col#0;n#el-form-item#2;n#el-form#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-time-picker#0;n#el-form-item#0;n#el-col#2;n#el-form-item#2;n#el-form#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compoents/form/form_dialog.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="72" lean-forward="false" selection-start-line="2" selection-start-column="72" selection-end-line="2" selection-end-column="72" />
+          <folding>
+            <element signature="n#style#0;n#search#0;n#el-form-item#0;n#el-form#0;n#el-dialog#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

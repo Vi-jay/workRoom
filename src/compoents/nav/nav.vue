@@ -1,5 +1,4 @@
 <template>
-    <div >
             <nav id="menu" class="nav">
                 <ul>
                     <li>
@@ -29,7 +28,6 @@
 
                 </ul>
             </nav>
-        </div>
 </template>
 <script type="text/ecmascript-6">
     export default {};
