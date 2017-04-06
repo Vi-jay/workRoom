@@ -1,15 +1,15 @@
 <template>
     <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-        <el-form-item label="活动名称" prop="name">
+        <el-form-item label="测试名称" prop="name">
             <el-input v-model="ruleForm.name"></el-input>
         </el-form-item>
-        <el-form-item label="活动区域" prop="region">
+        <el-form-item label="测试区域" prop="region">
             <el-select v-model="ruleForm.region" placeholder="请选择活动区域">
                 <el-option label="区域一" value="shanghai"></el-option>
                 <el-option label="区域二" value="beijing"></el-option>
             </el-select>
         </el-form-item>
-        <el-form-item label="活动时间" required>
+        <el-form-item label="测试时间" required>
             <el-col :span="11">
                 <el-form-item prop="date1">
                     <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date1"
@@ -24,32 +24,32 @@
                 </el-form-item>
             </el-col>
         </el-form-item>
-        <el-form-item label="即时配送" prop="delivery">
+        <el-form-item label="测试配送" prop="delivery">
             <el-switch on-text="" off-text="" v-model="ruleForm.delivery"></el-switch>
         </el-form-item>
-        <el-form-item label="活动性质" prop="type">
+        <el-form-item label="测试选择" prop="type">
             <el-checkbox-group v-model="ruleForm.type">
-                <el-checkbox label="美食/餐厅线上活动" name="type"></el-checkbox>
-                <el-checkbox label="地推活动" name="type"></el-checkbox>
-                <el-checkbox label="线下主题活动" name="type"></el-checkbox>
-                <el-checkbox label="单纯品牌曝光" name="type"></el-checkbox>
+                <el-checkbox label="测试" name="type"></el-checkbox>
+                <el-checkbox label="测试" name="type"></el-checkbox>
+                <el-checkbox label="测试" name="type"></el-checkbox>
+                <el-checkbox label="测试" name="type"></el-checkbox>
             </el-checkbox-group>
         </el-form-item>
-        <el-form-item label="特殊资源" prop="resource">
+        <el-form-item label="测试" prop="resource">
             <el-radio-group v-model="ruleForm.resource">
-                <el-radio label="线上品牌商赞助"></el-radio>
-                <el-radio label="线下场地免费"></el-radio>
+                <el-radio label="测试"></el-radio>
+                <el-radio label="测试"></el-radio>
             </el-radio-group>
         </el-form-item>
-        <el-form-item label="活动形式" prop="desc">
+        <el-form-item label="测试形式" prop="desc">
             <el-input type="textarea" v-model="ruleForm.desc"></el-input>
         </el-form-item>
-        <el-form-item label="用户名称" v-model="ruleForm.username">
+        <el-form-item label="测试用户名称" v-model="ruleForm.username">
             <formDialog v-on:dialog="getDialog"></formDialog>
         </el-form-item>
         <el-form-item>
-            <el-button type="primary" @click="submitForm('ruleForm')">下一步</el-button>
-            <el-button @click="resetForm('ruleForm')">重置</el-button>
+            <el-button type="primary"  size="large" @click="submitForm('ruleForm')">下一步</el-button>
+            <el-button @click="resetForm('ruleForm')" size="large">重置</el-button>
         </el-form-item>
     </el-form>
 </template>

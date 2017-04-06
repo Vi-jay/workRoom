@@ -4,7 +4,7 @@
 </div>
 </template>
 <script type="text/ecmascript-6">
-    let form =require('../../compoents/form/form.vue');
+    let form =require('./mainform/form.vue');
     export default {
     components:{
         vform:form

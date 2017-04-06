@@ -1,16 +1,17 @@
 import Vue from 'vue';
 import 'element-ui/lib/theme-default/index.css';
+import axios from 'axios';
 import VueRouter from 'vue-router';
 let common = require('./common.vue'),
     ElementUI = require('element-ui'),
     App = require('./App.vue');
-let index = require('./main_page/index/index.vue'),
+let index = require('./main_page/main/main.vue'),
     manage = require('./main_page/manage/manage.vue'),
     report = require('./main_page/report/report.vue');
-
 Vue.use(VueRouter);
 Vue.use(ElementUI);
 Vue.use(common.component);
+Vue.prototype.$http = axios
 const routes = [
     {path: '/index', component: index},
     {path: '/manage', component: manage},
@@ -27,5 +28,5 @@ new Vue({
     components: {
         App
     },
-    router
+    router,
 });

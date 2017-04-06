@@ -21,9 +21,8 @@ var proxyTable = config.dev.proxyTable
  //创建路由api
  var apiRoutes = express.Router();
 apiRoutes.get("/keywords", function (res, req) {
-    req.json({
-        data: keywords
-    })
+    req.json( keywords
+    )
 });
 //
 // apiRoutes.get("/monthOrderData", function (res, req) {

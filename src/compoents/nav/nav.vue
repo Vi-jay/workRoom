@@ -6,7 +6,7 @@
 								<span class="icon">
 									<i class="icon-file-text"></i>
 								</span>
-                            <span>报表</span>
+                            <span>图表</span>
                         </a>
                     </li>
                     <li>

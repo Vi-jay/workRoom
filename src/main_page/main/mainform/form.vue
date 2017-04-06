@@ -27,7 +27,7 @@
     </div>
 </template>
 <script type="text/ecmascript-6">
-    let calculator = require('../calculator/calculator.vue'),
+    let calculator = require('../../../compoents/calculator/calculator.vue'),
         form_one = require('./form_one.vue'),
         form_two = require('./form_two.vue'),
         form_three = require('./form_three.vue');
@@ -44,7 +44,6 @@
             }, next () {
                 if (this.active++ > 2) alert('提交成功！！');
             },getSubmitForm(formData){
-                this.next();
                 console.log(formData);
             }
         }, components: {
