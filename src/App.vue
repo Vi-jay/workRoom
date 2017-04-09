@@ -1,53 +1,83 @@
 <template>
     <div id="app">
         <transition name="lazyShow">
-        <router-view ref="compoents" style="width: 100%;height: 100%"></router-view><!--在此显示路由后显示的内容-->
+            <iframe src="http://localhost:7007/" width="100%" height="100%" frameborder="0" v-show="main"></iframe>
         </transition>
-        <v_nav class="container"></v_nav>
+        <transition name="lazyShow">
+            <iframe src="http://localhost:7008/" width="100%" height="100%" frameborder="0" v-show="manage"></iframe>
+        </transition>
+        <transition name="lazyShow">
+            <iframe src="http://localhost:7009/" width="100%" height="100%" frameborder="0" v-show="report"
+                    id="report"></iframe>
+        </transition>
+        <v_nav class="container" v-on:showPage="changePage"></v_nav>
     </div>
 </template>
 <script type="text/ecmascript-6">
     let nav = require('./compoents/nav/nav.vue');
     export default {
         data() {
-            return {}
+            return {
+                main: false,
+                manage: false,
+                report: true
+            }
         },
         created(){
+            this.$nextTick(function () {
+                var that=this;
+                document.querySelector('#report').onload=function () {
+                    that.changePage('main');
+                }
+            })
 
         },
         components: {
             v_nav: nav
         },
+        methods: {
+            changePage(mark){
+                if (mark) {
+                    this[mark] = true;
+                    for (let key in  this.$data) {
+                        if (key !== mark) {
+                            this[key] = false;
+                        }
+                    }
+                }
+            }
+        }
     }
 </script>
 
 <style lang="less" rel="stylesheet/less">
-    html{
+    html, body {
         width: 100%;
-        height:100%;
+        height: 98%;
     }
-    body{
-        height: 100%;
-        padding:20px 30px 90px 0;
+
+    body {
         background-image: url("../static/img/bg.jpg");
         background-attachment: fixed;
-    #app {
-        height: inherit;
-        .container {
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-            z-index: 100;
-        }
+        #app {
+            width: inherit;
+            height: inherit;
+            .container {
+                width: 100%;
+                position: fixed;
+                bottom: 0;
+                z-index: 100;
+            }
 
-        .lazyShow-enter-active, .lazyShow-leave-active {
-            transition: opacity .5s
+            .lazyShow-enter-active, .lazyShow-leave-active {
+                transition: opacity .5s
+            }
+            .lazyShow-enter {
+                opacity: 0
+            }
+            .lazyShow-leave-active {
+                display: none;
+            }
         }
-        .lazyShow-enter {
-            opacity: 0
-        }
-        .lazyShow-leave-active {
-            display: none;
-        }
-    }}
+    }
 </style>

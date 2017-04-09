@@ -2,7 +2,7 @@
             <nav id="menu" class="nav">
                 <ul>
                     <li>
-                        <a href="#/report">
+                        <a  href=""  @click.prevent="showPage('report')" >
 								<span class="icon">
 									<i class="icon-file-text"></i>
 								</span>
@@ -10,7 +10,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#/index">
+                        <a href=""  @click.prevent="showPage('main')" >
 								<span class="icon">
 									<i class="icon-home"></i>
 								</span>
@@ -18,19 +18,24 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#/manage">
+                        <a  href=""  @click.prevent="showPage('manage')" >
 								<span class="icon">
 									<i class="icon-equalizer"></i>
 								</span>
                             <span>管理</span>
                         </a>
                     </li>
-
                 </ul>
             </nav>
 </template>
 <script type="text/ecmascript-6">
-    export default {};
+    export default {
+        methods:{
+            showPage(mark){
+                this.$emit('showPage',mark);
+            }
+        }
+    };
 </script>
 <style lang="less" rel="stylesheet/less">
     @import "nav";
