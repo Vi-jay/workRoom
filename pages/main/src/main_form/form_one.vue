@@ -48,7 +48,7 @@
             <formDialog v-on:dialog="getDialog"></formDialog>
         </el-form-item>
         <el-form-item>
-            <el-button type="primary"  size="large" @click="submitForm('ruleForm')">下一步</el-button>
+            <el-button type="primary" :plain="true"  size="large" @click="submitForm('ruleForm')">下一步</el-button>
             <el-button @click="resetForm('ruleForm')" size="large">重置</el-button>
         </el-form-item>
     </el-form>
@@ -101,7 +101,7 @@
                     if (valid) {
                         this.$emit("submit", this.ruleForm);
                     } else {
-                        alert('请填写完整相关信息!!');
+                        this.$message.error('请填写完整相关信息!!');
                         this.$emit("submit", this.ruleForm);
                         return false;
                     }

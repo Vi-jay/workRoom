@@ -1,13 +1,13 @@
 <template>
     <div id="app">
         <transition name="lazyShow">
-            <iframe src="http://localhost:7007/" width="100%" height="100%" frameborder="0" v-show="main"></iframe>
+            <iframe src="http://192.168.3.161:7007/" width="100%" height="100%" frameborder="0" v-show="main"></iframe>
         </transition>
         <transition name="lazyShow">
-            <iframe src="http://localhost:7008/" width="100%" height="100%" frameborder="0" v-show="manage"></iframe>
+            <iframe src="http://192.168.3.161:7008/" width="100%" height="100%" frameborder="0" v-show="manage"></iframe>
         </transition>
         <transition name="lazyShow">
-            <iframe src="http://localhost:7009/" width="100%" height="100%" frameborder="0" v-show="report"
+            <iframe src="http://192.168.3.161:7009/" width="100%" height="100%" frameborder="0" v-show="report"
                     id="report"></iframe>
         </transition>
         <v_nav class="container" v-on:showPage="changePage"></v_nav>
@@ -18,18 +18,12 @@
     export default {
         data() {
             return {
-                main: false,
+                main: true,
                 manage: false,
-                report: true
+                report: false
             }
         },
         created(){
-            this.$nextTick(function () {
-                var that=this;
-                document.querySelector('#report').onload=function () {
-                    that.changePage('main');
-                }
-            })
 
         },
         components: {
@@ -66,7 +60,7 @@
                 width: 100%;
                 position: fixed;
                 bottom: 0;
-                z-index: 100;
+                z-index: 20;
             }
 
             .lazyShow-enter-active, .lazyShow-leave-active {

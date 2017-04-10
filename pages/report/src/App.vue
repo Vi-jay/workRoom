@@ -1,40 +1,50 @@
 <template>
-        <div id="main">
-        <report></report>
-        </div>
+    <div id="main">
+        <accordion_nav  class="accordion_nav"></accordion_nav>
+        <router-view class="context"></router-view>
+    </div>
 </template>
 <script type="text/ecmascript-6">
-    let report = require('./page_frame/report.vue');
+    let accordion_nav = require('./compoents/accordion/accordion_nav.vue');
     export default {
-        props:{
-            show:Object
-        },
         data() {
             return {}
         },
         created(){
-            this.$nextTick(function () {
-                document.querySelector('#main').onresize=function () {
-                    console.log(123)
-                }
-            })
+
         },
         components: {
-            report: report
+            accordion_nav: accordion_nav
         },
     }
 </script>
 
 <style lang="less" rel="stylesheet/less">
-        html,body{
-                width: 100%;
-                height: 100%;
+    html, body {
+        width: 100%;
+        height:98%;
+        overflow: hidden;
+    }
+
+    #main {
+        width: inherit;
+        height: inherit;
+        .accordion_nav{
+            position: absolute;
+            left: 0;
+            width: 19%;
+            padding-top:50px;
         }
-        #main{
-                width: inherit;
-                height: inherit;
+        .context{
+            width: 80%;
+            height: 90%;
+            position: absolute;
+            left: 20%;
+            padding-top: 40px;
         }
-        body{
-                background: url("../static/img/bg.jpg");
-        }
+    }
+
+    body {
+        background: url("../static/img/bg.jpg");
+    }
 </style>

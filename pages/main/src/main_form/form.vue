@@ -1,9 +1,9 @@
 <template>
-    <div id="form">
+    <div id="form" >
         <calculator></calculator>
         <transition name="fade">
             <div class="formWrapper" v-show="active === 1">
-                <form_one  v-on:submit="getSubmitForm"></form_one>
+                <form_one v-on:submit="getSubmitForm"></form_one>
             </div>
         </transition>
         <transition name="fade">
@@ -35,7 +35,7 @@
         data() {
             return {
                 active: 1,
-                allFormParams:{aa:1}
+                allFormParams: {aa: 1}
             }
         },
         methods: {
@@ -43,7 +43,7 @@
                 console.log('submit!');
             }, next () {
                 if (this.active++ > 2) alert('提交成功！！');
-            },getSubmitForm(formData){
+            }, getSubmitForm(formData){
                 console.log(formData);
             }
         }, components: {
@@ -52,16 +52,16 @@
             form_two: form_two,
             form_three: form_three,
         },
-
     };
 </script>
 <style lang="less" rel="stylesheet/less">
     #form {
-        .formWrapper{
-            margin-top:20px ;
+        padding-bottom: 50px;
+        .formWrapper {
+            margin-top: 20px;
             margin-right: 20px;
         }
-        .stepWrapper{
+        .stepWrapper {
             margin-right: 20px;
         }
         .fade-enter-active, .fade-leave-active {
