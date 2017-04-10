@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .test{
+           width: 500px;
+            height: 500px;
+            background: #cccccc url('./static/img/bg.jpg') no-repeat;
+            padding: 100px;
+            border: 30px dashed #666;
+            background-origin: border-box;
+        }
+        p{  border:10px dashed #666;width:200px;height:200px;padding:20px;background:#aaa  url('./static/img/bg.jpg') no-repeat;
+            background-origin: content-box;
+        }
+    </style>
+</head>
+<body>
+<div class="test">
+    <p>123123</p>
+    </div>
+<script>
+    const myDB={};
+    function openDB (name,version) {
+        var version=version || 1;
+        var request=window.indexedDB.open(name,version);
+        request.onerror=function(e){
+            console.log(e.currentTarget.error.message);
+        };
+        request.onsuccess=function(e){
+            myDB.db=e.target.result;
+        };
+        request.onupgradeneeded=function(e){
+            var db=e.target.result;
+            if(!db.objectStoreNames.contains('students')){
+                db.createObjectStore('students',{keyPath:"id"});
+            }
+            console.log('DB version changed to '+version);
+        };
+    }
+    openDB('testss',1);
+    var students=[{
+        id:1001,
+        name:"Byron",
+        age:24
+    },{
+        id:1002,
+        name:"Frank",
+        age:30
+    },{
+        id:1003,
+        name:"Aaron",
+        age:26
+    }];
+    function addData(db,storeName){
+        var transaction=db.transaction(storeName,'readwrite');
+        var store=transaction.objectStore(storeName);
+
+        for(var i=0;i<students.length;i++){
+            store.add(students[i]);
+        }
+    }
+    function getDataByKey(db,storeName,value){
+        var transaction=db.transaction(storeName,'readwrite');
+        var store=transaction.objectStore(storeName);
+        var request=store.get(value);
+        request.onsuccess=function(e){
+            var student=e.target.result;
+            alert(student.name);
+        };
+    }
+    setTimeout(function(){
+        addData(myDB.db,'students');
+        alert('add');
+    },10000);
+    setTimeout(function(){
+    getDataByKey(myDB.db,'students',1001)
+    },100)
+</script>
+</body>
+</html>
