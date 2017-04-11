@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-input @focus ="showDialog($event)" v-model="searchValue"></el-input>
-        <el-dialog title="用户名称" :modal="false" :lock-scroll="true" :close-on-click-modal="false" v-model="dialogFormVisible">
+        <el-dialog title="用户名称"  :lock-scroll="true"  v-model="dialogFormVisible">
             <el-form :model="form">
                 <el-form-item label="用户名称" :label-width="formLabelWidth">
                     <search style="float: left" v-on:search="getSearchValue" ref="searchs"></search>
