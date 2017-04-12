@@ -3,8 +3,8 @@
         <div class="container">
             <div class="content">
                 <h1>{{weight}}<span id="unit">斤</span></h1>
-                <div class="clear" @click="getWeight" ref="clear">称重</div>
-                <div class="clear" @click="clearWeight">归零</div>
+                <div class="tool" @click="getWeight" ref="clear">称重</div>
+                <div class="tool" @click="clearWeight">归零</div>
             </div>
         </div>
     </div>

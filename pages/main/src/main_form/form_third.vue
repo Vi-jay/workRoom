@@ -1,4 +1,7 @@
 <template>
+<div>
+<slot name="cover"></slot>
+
     <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
         <el-form-item label="测试名称" prop="name">
             <el-input v-model="ruleForm.name"></el-input>
@@ -52,6 +55,7 @@
             <el-button @click="resetForm('ruleForm')">重置</el-button>
         </el-form-item>
     </el-form>
+    </div>
 </template>
 <script type="text/ecmascript-6">
     let formDialog = require('./form_dialog.vue');

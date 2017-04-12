@@ -1,5 +1,6 @@
 <template>
 <div>
+<slot name="cover"></slot>
     <el-button type="text" @click="dialogTableVisible = true">打开嵌套表格的 Dialog</el-button>
     <el-dialog title="收货地址" v-model="dialogTableVisible">
         <el-table :data="gridData">
