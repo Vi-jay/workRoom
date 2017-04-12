@@ -116,7 +116,8 @@ export default {
                 this.$notify({
                     title: '错误通知',
                     message: '请填写完整必填信息!!',
-                    type: 'error'
+                    type: 'error',
+                    offset: 200
                 });
             }
 
@@ -191,7 +192,9 @@ export default {
                 position: absolute;
                 top: 0;
                 left: 0;
-                background: rgba(255, 255, 255, 0.7);
+                bottom: 0;
+                right: 0;
+                background: rgba(190, 190, 190, 0.7);
                 z-index: 300;
                 cursor: not-allowed;
             }
@@ -200,13 +203,13 @@ export default {
                 border-left: 5px solid #815C5C;
                 flex: 90;
                 margin-left: 14px;
-                padding: 6px 40px 0;
-                zoom: 0.6;
+                padding: 6px 0 0;
+                zoom: 0.5;
             }
             .footer_content {
-                border-left: 3px solid #815C5C;
+                border-left: 2.5px solid #815C5C;
                 flex: 90;
-                margin-left: 8.4px;
+                margin-left: 7px;
                 .step_container {
                     position: relative;
                     padding: 10px 60px 3px;
@@ -220,7 +223,7 @@ export default {
                         position: absolute;
                         top: 0;
                         right: 300px;
-                        zoom: 0.5;
+                        zoom: 0.55;
                     }
                 }
                 .success_btn {

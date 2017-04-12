@@ -1,60 +1,52 @@
 <template>
-<div>
-<slot name="cover"></slot>
+    <div id="thirdForm">
+        <slot name="cover"></slot>
+        <div class="seller">
+            <el-form :model="sellerForm" :rules="rules" ref="ruleForm" class="sellerForm" style="margin-left: 10px">
+                <el-row :gutter="60">
+                    <el-col :span="10">
+                        <el-form-item label="商家名称" prop="name">
+                            <el-input v-model="sellerForm.name"></el-input>
+                        </el-form-item>
+                    </el-col>
+                    <el-col :span="10">
+                        <el-form-item label="档口编号" prop="name">
+                            <el-input></el-input>
+                        </el-form-item>
+                    </el-col>
+                </el-row>
 
-    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-        <el-form-item label="测试名称" prop="name">
-            <el-input v-model="ruleForm.name"></el-input>
-        </el-form-item>
-        <el-form-item label="测试区域" prop="region">
-            <el-select v-model="ruleForm.region" placeholder="请选择活动区域">
-                <el-option label="区域一" value="shanghai"></el-option>
-                <el-option label="区域二" value="beijing"></el-option>
-            </el-select>
-        </el-form-item>
-        <el-form-item label="测试时间" required>
-            <el-col :span="11">
-                <el-form-item prop="date1">
-                    <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date1"
-                                    style="width: 100%;"></el-date-picker>
+                <el-row :gutter="60">
+                    <el-col :span="10">
+                        <el-form-item label="商家电话" prop="name">
+                            <el-input></el-input>
+                        </el-form-item>
+                    </el-col>
+                    <el-col :span="10">
+                        <el-form-item label="经营范围" prop="name">
+                            <el-input></el-input>
+                        </el-form-item>
+                    </el-col>
+                </el-row>
+
+                <el-form-item label="记住资料" prop="name">
+                    <el-switch on-text="" off-text="" v-model="sellerForm.remember"></el-switch>
                 </el-form-item>
-            </el-col>
-            <el-col class="line" :span="2">-</el-col>
-            <el-col :span="11">
-                <el-form-item prop="date2">
-                    <el-time-picker type="fixed-time" placeholder="选择时间" v-model="ruleForm.date2"
-                                    style="width: 100%;"></el-time-picker>
+                <el-form-item>
+                    <el-alert class="tip"
+                            title="小提示:"
+                            type="success"
+                            :closable="false"
+                            description="点击记住资料可避免每次都重复填写哦~~">
+                    </el-alert>
                 </el-form-item>
-            </el-col>
-        </el-form-item>
-        <el-form-item label="测试配送" prop="delivery">
-            <el-switch on-text="" off-text="" v-model="ruleForm.delivery"></el-switch>
-        </el-form-item>
-        <el-form-item label="测试选择" prop="type">
-            <el-checkbox-group v-model="ruleForm.type">
-                <el-checkbox label="测试" name="type"></el-checkbox>
-                <el-checkbox label="测试" name="type"></el-checkbox>
-                <el-checkbox label="测试" name="type"></el-checkbox>
-                <el-checkbox label="测试" name="type"></el-checkbox>
-            </el-checkbox-group>
-        </el-form-item>
-        <el-form-item label="测试" prop="resource">
-            <el-radio-group v-model="ruleForm.resource">
-                <el-radio label="测试"></el-radio>
-                <el-radio label="测试"></el-radio>
-            </el-radio-group>
-        </el-form-item>
-        <el-form-item label="测试形式" prop="desc">
-            <el-input type="textarea" v-model="ruleForm.desc"></el-input>
-        </el-form-item>
-        <el-form-item label="测试用户名称" v-model="ruleForm.username">
-            <formDialog v-on:dialog="getDialog"></formDialog>
-        </el-form-item>
-        <el-form-item>
-            <el-button type="primary" @click="submitForm('ruleForm')">下一步</el-button>
-            <el-button @click="resetForm('ruleForm')">重置</el-button>
-        </el-form-item>
-    </el-form>
+                <el-form-item>
+                    <el-button type="primary" @click="submitForm('sellerForm')">立即创建个人档案</el-button>
+                    <el-button @click="resetForm('sellerForm')">重置</el-button>
+                </el-form-item>
+            </el-form>
+        </div>
+
     </div>
 </template>
 <script type="text/ecmascript-6">
@@ -65,7 +57,7 @@
         },
         data(){
             return {
-                ruleForm: {
+                sellerForm: {
                     name: '',
                     region: '',
                     date1: '',
@@ -121,5 +113,27 @@
     };
 </script>
 <style lang="less" rel="stylesheet/less">
+    #thirdForm {
+        padding: 30px 20px;
+        .seller {
+            padding-top: 1%;
+            .el-form-item__label {
+                font-size: 26px;
+                text-align: center;
+            }
+            .el-input {
+                .el-input__inner {
+                    height: 50px;
+                    font-size: 26px;
+                }
+            }
+            .el-form-item__error {
+                font-size: 18px;
+            }
+            .tip{
+                margin-top: 50px;
+            }
 
+        }
+    }
 </style>

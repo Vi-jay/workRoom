@@ -1,7 +1,7 @@
 <template>
     <div id="search">
         <div id="outer">
-            <el-input class="search" v-on:input="searchComponent($event)" v-model="searchContent"></el-input>
+            <el-input placeholder="请输入客户名称" class="search" v-on:input="searchComponent($event)" v-model="searchContent"></el-input>
             <div class="container" ref="container" v-loading="loading">
             </div>
         </div>

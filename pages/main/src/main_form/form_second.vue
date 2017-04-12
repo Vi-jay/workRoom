@@ -1,93 +1,178 @@
 <template>
-<div>
-<slot name="cover"></slot>
-    <el-button type="text" @click="dialogTableVisible = true">打开嵌套表格的 Dialog</el-button>
-    <el-dialog title="收货地址" v-model="dialogTableVisible">
-        <el-table :data="gridData">
-            <el-table-column property="date" label="日期" width="150"></el-table-column>
-            <el-table-column property="name" label="姓名" width="200"></el-table-column>
-            <el-table-column property="address" label="地址"></el-table-column>
-        </el-table>
-        <el-form :model="form">
-    <el-form-item label="活动名称" :label-width="formLabelWidth">
-      <el-input v-model="form.name" auto-complete="off"></el-input>
-    </el-form-item>
-    <el-form-item label="活动区域" :label-width="formLabelWidth">
-      <el-select v-model="form.region" placeholder="请选择活动区域">
-        <el-option label="区域一" value="shanghai"></el-option>
-        <el-option label="区域二" value="beijing"></el-option>
-      </el-select>
-    </el-form-item>
-  </el-form>
-  <div slot="footer" class="dialog-footer">
-    <el-button @click="dialogFormVisible = false">取 消</el-button>
-    <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
-  </div>
-    </el-dialog>
- 
+    <div id="secondForm">
+        <slot name="cover"></slot>
+
+        <div class="commodityForm">
+            <el-table
+                    :data="commodityData"
+                    border
+                    style="width: 100%"
+                    height="325"
+            >
+                <el-table-column label="订单商品条目记录">
+                    <el-table-column
+                            fixed
+                            prop="variety"
+                            label="商品品种"
+                    >
+                    </el-table-column>
+                    <el-table-column
+                            prop="origin"
+                            label="产地"
+                    >
+                    </el-table-column>
+                    <el-table-column
+                            prop="unitPrice"
+                            label="单价(元/斤)"
+                    >
+                    </el-table-column>
+
+
+                    <el-table-column
+                            label="数量"
+                    >
+                        <template scope="scope">
+                            <el-input-number size="small" v-model="scope.row.count"></el-input-number>
+                        </template>
+                    </el-table-column>
+                    <el-table-column
+                            prop="serialNumber"
+                            label="商品编号"
+                    >
+                    </el-table-column>
+
+
+                    <el-table-column
+                            fixed="right"
+                            label="操作"
+                    >
+                        <template scope="scope">
+                            <el-button
+                                    @click.native.prevent="deleteRow(scope.$index, commodityData)"
+                                    type="text"
+                                    size="small">
+                                移除
+                            </el-button>
+                        </template>
+                    </el-table-column>
+                </el-table-column>
+            </el-table>
+            <div class="tool">
+                <img src="../../static/img/addKey.jpg" class="addKey" alt="" width="60" height="60">
+            </div>
+            <el-alert
+                    title="小提示:"
+                    type="info"
+                    description="点击加号添加商品到订单~~"
+                    show-icon>
+            </el-alert>
+        </div>
+
     </div>
 </template>
 <script type="text/ecmascript-6">
-let formDialog = require('./form_dialog.vue');
-export default {
-    props: {
-        allFormParams: Object
-    },
-    data() {
-        return {
-            gridData: [{
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '上海市普陀区金沙江路 1518 弄'
-            }, {
-                date: '2016-05-04',
-                name: '王小虎',
-                address: '上海市普陀区金沙江路 1518 弄'
-            }, {
-                date: '2016-05-01',
-                name: '王小虎',
-                address: '上海市普陀区金沙江路 1518 弄'
-            }, {
-                date: '2016-05-03',
-                name: '王小虎',
-                address: '上海市普陀区金沙江路 1518 弄'
-            }],
-            dialogTableVisible: false,
-            dialogFormVisible: false,
-            form: {
-                name: '',
-                region: '',
-                date1: '',
-                date2: '',
-                delivery: false,
-                type: [],
-                resource: '',
-                desc: ''
-            },
-            formLabelWidth: '120px'
-        };
-},methods: {
-    submitForm(formName) {
-        this.$refs[formName].validate((valid) => {
-            if (valid) {
-                this.$emit("submit", this.second_form);
-            } else {
-                alert('请填写完整相关信息!!');
-                this.$emit("submit", this.second_form);
-                return false;
+    export default {
+        props: {
+            allFormParams: Object
+        },
+        data() {
+            return {
+                commodityData: [{
+                    variety: '西瓜',
+                    origin: '上海',
+                    unitPrice: 5,
+                    count: 1,
+                    serialNumber: 200331
+                }, {
+                    variety: '香蕉',
+                    origin: '上海',
+                    unitPrice: 5,
+                    count: 1,
+                    serialNumber: 200332
+                }, {
+                    variety: '榴莲',
+                    origin: '上海',
+                    unitPrice: 5,
+                    count: 12,
+                    serialNumber: 200333
+                }, {
+                    variety: '手枪',
+                    origin: '公安局',
+                    unitPrice: 5,
+                    count: 12,
+                    serialNumber: 200334
+                }, {
+                    variety: '机关枪',
+                    origin: '中央兵库',
+                    unitPrice: 5,
+                    count: 13,
+                    serialNumber: 200335
+                }, {
+                    variety: '手榴弹',
+                    origin: '中央兵库',
+                    unitPrice: 5,
+                    count: 16,
+                    serialNumber: 200336
+                }, {
+                    variety: '原子弹',
+                    origin: '中央兵库',
+                    unitPrice: 5,
+                    count: 19,
+                    serialNumber: 200337
+                }]
             }
-        });
-    },
-    resetForm(formName) {
-        this.$refs[formName].resetFields();
-    },
-    getDialog(data) {
-        this.second_form.username = data;
-    }
-}, components: {
-    formDialog: formDialog
-}
-};
+        }, methods: {
+            deleteRow(index, rows) {
+                rows.splice(index, 1);
+            },
+            resetForm(formName) {
+                this.$refs[formName].resetFields();
+            },
+            getDialog(data) {
+                this.second_form.username = data;
+            }
+        }, components: {}
+    };
 </script>
 <style lang="less" rel="stylesheet/less">
+    #secondForm {
+        height: inherit;
+        padding: 0 10px;
+        .el-alert__content {
+            .el-alert__title, .el-alert__description, .el-alert__icon {
+                font-size: 24px;
+
+            }
+        }
+        .el-table__header th .cell:first-child {
+            padding: 1%;
+            text-align: center;
+        }
+        .el-alert {
+            width: 50%;
+            margin: 55px auto;
+            .el-alert__icon {
+                font-size: 45px;
+            }
+        }
+        .commodityForm {
+            margin-top: 30px;
+            width: 100%;
+            .tool {
+                display: flex;
+                justify-content: center;
+                position: relative;
+                top: 0;
+                background: #ffffff;
+                border: 1px solid #dfe6ec;
+                border-bottom: 3px ridge #dfe6ec;
+                z-index: 3;
+                .addKey {
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+
+            }
+        }
+    }
 </style>
