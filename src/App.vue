@@ -10,9 +10,10 @@
             <iframe src="http://localhost:7009/" width="100%" height="100%" frameborder="0" v-show="report" id="report"></iframe>
         </transition>
         <div class="navHand">
-            
         </div>
         <v_nav class="container" v-on:showPage="changePage" ></v_nav>
+
+
     </div>
 </template>
 <script type="text/ecmascript-6">

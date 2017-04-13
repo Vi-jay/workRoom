@@ -65,7 +65,7 @@ export default {
     display: flex;
     justify: center;
     align-items: center;
-    z-index: 1000
+    z-index: 1000;
 }
 
 .nav_show-enter-active,

@@ -11,19 +11,21 @@
                         </div>
                     </div>
                     <div class="wrapperContainer">
-                        <div class="firstWrapper" @click="changeView('firstForm',0)">
+                        <div class="firstWrapper" @click.capture="changeView($event,'firstForm',0)">
                             <div class="form_lable">
                                 购买者信息
                             </div>
-                            <form_first class="shrinkForm" :firstForm_Data="firstForm_Data">
+                            <form_first class="shrinkForm hideTool" :firstForm_Data="firstForm_Data"
+                                        :class="{ shrinkForm_blur: cover[0].firstForm }">
                                 <div :class="{ 'form_cover':cover[0].firstForm }" slot="cover"></div>
                             </form_first>
                         </div>
-                        <div class="secondWrapper" @click="changeView('secondForm',1)">
+                        <div class="secondWrapper" @click.capture="changeView($event,'secondForm',1)">
                             <div class="form_lable">
                                 商品添加
                             </div>
-                            <form_second class="shrinkForm">
+                            <form_second class="shrinkForm " :commodityData="commodityData"
+                                         :class="{ shrinkForm_blur: cover[1].secondForm }">
                                 <div :class="{ 'form_cover':cover[1].secondForm }" slot="cover"></div>
                             </form_second>
                         </div>
@@ -42,7 +44,8 @@
                                 </div>
                                 <div class="success_btn">
                                     <a @click="submit">
-                                        <el-button type="primary" v-bind:disabled="active !== 3" size="large">提交订单</el-button>
+                                        <el-button type="primary" v-bind:disabled="active !== 3" size="large">提交订单
+                                        </el-button>
                                     </a>
                                     <el-button size="large" @click="callOff">取消订单</el-button>
                                 </div>
@@ -59,18 +62,18 @@
         </transition>
         <transition name="lazyShow">
             <div v-show="view.secondForm" class="enlargeForm">
-                <form_second @back="backView" @complete="nextStep"></form_second>
+                <form_second @back="backView" @complete="nextStep" :commodityData="commodityData"></form_second>
             </div>
         </transition>
     </div>
 </template>
 <script type="text/ecmascript-6">
-let calculator = require('../compoents/calculator/calculator.vue'),
-    form_first = require('./form_first.vue'),
-    form_second = require('./form_second.vue'),
-    form_third = require('./form_third.vue');
-export default {
-    data() {
+    let calculator = require('../compoents/calculator/calculator.vue'),
+        form_first = require('./form_first.vue'),
+        form_second = require('./form_second.vue'),
+        form_third = require('./form_third.vue');
+    export default {
+        data() {
             return {
                 view: {
                     mainView: true,
@@ -78,10 +81,46 @@ export default {
                     secondForm: false,
                 },
                 firstForm_Data: {
-                    customerName: '李四',
-                    phone_number: '',
+                    customerName: '',
+                    phone_number: null,
                     address: '',
                 },
+                commodityData: [{
+                    variety: '手枪',
+                    origin: '公安局',
+                    unitPrice: 5,
+                    weight: 12,
+                    sumMoney: 60,
+                    serialNumber: 200334
+                }, {
+                    variety: '机关枪',
+                    origin: '中央兵库',
+                    unitPrice: 5,
+                    weight: 13,
+                    sumMoney: 65,
+                    serialNumber: 200335
+                }, {
+                    variety: '手榴弹',
+                    origin: '中央兵库',
+                    unitPrice: 5,
+                    weight: 16,
+                    sumMoney: 80,
+                    serialNumber: 200336
+                }, {
+                    variety: '火炮',
+                    origin: '中央兵库',
+                    unitPrice: 5,
+                    weight: 16,
+                    sumMoney: 80,
+                    serialNumber: 200336
+                }, {
+                    variety: '原子弹',
+                    origin: '中央兵库',
+                    unitPrice: 5,
+                    weight: 19,
+                    sumMoney: 95,
+                    serialNumber: 200337
+                }],
                 cover: [{
                     firstForm: false
                 }, {
@@ -93,11 +132,12 @@ export default {
             }
         },
         methods: {
-            changeView: function(someForm, index) {
+            changeView: function (event, someForm, index) {
+                event.preventDefault();
                 if (this.cover[index][someForm]) {
                     this.$notify({
                         title: '警告通知',
-                        message: '请先填写完整未被锁定区域内容!!!',
+                        message: '请完成所有步骤（完成所有区域内的提交）!!!',
                         type: 'warning',
                         offset: 200
                     });
@@ -106,17 +146,17 @@ export default {
                 this.view.mainView = false;
                 this.view[someForm] = true;
             },
-            backView: function(someForm) {
+            backView: function (someForm) {
                 this.view.mainView = true;
                 this.view[someForm] = false;
             },
-            nextStep: function(someForm,dataName,data) {
+            nextStep: function (someForm, dataName, data) {
                 this.backView(someForm);
                 var that = this;
-                if(dataName in this){
-                    this[dataName]=data;
+                if (dataName in this) {
+                    this[dataName] = data;
                 }
-                this.cover.reduce(function(pre, cur, index, arr) {
+                this.cover.reduce(function (pre, cur, index, arr) {
                     if (pre && (someForm in pre)) {
                         for (let key in cur) {
                             if (cur[key]) {
@@ -132,18 +172,19 @@ export default {
                     return cur;
                 })
             },
-            callOff: function() {
+            callOff: function () {
                 var flag = confirm("确定取消本次订单？？");
                 if (flag) {
                     this.$message("不允许取消~~");
-                };
+                }
+                ;
             },
 
-            submit: function() {
+            submit: function () {
                 if (this.active !== 3) {
                     this.$notify({
                         title: '错误通知',
-                        message: '请填写完整必填信息!!',
+                        message: '请完成所有步骤（完成所有区域内的提交）!!!',
                         type: 'error',
                         offset: 200
                     });
@@ -151,10 +192,11 @@ export default {
                     var flag = confirm("提交成功！是否需要打印？");
                     if (flag) {
                         this.$message("打印成功！！(3秒后刷新页面)");
-                        setTimeout(function() {
+                        setTimeout(function () {
                             location.reload();
                         }, 3000)
-                    };
+                    }
+                    ;
                 }
             },
 
@@ -165,144 +207,171 @@ export default {
             form_second: form_second,
             form_third: form_third,
         },
-};
+    };
 </script>
 <style lang="less" rel="stylesheet/less">
-#form {
-    .content {
-        padding: 0 1%;
-        .serial_number {
-            margin: 90px 0 0 0;
-            border-bottom: 3px dashed #6A2727;
-            .right_tag {
-                font-size: 20px;
-                background-color: #8391a5;
-                padding: 0 5px;
-                height: 35px;
-                line-height: 32px;
-                color: #fff;
-                border-radius: 4px;
-                box-sizing: border-box;
-                border: 1px solid transparent;
-                white-space: nowrap;
-                display: inline-block;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                cursor: default;
-                margin: 0 20px 8px 0;
-                float: right;
-                & span {
-                    color: darken(#f20d59, 10%);
-                }
-            }
-            .clear {
-                clear: right;
-            }
-        }
-        .wrapperContainer {
-            height: 503px;
-            .firstWrapper {
-                height: 38%;
-            }
-            .secondWrapper {
-                height: 40%;
-            }
-            .footer {
-                height: 25%;
-            }
-            .firstWrapper,
-            .secondWrapper,
-            .footer {
-                display: flex;
-                overflow: hidden;
-                &:nth-child(3n+1) {
-                    border-bottom: 5px ridge #D4C8CC;
-                }
-                &:nth-child(3n+2) {
-                    border-bottom: 5px ridge #D7D5E7;
-                }
-                &:nth-child(3n+3) {
-                    border-bottom: 5px ridge #cccccc;
-                }
-                .form_lable {
+    #form {
+        .content {
+            padding: 0 1%;
+            .serial_number {
+                margin: 90px 0 0 0;
+                border-bottom: 3px dashed #6A2727;
+                .right_tag {
                     font-size: 20px;
-                    width: 20px;
-                    line-height: 24px;
-                    flex: 1;
-                    letter-spacing: 2px;
-                    text-align: center;
-                    writing-mode: tb-rl;
-                    user-select: none;
+                    background-color: #8391a5;
+                    padding: 0 5px;
+                    height: 35px;
+                    line-height: 32px;
+                    color: #fff;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                    border: 1px solid transparent;
+                    white-space: nowrap;
+                    display: inline-block;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
                     cursor: default;
+                    margin: 0 20px 8px 0;
+                    float: right;
+                    & span {
+                        color: darken(#f20d59, 10%);
+                    }
                 }
-                .form_cover {
-                    width: 100%;
-                    height: 100%;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    bottom: 0;
-                    right: 0;
-                    background: rgba(190, 190, 190, 0.7);
-                    z-index: 300;
-                    cursor: not-allowed;
+                .clear {
+                    clear: right;
                 }
-                .shrinkForm {
-                    position: relative;
-                    border-left: 5px solid #815C5C;
-                    flex: 90;
-                    height: 100%;
-                    margin-left: 14px;
-                    padding: 6px 0 0;
-                    zoom: 0.7;
-                    cursor: pointer;
+            }
+            .wrapperContainer {
+                height: 503px;
+                .firstWrapper {
+                    height: 38%;
                 }
-                .footer_content {
-                    border-left: 3.5px solid #815C5C;
-                    flex: 90;
-                    margin-left: 9.4px;
-                    .step_container {
+                .secondWrapper {
+                    height: 40%;
+                }
+                .footer {
+                    height: 25%;
+                }
+                .firstWrapper,
+                .secondWrapper,
+                .footer {
+                    display: flex;
+                    overflow: hidden;
+                    &:nth-child(3n+1) {
+                        border-bottom: 5px ridge #D4C8CC;
+                    }
+                    &:nth-child(3n+2) {
+                        border-bottom: 5px ridge #D7D5E7;
+                    }
+                    &:nth-child(3n+3) {
+                        border-bottom: 5px ridge #cccccc;
+                    }
+                    .form_lable {
+                        font-size: 20px;
+                        width: 20px;
+                        line-height: 24px;
+                        flex: 1;
+                        letter-spacing: 2px;
+                        text-align: center;
+                        writing-mode: tb-rl;
+                        user-select: none;
+                        cursor: default;
+                        padding-right: 11px;
+                        border-right: 3.5px solid #815C5C;
+                    }
+                    .form_cover {
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        bottom: 0;
+                        right: 0;
+                        background: rgba(190, 190, 190, 0.7);
+                        z-index: 300;
+                        cursor: not-allowed;
+                    }
+                    .shrinkForm {
                         position: relative;
-                        padding: 16px 60px 3px;
-                        .seal {
-                            width: 185px;
-                            height: 194px;
-                            border-radius: 50%;
-                            background: url('../../static/img/seal.png') no-repeat;
-                            background-size: 500px 500px;
-                            background-position: -45px 0;
-                            position: absolute;
-                            top: 0;
-                            right: 300px;
-                            zoom: 0.55;
+                        flex: 90;
+                        height: 100%;
+                        padding: 6px 0 0;
+                        zoom: 0.7;
+                        cursor: pointer;
+                        /*调整缩略图*/
+                        #back_btn {
+                            display: none;
+                        }
+                        .searchBar {
+                            margin: 0 auto;
+                        }
+                        .customerTable {
+                            flex: 1.45;
+                            .el-table {
+                                font-size: 22px;
+                                width: 100%;
+
+                            }
+                        }
+                        .commodityTable {
+                            margin: 0 auto;
+                        }
+                        /*调整缩略图*/
+                    }
+                    .shrinkForm_blur {
+                        filter: blur(2px);
+                    }
+                    .footer_content {
+                        flex: 90;
+                        .step_container {
+                            position: relative;
+                            padding: 16px 60px 3px;
+                            .seal {
+                                width: 185px;
+                                height: 194px;
+                                border-radius: 50%;
+                                background: url('../../static/img/seal.png') no-repeat;
+                                background-size: 500px 500px;
+                                background-position: -45px 0;
+                                position: absolute;
+                                top: 0;
+                                right: 300px;
+                                zoom: 0.55;
+                            }
+                        }
+                        .success_btn {
+                            padding-left: 50%;
+                            margin-left: -100px;
                         }
                     }
-                    .success_btn {
-                        padding-left: 50%;
-                        margin-left: -100px;
-                    }
+                }
+                .footer {
+                    height: 120px;
+                    box-sizing: content-box;
                 }
             }
-            .footer {
-                height: 120px;
-                box-sizing: content-box;
-            }
+        }
+        .enlargeForm {
+            height: 643px;
+            border: 5px ridge #cccccc
+        }
+        .lazyShow-enter-active,
+        .lazyShow-leave-active {
+            transition: opacity .5s linear, transform .3s ease-in-out;
+        }
+        .lazyShow-enter {
+            opacity: 0.3;
+            transform: scale3d(0, 0, 1) rotate(360deg);
+        }
+        .lazyShow-leave-active {
+            display: none;
         }
     }
-    .enlargeForm {
-        height: 643px;
-        border: 5px ridge #cccccc
+
+    body {
+        .el-scrollbar .el-select-dropdown__item {
+            font-size: 18px;
+            text-align: center;
+        }
     }
-    .lazyShow-enter-active,
-    .lazyShow-leave-active {
-        transition: opacity .5s linear, transform .5s ease-in-out;
-    }
-    .lazyShow-enter {
-        opacity: 0.3;
-        transform: scale(0);
-    }
-    .lazyShow-leave-active {
-        display: none;
-    }
-}
 </style>

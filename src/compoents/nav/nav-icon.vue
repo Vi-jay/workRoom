@@ -40,7 +40,7 @@ export default {
   position: absolute;
   height: 9px;
   width: 50%;
-  background: #DC7443;
+  background: lighten(#DC7443,25%);
   opacity: 1;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
@@ -51,7 +51,11 @@ export default {
   -o-transition: .25s ease-in-out;
   transition: .25s ease-in-out;
 }
-
+#nav-icon2:hover{
+  & span{
+  background: #DC7443;
+  }
+}
 #nav-icon2 span:nth-child(even) {
   left: 50%;
   border-radius: 0 9px 9px 0;

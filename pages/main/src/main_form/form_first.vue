@@ -20,17 +20,17 @@
                             <el-button type="primary" size="large" @click="search">查询</el-button>
                             <el-button @click="resetForm" size="large">重置</el-button>
                             <a @click="nextStep('firstForm')" class="nextStep">
-                                <el-button type="success" size="large" v-bind:disabled="multipleSelection.length === 0">下一步</el-button>
+                                <el-button type="success" size="large" v-bind:disabled="multipleSelection.length === 0">确定</el-button>
                             </a>
                         </el-form-item>
                     </el-form>
                 </div>
                 <div class="customerTable">
                     <!--表单下面显示的表格内容-->
-                    <el-table :data="customerData" border style="width: 100%" height="300" @selection-change="handleSelectionChange">
+                    <el-table stripe :data="customerData" border  height="290" @selection-change="handleSelectionChange">
                         <el-table-column type="selection">
                         </el-table-column>
-                        <el-table-column fixed prop="customerName" label="姓名">
+                        <el-table-column  prop="customerName" label="姓名">
                         </el-table-column>
                         <el-table-column prop="phone_number" label="手机号">
                         </el-table-column>
@@ -47,32 +47,34 @@
                 <el-alert title="小提示:" type="info" :closable="false" description="点击下面的图像按钮可添加新的用户哦~~">
                 </el-alert>
                 <img src="../../static/img/linkman.png" alt="" width="250" height="300" class="linkman" @click="dialogFormVisible = true">
-                <!-- dialog表单 -->
-                <el-dialog title="添加用户" v-model="dialogFormVisible">
-                    <el-form :model="form">
-                        <el-form-item label="用户名称">
-                            <el-input v-model="form.name" auto-complete="off"></el-input>
-                        </el-form-item>
-                        <el-form-item label="用户地址">
-                            <el-select v-model="form.region" placeholder="请选择用户区域">
-                                <el-option label="中国" value="shanghai"></el-option>
-                                <el-option label="印度" value="beijing"></el-option>
-                                <el-option label="老挝" value="beijing"></el-option>
-                                <el-option label="缅甸" value="beijing"></el-option>
-                                <el-option label="越南" value="beijing"></el-option>
-                            </el-select>
-                        </el-form-item>
-                        <el-form-item label="用户地址">
-                            <el-input v-model="form.address" auto-complete="off"></el-input>
-                        </el-form-item>
-                    </el-form>
-                    <div slot="footer" class="dialog-footer">
-                        <el-button @click="dialogFormVisible = false">取 消</el-button>
-                        <el-button type="primary" @click="nextStep('firstForm')">确 定</el-button>
-                    </div>
-                </el-dialog>
+
             </div>
         </div>
+        <!-- dialog表单 -->
+        <el-dialog title="添加用户" v-model="dialogFormVisible" class="dialogTool">
+            <el-form >
+                <el-form-item label="用户名称">
+                    <searchTool class="dialog_search" :firstForm_Data="firstForm_Data" prop="customerName"></searchTool>
+                </el-form-item>
+                <el-form-item label="用户电话">
+                <el-input v-model="firstForm_Data.phone_number" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="用户地址">
+                    <el-select v-model="firstForm_Data.address" placeholder="请选择用户区域">
+                        <el-option label="中国" value="中国"></el-option>
+                        <el-option label="印度" value="印度"></el-option>
+                        <el-option label="老挝" value="老挝"></el-option>
+                        <el-option label="缅甸" value="缅甸"></el-option>
+                        <el-option label="越南" value="越南"></el-option>
+                    </el-select>
+                </el-form-item>
+
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="dialogFormVisible = false">取 消</el-button>
+                <el-button type="primary" @click="nextStep('firstForm')">确 定</el-button>
+            </div>
+        </el-dialog>
     </div>
 </template>
 <script type="text/ecmascript-6">
@@ -83,37 +85,50 @@ export default {
     },
     data() {
         return {
-           
             customerData: [{
                 customerName: '张三',
-                phone_number: '1216654654',
+                phone_number: '1216654',
                 province: '上海',
                 city: '普陀区',
                 address: '没有地址',
             }, {
                 customerName: '李四',
-                phone_number: '1216654654',
+                phone_number: '1216654',
                 province: '上海',
                 city: '普陀区',
                 address: '没有地址',
 
             }, {
                 customerName: '王五',
-                phone_number: '1216654654',
+                phone_number: '12166544',
                 province: '上海',
                 city: '普陀区',
                 address: '没有地址',
 
             }, {
                 customerName: '赵六',
-                phone_number: '1216654654',
+                phone_number: '1216654',
                 province: '上海',
                 city: '普陀区',
                 address: '没有地址',
 
             }, {
                 customerName: '周七',
-                phone_number: '1216654654',
+                phone_number: '1214654',
+                province: '上海',
+                city: '普陀区',
+                address: '没有地址',
+
+            }, {
+                customerName: '陈八',
+                phone_number: '1214654',
+                province: '上海',
+                city: '普陀区',
+                address: '没有地址',
+
+            }, {
+                customerName: '何九',
+                phone_number: '1214654',
                 province: '上海',
                 city: '普陀区',
                 address: '没有地址',
@@ -173,7 +188,7 @@ export default {
             }
         },
         nextStep(formName) {
-            if (this.multipleSelection.length > 0 || (this.form.name && this.form.region && this.form.address)) {
+            if (this.multipleSelection.length > 0 || (this.firstForm_Data.customerName && this.firstForm_Data.phone_number && this.firstForm_Data.address)) {
                 this.$emit('complete', formName,"firstForm_Data",this.firstForm_Data);
                 this.dialogFormVisible = false;
             } else {
@@ -192,6 +207,7 @@ export default {
 <style lang="less" rel="stylesheet/less">
 #firstForm {
     height: inherit;
+
     th .el-checkbox__inner{
         display: none;
     }
@@ -214,7 +230,7 @@ export default {
         width: 550px;
     }
     .el-input__inner {
-        height: 50px;
+        height: 45px;
         width: 550px;
         font-size: 26px;
     }
@@ -237,12 +253,16 @@ export default {
             .searchBar,
             .customerTable {
                 box-sizing: border-box;
-                padding: 10px;
+                padding:0 10px;
                 overflow: hidden;
+
             }
+                .container{
+                    font-size: 25px;
+                }
             .searchBar {
+                flex: 1;
                 margin-top: 55px;
-                height: 55%;
                 .el-button {
                     margin-top: 10px;
                 }
@@ -251,9 +271,14 @@ export default {
                 }
             }
             .customerTable {
-                height: 45%;
+                flex: 1;
                 .el-table {
+                    width: 710px;
                     font-size: 17px;
+                    .el-checkbox__inner{
+                        width: 25px;
+                        height: 25px;
+                    }
                 }
             }
         }
@@ -271,16 +296,29 @@ export default {
                 opacity: 0.8;
                 cursor: pointer;
             }
-            .el-input {
-                width: 230px;
-                margin-left: 30px;
-            }
-            .el-input__inner {
-                height: 50px;
-                width: 230px;
-                font-size: 26px;
-            }
+
         }
+    }
+    .dialogTool{
+    .el-input {
+        width: 230px;
+        max-width: 230px;
+        margin-left: 30px;
+    }
+    .el-input__inner {
+        height: 50px;
+        width: 230px;
+        max-width: 230px;
+        font-size: 26px;
+    }
+    .dialog_search{
+        margin-left: 154px;
+        .container{
+            margin-left: 30px;
+            font-size: 25px;
+
+        }
+    }
     }
 }
 </style>
