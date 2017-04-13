@@ -1,7 +1,7 @@
 <template>
     <div id="search">
         <div id="outer">
-            <el-input placeholder="请输入客户名称" class="search" v-on:input="searchComponent($event)" v-model="searchContent"></el-input>
+            <el-input placeholder="请输入客户名称" class="search" v-on:input="searchComponent($event)" v-model="firstForm_Data.customerName"></el-input>
             <div class="container" ref="container" v-loading="loading">
             </div>
         </div>
@@ -9,10 +9,12 @@
 </template>
 <script type="text/ecmascript-6">
     export default {
+        props:{
+            firstForm_Data:Object
+        },
         data(){
             return {
                 reminds: [],
-                searchContent: "",
                 loading: false
             }
         },
@@ -23,7 +25,7 @@
         },
         methods: {
             searchComponent: function (event) {
-                var keyword = this.searchContent;
+                var keyword = this.firstForm_Data.customerName;
 
                 if (!this.reminds.length) {
                     this.loading = true;
@@ -83,9 +85,9 @@
                     var li = document.createElement('li');
                     li.innerText = item;
                     li.addEventListener('click', function (event) {
-                        that.searchContent = event.target.innerText;
+                        that.firstForm_Data.customerName = event.target.innerText;
                         that.hide();
-                        that.$emit("search", that.searchContent);
+                        that.$emit("search", that.firstForm_Data.customerName);
                     }, false);
                     ul.appendChild(li);
                 });

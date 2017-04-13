@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <transition name="lazyShow">
-            <iframe src="http://localhost:7007/" width="100%" height="100%" frameborder="0" v-show="main"></iframe>
+            <iframe src="http://localhost:7007/" width="100%" height="100%" frameborder="0" v-show="main" ></iframe>
         </transition>
         <transition name="lazyShow">
             <iframe src="http://localhost:7008/" width="100%" height="100%" frameborder="0" v-show="manage"></iframe>
@@ -9,7 +9,10 @@
         <transition name="lazyShow">
             <iframe src="http://localhost:7009/" width="100%" height="100%" frameborder="0" v-show="report" id="report"></iframe>
         </transition>
-        <v_nav class="container" v-on:showPage="changePage"></v_nav>
+        <div class="navHand">
+            
+        </div>
+        <v_nav class="container" v-on:showPage="changePage" ></v_nav>
     </div>
 </template>
 <script type="text/ecmascript-6">
@@ -19,7 +22,7 @@ export default {
             return {
                 main: true,
                 manage: false,
-                report: false
+                report: false,
             }
         },
         created() {
@@ -38,6 +41,9 @@ export default {
                         }
                     }
                 }
+            },
+            showMenu(){
+                alert(123);
             }
         }
 }
@@ -46,7 +52,8 @@ export default {
 html,
 body {
     width: 100%;
-    height: 98%;
+    height: 100%;
+    overflow: hidden;
 }
 
 body {
@@ -71,6 +78,7 @@ body {
         .lazyShow-leave-active {
             display: none;
         }
+        
     }
 }
 </style>

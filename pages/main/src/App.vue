@@ -21,12 +21,15 @@ html,
 body {
     width: 100%;
     height: 100%;
+     .el-message .el-message__group p {
+        font-size: 22px;}
 }
 
 #main {
     width: inherit;
     height: inherit;
     overflow: hidden;
+
 }
 
 body {

@@ -1,20 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        * {
-  margin: 0;
-  padding: 0; 
+<template>
+<div id="nav-icon2" v-bind:class="{'open' : show}" @click="show=!show">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+</template>
+<script type="text/ecmascript-6">
+export default {
+	
+	data(){
+		return{
+			show:false
+		}
+	}
 }
-
-
+</script>
+<style lang="less" rel="stylesheet/less">
 #nav-icon2 {
   width: 60px;
-  height: 45px;
+  height: 40px;
   position: relative;
-  margin: 50px auto;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -26,15 +34,13 @@
   cursor: pointer;
 }
 
-#nav-icon2 {
-}
 
 #nav-icon2 span {
   display: block;
   position: absolute;
   height: 9px;
   width: 50%;
-  background: #d3531a;
+  background: #DC7443;
   opacity: 1;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
@@ -112,30 +118,4 @@
   top: 29px;
 }
 
-
-    </style>
-</head>
-<body>
-
-<div id="nav-icon2">
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
-
-<script type="text/javascript">
-    
-
-   
-    var i2=document.getElementById('nav-icon2');
-    i2.addEventListener('click',function(){i2.className='open'},false);
- var i1=document.getElementById('nav-icon1');
-    i1.addEventListener('click',function(){i1.className='open'},false);
-     var i3=document.getElementById('nav-icon3');
-    i3.addEventListener('click',function(){i3.className='open'},false);
-</script>
-</body>
-</html>
+</style>
