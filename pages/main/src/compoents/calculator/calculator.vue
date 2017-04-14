@@ -13,14 +13,33 @@
 export default {
     data() {
         return {
-            weight: 100
+            weight: 0
         }
     }, methods: {
         clearWeight: function() {
             this.weight = 0;
         },
+        /*称重*/
         getWeight: function() {
-            this.weight = 100;
+            var that = this;
+            that.$http.get("http://localhost:80/SendCMD?idx=1&CMD=R")
+                .then(function(response) {
+                    if (response.data.success) {
+                        that.$http.get("http://localhost:80/GetBuffer?idx=1").then(function(response) {
+                            if (response.data.success) {
+                                let re=/^wn([^kg]*)kg/g;
+                                let result=parseFloat(re.exec(response.data.buffer)[1])*2;
+                                that.$message("成功获取重量~~");
+                                that.weight =result;
+                            }
+                        }).then(function(){
+                            that.$message.error("获取重量失败~~");
+                        });
+                    }
+                }).then(function(){
+                that.$message.error("请求无响应,请检查设备~~");
+            });
+
         }
     }
 };

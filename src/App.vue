@@ -1,19 +1,17 @@
 <template>
-    <div id="app">
+    <div id="app" v-loading="loading" element-loading-text="玩命加载中....">
         <transition name="lazyShow">
-            <iframe src="http://localhost:7007/" width="100%" height="100%" frameborder="0" v-show="main" ></iframe>
+            <iframe src="http://192.168.3.161:7007" width="100%" height="100%" frameborder="0" v-show="main" id="main"></iframe>
         </transition>
         <transition name="lazyShow">
-            <iframe src="http://localhost:7008/" width="100%" height="100%" frameborder="0" v-show="manage"></iframe>
+            <iframe src="http://192.168.3.161:7008" width="100%" height="100%" frameborder="0" v-show="manage"></iframe>
         </transition>
         <transition name="lazyShow">
-            <iframe src="http://localhost:7009/" width="100%" height="100%" frameborder="0" v-show="report" id="report"></iframe>
+            <iframe src="http://192.168.3.161:7009" width="100%" height="100%" frameborder="0" v-show="report" id="report"></iframe>
         </transition>
         <div class="navHand">
         </div>
         <v_nav class="container" v-on:showPage="changePage" ></v_nav>
-
-
     </div>
 </template>
 <script type="text/ecmascript-6">
@@ -24,9 +22,17 @@ export default {
                 main: true,
                 manage: false,
                 report: false,
+                loading:true
             }
         },
         created() {
+            this.$nextTick(function(){
+                var that=this;
+            document.getElementById('main').onload=function(){
+                    setTimeout(function(){
+                        that.loading=false;
+                    },500)
+            }})
 
         },
         components: {
@@ -81,5 +87,8 @@ body {
         }
         
     }
+      .el-loading-spinner .el-loading-text {
+            font-size: 33px;
+        }
 }
 </style>

@@ -90,48 +90,48 @@ export default {
                 phone_number: '1216654',
                 province: '上海',
                 city: '普陀区',
-                address: '没有地址',
+                address: '南城区',
             }, {
                 customerName: '李四',
                 phone_number: '1216654',
                 province: '上海',
                 city: '普陀区',
-                address: '没有地址',
+                address: '西城区',
 
             }, {
                 customerName: '王五',
                 phone_number: '12166544',
                 province: '上海',
                 city: '普陀区',
-                address: '没有地址',
+                address: '北城区',
 
             }, {
                 customerName: '赵六',
                 phone_number: '1216654',
                 province: '上海',
                 city: '普陀区',
-                address: '没有地址',
+                address: '东城区',
 
             }, {
                 customerName: '周七',
                 phone_number: '1214654',
                 province: '上海',
                 city: '普陀区',
-                address: '没有地址',
+                address: '东北城区',
 
             }, {
                 customerName: '陈八',
                 phone_number: '1214654',
                 province: '上海',
                 city: '普陀区',
-                address: '没有地址',
+                address: '东南城区',
 
             }, {
                 customerName: '何九',
                 phone_number: '1214654',
                 province: '上海',
                 city: '普陀区',
-                address: '没有地址',
+                address: '西北城区',
 
             }],
             rules: {
