@@ -309,7 +309,7 @@
                             flex: 1.45;
                             .el-table {
                                 font-size: 22px;
-                                width: 100%;
+                                width: 99%;
 
                             }
                         }
