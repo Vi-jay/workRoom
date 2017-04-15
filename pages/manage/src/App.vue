@@ -22,10 +22,9 @@
 <style lang="less" rel="stylesheet/less">
         html, body {
                 width: 100%;
-                height:98%;
+                height:100%;
                 overflow: hidden;
         }
-
         #main {
                 width: inherit;
                 height: inherit;
@@ -33,13 +32,15 @@
                         position: absolute;
                         left: 0;
                         width: 19%;
+                        top:80px;
                         padding-top:50px;
                 }
                 .context{
                         width: 80%;
                         height: 90%;
+                        top:70px;
                         position: absolute;
-                        left: 20%;
+                        left: 25%;
                         padding-top: 25px;
                 }
         }

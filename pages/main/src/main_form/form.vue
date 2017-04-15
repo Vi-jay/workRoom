@@ -66,7 +66,7 @@
             </transition>
         </div>
         <!-- 打印机表格 -->
-        <div v-show="showPrint" id="printTable" style="text-align:center;width: 100%;height: 100%">
+        <div v-if="showPrint" id="printTable" style="text-align:center;width: 100%;height: 100%">
             <span >广东省食用农产品批发市场</span>
             <div>
                 <span>(厚街农批市场)</span>
@@ -244,7 +244,7 @@ export default {
                         })
                     }, 0);
                     setTimeout(function() {
-                        location.reload();
+                        window.location.reload();
                     }, 3000)
                 };
             }
@@ -298,7 +298,7 @@ export default {
             }
         }
         .wrapperContainer {
-            height: 503px;
+            height: 636px;
             .firstWrapper {
                 height: 38%;
             }
@@ -355,6 +355,12 @@ export default {
                     zoom: 0.7;
                     cursor: pointer;
                     /*调整缩略图*/
+                    .tool{
+                        padding-top: 100px;
+                    }
+                    .linkman{
+                        display: none;
+                    }
                     #back_btn {
                         display: none;
                     }
@@ -362,14 +368,15 @@ export default {
                         margin: 0 auto;
                     }
                     .customerTable {
-                        flex: 1.45;
+                        flex: 1.8;
+                        padding-left: 25px;
                         .el-table {
                             font-size: 22px;
                             width: 99%;
                         }
                     }
                     .commodityTable {
-                        margin: 0 auto;
+                        margin: 33px auto;
                     }
                     /*调整缩略图*/
                 }
@@ -407,8 +414,9 @@ export default {
         }
     }
     .enlargeForm {
-        height: 643px;
-        border: 5px ridge #cccccc
+        height: 756px;
+        border: 5px ridge #cccccc;
+        overflow: hidden;
     }
     .lazyShow-enter-active,
     .lazyShow-leave-active {

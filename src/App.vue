@@ -1,13 +1,13 @@
 <template>
-    <div id="app" v-loading="loading" element-loading-text="玩命加载中....">
+    <div id="app" >
         <transition name="lazyShow">
-            <iframe src="http://192.168.3.161:7007" width="100%" height="100%" frameborder="0" v-show="main" id="main"></iframe>
+            <iframe src="http://localhost:7007" width="100%" height="100%" frameborder="0" v-if="main" id="main"></iframe>
         </transition>
         <transition name="lazyShow">
-            <iframe src="http://192.168.3.161:7008" width="100%" height="100%" frameborder="0" v-show="manage"></iframe>
+            <iframe src="http://localhost:7008" width="100%" height="100%" frameborder="0" v-if="manage"></iframe>
         </transition>
         <transition name="lazyShow">
-            <iframe src="http://192.168.3.161:7009" width="100%" height="100%" frameborder="0" v-show="report" id="report"></iframe>
+            <iframe src="http://localhost:7009" width="100%" height="100%" frameborder="0" v-if="report" id="report"></iframe>
         </transition>
         <div class="navHand">
         </div>
@@ -22,17 +22,10 @@ export default {
                 main: true,
                 manage: false,
                 report: false,
-                loading:true
             }
         },
         created() {
-            this.$nextTick(function(){
-                var that=this;
-            document.getElementById('main').onload=function(){
-                    setTimeout(function(){
-                        that.loading=false;
-                    },500)
-            }})
+            
 
         },
         components: {
@@ -48,9 +41,6 @@ export default {
                         }
                     }
                 }
-            },
-            showMenu(){
-                alert(123);
             }
         }
 }

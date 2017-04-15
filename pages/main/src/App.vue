@@ -1,13 +1,15 @@
 <template>
-    <div id="main">
+    <div id="main" v-loading="loading" element-loading-text="玩命加载中....">
         <transition name="lazyShow">
-            <mian v-show="openOrder" :sellerForm="sellerForm"></mian>
+            <template v-if="openOrder">
+                <mian :sellerForm="sellerForm"></mian>
+            </template>
         </transition>
-        <div class="messageContainer" id="messageContainer">
+        <div class="messageContainer" v-if="showMessageContainer">
             <el-card :body-style="{ padding: '0px' }">
-                <img src="../static/img/yibiaocheng.jpg" class="image">
+                <img class="blanceScales" ref="blanceScales" width="491" height="312">
                 <div style="padding: 14px;" @click="openOrder = true">
-                    <el-alert title="新的订单"  type="success" description="开启一张新的订单!!!" :closable="false" show-icon>
+                    <el-alert title="新的订单" type="success" description="开启一张新的订单!!!" :closable="false" show-icon>
                     </el-alert>
                     <div class="button">
                         <el-tooltip content="开启一张新的订单!!!" placement="bottom-start">
@@ -18,7 +20,7 @@
             </el-card>
         </div>
         <!-- dialog表单 -->
-        <el-dialog title="填写基本资料" v-model="sellerDialog" class="dialogTool" :close-on-click-modal=false :close-on-press-escape=false :show-close=false>
+        <el-dialog title="填写基本资料" v-model="sellerDialog" v-if="sellerDialog" class="dialogTool" :close-on-click-modal=false :close-on-press-escape=false :show-close=false>
             <el-form v-model="sellerForm">
                 <el-form-item label="商家名称">
                     <el-input placeholder="请输入商家名称" v-model="sellerForm.sellerName"></el-input>
@@ -45,7 +47,6 @@
                 <el-button type="primary" @click="setSellerInfo">确 定</el-button>
             </div>
         </el-dialog>
-
     </div>
 </template>
 <script type="text/ecmascript-6">
@@ -53,8 +54,10 @@ let mian = require('./main_form/form.vue');
 export default {
     data() {
             return {
+                loading: true,
                 openOrder: false,
                 sellerDialog: false,
+                showMessageContainer: false,
                 sellerForm: {
                     sellerName: "测试员",
                     sellerAddress: "速成科技",
@@ -65,18 +68,45 @@ export default {
         },
         created() {
             this.$nextTick(function() {
-                let name = localStorage.sellerName;
-                if (!name) {
-                    this.sellerDialog = true;
-                } else {
-                    var that=this;
-                    setTimeout(function(){
-                    that.$message("欢迎您  :  " + name)
-                    },1000);
-                }
+                this.loadCompent();
             })
         },
         methods: {
+            loadCompent: function() {
+                let timmers = [];
+                let MessageContainerTimer={
+                    fun: () => {
+                        this.showMessageContainer = true;
+                    }, //show  MessageContainer
+                    time: 300
+                }
+                 let LoadingTimer={
+                    fun: () => {
+                        let blanceScales = this.$refs.blanceScales;
+                        blanceScales.setAttribute("src", "../static/img/yibiaocheng.jpg"); //loadding blanceScales
+                        blanceScales.onload = () => {
+                            this.loading = false; //close loading
+                        }
+                    },
+                    time: 600
+                }
+                timmers.push(MessageContainerTimer);
+                timmers.push(LoadingTimer);
+                this.lazyLoad(timmers);     //Batch processing timmers
+                let sellerName = localStorage.sellerName;
+                if (!sellerName) {
+                    this.sellerDialog = true;
+                } else {
+                    setTimeout(() => { //if user is loagin  show welcome!
+                        this.$message("欢迎您  :  " + sellerName)
+                    }, 1000);
+                }
+            },
+            lazyLoad: function(arrary) {
+                arrary.forEach(function(cur) {
+                    setTimeout(cur.fun, cur.time);
+                })
+            },
             setSellerInfo: function() {
                 if (this.sellerForm.sellerName && this.sellerForm.sellerAddress && this.sellerForm.sellerArea && this.sellerForm.sellerPhone) {
                     localStorage.sellerName = this.sellerForm.sellerName;
@@ -98,6 +128,7 @@ body {
     width: 100%;
     height: 100%;
     background: url("../static/img/bg.jpg");
+    overflow: hidden;
     .el-message .el-message__group p {
         font-size: 22px;
     }
@@ -112,6 +143,12 @@ body {
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            .blanceScales {
+                width: 491px;
+                height: 312px;
+                padding: 3px;
+                background: #f0f0f0;
+            }
             .button {
                 text-align: center;
                 margin: 0 auto;
@@ -164,5 +201,4 @@ body {
         display: none;
     }
 }
-
 </style>

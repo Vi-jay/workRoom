@@ -32,11 +32,11 @@ export default {
                                 that.$message("成功获取重量~~");
                                 that.weight =result;
                             }
-                        }).then(function(){
+                        }).catch(function(){
                             that.$message.error("获取重量失败~~");
                         });
                     }
-                }).then(function(){
+                }).catch(function(){
                 that.$message.error("请求无响应,请检查设备~~");
             });
 

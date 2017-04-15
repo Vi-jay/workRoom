@@ -3,7 +3,7 @@
         <slot name="cover"></slot>
         <el-button type="warning" id="back_btn" @click="backhome('secondForm')"><i class="el-icon-d-arrow-left"></i><span style="margin-left:10px">返回</span></el-button>
         <div class="commodityTable">
-            <el-table stripe :data="commodityData" border style="width: 98%" height="325">
+            <el-table stripe :data="commodityData" border style="width: 98%" height="425">
                 <el-table-column label="订单商品条目">
                     <el-table-column fixed prop="variety" label="品种">
                     </el-table-column>
@@ -119,14 +119,14 @@ export default {
         totalMoney() {
             let totalMoney = 0;
             this.commodityData.forEach(function(cur, index, arr) {
-                totalMoney += cur.sumMoney;
+                totalMoney += Number(cur.sumMoney.toFixed(2));
             });
             return totalMoney;
         },
         totalWeight() {
             let totalWeight = 0;
             this.commodityData.forEach(function(cur, index, arr) {
-                totalWeight += cur.weight;
+                totalWeight += Number(cur.weight.toFixed(2));
             });
             return totalWeight;
         }
@@ -181,11 +181,11 @@ export default {
                                                 that.$message("成功获取重量~~");
                                                 that.commodityForm.sumMoney = Number((that.commodityForm.weight * that.commodityForm.unitPrice).toFixed(2));
                                             }
-                                        }).then(function () {
+                                        }).catch(function () {
                                         that.$message.error("获取重量失败~~");
                                     });
                                     }
-                                }).then(function () {
+                                }).catch(function () {
                             that.$message.error("请求无响应,请检查设备~~");
                         });
 

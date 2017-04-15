@@ -27,7 +27,7 @@
                 </div>
                 <div class="customerTable">
                     <!--表单下面显示的表格内容-->
-                    <el-table stripe :data="customerData" border  height="290" @selection-change="handleSelectionChange">
+                    <el-table stripe :data="customerData" border  height="350" @selection-change="handleSelectionChange">
                         <el-table-column type="selection">
                         </el-table-column>
                         <el-table-column  prop="customerName" label="姓名">
