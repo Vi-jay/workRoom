@@ -67,40 +67,48 @@
         </div>
         <!-- 打印机表格 -->
         <div v-if="showPrint" id="printTable" style="text-align:center;width: 100%;height: 100%">
-            <span >广东省食用农产品批发市场</span>
+            <span>广东省食用农产品批发市场</span>
             <div>
                 <span>(厚街农批市场)</span>
             </div>
             <span style="float: right;text-decoration-line:underline; ">编号:{{orderNumber}}</span>
             <div style="clear: both;height:2%"></div>
             <div style="display: flex;justify-content: space-between;flex-wrap: wrap;">
-                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">购买者名称:{{firstForm_Data.customerName}}</div>
-                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">购买者地址:{{firstForm_Data.phone_number}}</div>
-                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">购买者电话:{{firstForm_Data.address}}</div>
-                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">销售日期:{{today}}</div>
+                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">买家名称:</div>
+                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">买家地址:</div>
+                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">{{firstForm_Data.customerName}}</div>
+                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">{{firstForm_Data.address}}</div>
+                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">买家电话:</div>
+                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">购买日期:</div>
+                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">{{firstForm_Data.phone_number}}</div>
+                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">{{today}}</div>
             </div>
             <table class="table">
                 <tr>
                     <th>品种</th>
                     <th>产地</th>
-                    <th>重量(斤)</th>
-                    <th>单价(斤/元)</th>
+                    <th>重量</th>
+                    <th>单价</th>
                     <th>金额</th>
                 </tr>
                 <tr v-for="item in commodityData">
                     <td>{{item.variety}}</td>
                     <td>{{item.origin}}</td>
-                    <td>{{item.weight}}</td>
-                    <td>{{item.unitPrice}}</td>
-                    <td>{{item.sumMoney}}</td>
+                    <td>{{item.weight}}斤</td>
+                    <td>{{item.unitPrice}}斤/元</td>
+                    <td>{{item.sumMoney}}元</td>
                 </tr>
             </table>
             <div style="clear: both;height:2%"></div>
             <div style="display: flex;justify-content: space-between;flex-wrap: wrap;">
-                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">销售者名称:{{sellerForm.sellerName}}</div>
-                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">签名:{{sellerForm.sellerAddress}}</div>
-                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">地址:{{sellerForm.sellerPhone}}</div>
-                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">联系电话:{{sellerForm.sellerArea}}</div>
+                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">卖家名称:</div>
+                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">盖章:</div>
+                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">{{sellerForm.sellerName}}</div>
+                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">假装有章</div>
+                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">地址:</div>
+                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">联系电话:</div>
+                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">{{sellerForm.sellerArea}}</div>
+                <div style="width: 40%;text-align: left;padding:2% 0 0 5% ">{{sellerForm.sellerPhone}}</div>
             </div>
             <span style="font-size: 12px;float: left;margin:3% 5% ">本销售凭证是假的本销售凭证是假的本销售凭证是假的本销售凭证是假的~</span>
         </div>
@@ -218,7 +226,7 @@ export default {
         callOff: function() {
             var flag = confirm("确定取消本次订单？？");
             if (flag) {
-                this.$message("不允许取消~~");
+                window.location.reload();
             };
         },
 
@@ -233,7 +241,6 @@ export default {
             } else {
                 var flag = confirm("提交成功！是否需要打印？");
                 if (flag) {
-                    document.getElementById("messageContainer").style.display = "none";
                     this.$message("打印成功！！(3秒后刷新页面)");
                     this.showPrint = true;
                     var that = this;
@@ -252,10 +259,10 @@ export default {
 
 
     },
-    computed:{
-        today(){
-            let date=new Date();
-            return date.getFullYear()+"/"+ (date.getMonth()+1)+"/"+date.getDate();
+    computed: {
+        today() {
+            let date = new Date();
+            return date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate();
         }
     },
     components: {
@@ -355,10 +362,10 @@ export default {
                     zoom: 0.7;
                     cursor: pointer;
                     /*调整缩略图*/
-                    .tool{
+                    .tool {
                         padding-top: 100px;
                     }
-                    .linkman{
+                    .linkman {
                         display: none;
                     }
                     #back_btn {
@@ -438,15 +445,18 @@ body {
     }
     #printTable {
         font-size: 1px;
-        zoom:0.7;
         .table,
         td,
         th {
             text-align: center;
             border: 1px solid black;
         }
+        td,
+        th {
+            width: 20%;
+        }
         .table {
-            width: 90%;
+            width: 100%;
             margin: 0 auto;
             border-collapse: collapse;
         }

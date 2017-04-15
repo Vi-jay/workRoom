@@ -1,13 +1,13 @@
 <template>
     <div id="app" >
         <transition name="lazyShow">
-            <iframe src="http://localhost:7007" width="100%" height="100%" frameborder="0" v-if="main" id="main"></iframe>
+            <iframe src="http://192.168.3.161:7007" width="100%" height="100%" frameborder="0" v-show="main" id="main"></iframe>
         </transition>
         <transition name="lazyShow">
-            <iframe src="http://localhost:7008" width="100%" height="100%" frameborder="0" v-if="manage"></iframe>
+            <iframe src="http://192.168.3.161:7008" width="100%" height="100%" frameborder="0" v-if="manage"></iframe>
         </transition>
         <transition name="lazyShow">
-            <iframe src="http://localhost:7009" width="100%" height="100%" frameborder="0" v-if="report" id="report"></iframe>
+            <iframe src="http://192.168.3.161:7009" width="100%" height="100%" frameborder="0" v-if="report" id="report"></iframe>
         </transition>
         <div class="navHand">
         </div>

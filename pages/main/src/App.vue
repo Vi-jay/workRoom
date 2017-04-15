@@ -8,7 +8,7 @@
         <div class="messageContainer" v-if="showMessageContainer">
             <el-card :body-style="{ padding: '0px' }">
                 <img class="blanceScales" ref="blanceScales" width="491" height="312">
-                <div style="padding: 14px;" @click="openOrder = true">
+                <div style="padding: 14px;" @click="openOrder = true;showMessageContainer=false">
                     <el-alert title="新的订单" type="success" description="开启一张新的订单!!!" :closable="false" show-icon>
                     </el-alert>
                     <div class="button">
@@ -78,7 +78,7 @@ export default {
                     fun: () => {
                         this.showMessageContainer = true;
                     }, //show  MessageContainer
-                    time: 300
+                    time: 800
                 }
                  let LoadingTimer={
                     fun: () => {
@@ -88,7 +88,7 @@ export default {
                             this.loading = false; //close loading
                         }
                     },
-                    time: 600
+                    time: 1000
                 }
                 timmers.push(MessageContainerTimer);
                 timmers.push(LoadingTimer);
