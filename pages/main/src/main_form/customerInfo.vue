@@ -1,10 +1,13 @@
 <template>
-    <div id="firstForm">
-        <slot name="cover"></slot>
-        <el-button type="warning" id="back_btn" @click="backhome('firstForm')"><i class="el-icon-d-arrow-left"></i><span style="margin-left:10px">返回</span></el-button>
-        <div class="firstFormContainer">
-            <div class="cloum">
-                <div class="searchBar">
+    <div id="customerInfo">
+    <!-- 返回键 -->
+        <el-button type="warning" id="back_btn" @click="backhome('firstForm')">
+        <i class="el-icon-d-arrow-left"></i><span style="margin-left:10px">返回</span>
+        </el-button>
+        <!-- 总容器 -->
+        <div class="content">
+            <div class="left_content">
+                <div class="customer_search_form">
                     <!--查询表单-->
                     <el-form :model="firstForm_Data" :rules="rules" ref="firstForm_Data" label-width="210px" style="margin-left: -70px">
                         <el-form-item label="客户名称">
@@ -26,7 +29,7 @@
                     </el-form>
                 </div>
                 <div class="customerTable">
-                    <!--表单下面显示的表格内容-->
+                    <!--表格内容-->
                     <el-table stripe :data="customerData" border  height="350" @selection-change="handleSelectionChange">
                         <el-table-column type="selection">
                         </el-table-column>
@@ -43,7 +46,7 @@
                     </el-table>
                 </div>
             </div>
-            <div class="tool">
+            <div class="right_content">
                 <el-alert title="小提示:" type="info" :closable="false" description="点击下面的图像按钮可添加新的用户哦~~">
                 </el-alert>
                 <img src="../../static/img/linkman.png" alt="" width="250" height="300" class="linkman" @click="dialogFormVisible = true">
@@ -205,21 +208,16 @@ export default {
 };
 </script>
 <style lang="less" rel="stylesheet/less">
-#firstForm {
+#customerInfo {
     height: inherit;
-
-    th .el-checkbox__inner{
+    th .el-checkbox__inner{ //隐藏table第一栏的checkbox
         display: none;
     }
-    #back_btn {
+    #back_btn {  //返回键
         margin: 0 1px;
         position: absolute;
     }
-    .el-form-item__label {
-        font-size: 26px;
-        text-align: center;
-        padding: 12px 0 0 50px;
-    }
+    //更改UI框架样式
     .el-button {
         margin-top: 28px;
         span {
@@ -240,27 +238,26 @@ export default {
             font-size: 24px;
         }
     }
-    .firstFormContainer {
+    //更改UI框架样式
+    //内容
+    .content {
         height: inherit;
         display: flex;
-        .cloum {
+        .left_content {  //左边的格子
             display: flex;
             flex: 3;
             height: 100%;
             justify-content: space-between;
             flex-direction: column;
             padding: 2% 0 -2% 0;
-            .searchBar,
+            .customer_search_form,
             .customerTable {
                 box-sizing: border-box;
                 padding:0 10px;
                 overflow: hidden;
 
             }
-                .container{
-                    font-size: 25px;
-                }
-            .searchBar {
+            .customer_search_form {
                 flex: 1;
                 margin-top: 55px;
                 .el-button {
@@ -272,8 +269,8 @@ export default {
             }
             .customerTable {
                 flex: 1;
-                .el-table {
-                    width: 710px;
+                .el-table { //下面的table
+                    width: 99%;
                     font-size: 17px;
                     .el-checkbox__inner{
                         width: 25px;
@@ -282,7 +279,7 @@ export default {
                 }
             }
         }
-        .tool {
+        .right_content {
             flex: 1;
             height: 100%;
             display: block;
@@ -313,11 +310,6 @@ export default {
     }
     .dialog_search{
         margin-left: 154px;
-        .container{
-            margin-left: 30px;
-            font-size: 25px;
-
-        }
     }
     }
 }

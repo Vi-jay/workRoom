@@ -3,65 +3,69 @@
         <div id="form" v-show="!showPrint">
             <transition name="lazyShow">
                 <div v-show="view.mainView">
+                    <!-- 秤重仪 -->
                     <calculator></calculator>
-                    <div class="content">
-                        <div class="serial_number">
-                            <div class="right_tag"><span>日期</span>：{{orderDate}}</div>
-                            <div class="right_tag"><span>订单编号</span>：{{orderNumber}}</div>
-                            <div class="clear">
-                            </div>
+                    <!-- 秤重仪 -->
+                    <!-- 日期&编号 -->
+                    <div class="serial_number">
+                        <div class="right_tag"><span>日期</span>：{{orderDate}}</div>
+                        <div class="right_tag"><span>订单编号</span>：{{orderNumber}}</div>
+                        <div class="clear">
                         </div>
-                        <div class="wrapperContainer">
-                            <div class="firstWrapper" @click.capture="changeView($event,'firstForm',0)">
-                                <div class="form_lable">
-                                    购买者信息
-                                </div>
-                                <form_first class="shrinkForm hideTool" :firstForm_Data="firstForm_Data" :class="{ shrinkForm_blur: cover[0].firstForm }">
-                                    <div :class="{ 'form_cover':cover[0].firstForm }" slot="cover"></div>
-                                </form_first>
+                    </div>
+                    <!-- 日期&编号 -->
+                    <!-- 列表内容 -->
+                    <div class="list_content">
+                        <div class="customer_info" @click.capture="changeView($event,'firstForm',0)">
+                            <div class="content_lable">
+                                购买者信息
                             </div>
-                            <div class="secondWrapper" @click.capture="changeView($event,'secondForm',1)">
-                                <div class="form_lable">
-                                    商品添加
-                                </div>
-                                <form_second class="shrinkForm " :commodityData="commodityData" :class="{ shrinkForm_blur: cover[1].secondForm }">
-                                    <div :class="{ 'form_cover':cover[1].secondForm }" slot="cover"></div>
-                                </form_second>
+                            <customerInfo class="inner_content" :firstForm_Data="firstForm_Data" :class="{ inner_content_blur: cover[0].firstForm }">
+                                <div :class="{ 'form_cover':cover[0].firstForm }" slot="cover"></div>
+                            </customerInfo>
+                        </div>
+                        <div class="commodity_info" @click.capture="changeView($event,'secondForm',1)">
+                            <div class="content_lable">
+                                商品列表
                             </div>
-                            <div class="footer">
-                                <div class="form_lable">
-                                    结算
+                            <commodityInfo class="inner_content " :commodityData="commodityData" :class="{ inner_content_blur: cover[1].secondForm }">
+                                <div :class="{ 'form_cover':cover[1].secondForm }" slot="cover"></div>
+                            </commodityInfo>
+                        </div>
+                        <div class="footer_info">
+                            <div class="content_lable">
+                                订单结算
+                            </div>
+                            <div class="footer_container">
+                                <div class="step_container">
+                                    <el-steps :center=true :active="active" finish-status="success">
+                                        <el-step title="购买者信息"></el-step>
+                                        <el-step title="填写商品信息"></el-step>
+                                        <el-step title="完成"></el-step>
+                                    </el-steps>
+                                    <div class="seal"></div>
                                 </div>
-                                <div class="footer_content">
-                                    <div class="step_container">
-                                        <el-steps :center=true :active="active" finish-status="success">
-                                            <el-step title="购买者信息"></el-step>
-                                            <el-step title="填写商品信息"></el-step>
-                                            <el-step title="完成"></el-step>
-                                        </el-steps>
-                                        <div class="seal"></div>
-                                    </div>
-                                    <div class="success_btn">
-                                        <a @click="submit">
-                                            <el-button type="primary" v-bind:disabled="active !== 3" size="large">提交订单
-                                            </el-button>
-                                        </a>
-                                        <el-button size="large" @click="callOff">取消订单</el-button>
-                                    </div>
+                                <div class="success_btn">
+                                    <a @click="submit">
+                                        <el-button type="primary" v-bind:disabled="active !== 3" size="large">提交订单
+                                        </el-button>
+                                    </a>
+                                    <el-button size="large" @click="callOff">取消订单</el-button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- 列表内容 -->
                 </div>
             </transition>
             <transition name="lazyShow">
                 <div v-show="view.firstForm" class="enlargeForm">
-                    <form_first @back="backView" @complete="nextStep" :firstForm_Data="firstForm_Data"></form_first>
+                    <customerInfo @back="backView" @complete="nextStep" :firstForm_Data="firstForm_Data"></customerInfo>
                 </div>
             </transition>
             <transition name="lazyShow">
                 <div v-show="view.secondForm" class="enlargeForm">
-                    <form_second @back="backView" @complete="nextStep" :commodityData="commodityData"></form_second>
+                    <commodityInfo @back="backView" @complete="nextStep" :commodityData="commodityData"></commodityInfo>
                 </div>
             </transition>
         </div>
@@ -69,7 +73,7 @@
         <div v-if="showPrint" id="printTable" style="text-align:center;width: 100%;height: 100%">
             <span>广东省食用农产品批发市场</span>
             <div>
-                <span>(厚街农批市场)</span>
+                <span>(富民农批市场)</span>
             </div>
             <span style="float: right;text-decoration-line:underline; ">编号:{{orderNumber}}</span>
             <div style="clear: both;height:2%"></div>
@@ -117,8 +121,8 @@
 </template>
 <script type="text/ecmascript-6">
 let calculator = require('../compoents/calculator/calculator.vue'),
-    form_first = require('./form_first.vue'),
-    form_second = require('./form_second.vue');
+    customerInfo = require('./customerInfo.vue'),
+    commodityInfo = require('./commodityInfo.vue');
 export default {
     props: {
         sellerForm: Object
@@ -267,164 +271,160 @@ export default {
     },
     components: {
         calculator: calculator,
-        form_first: form_first,
-        form_second: form_second,
+        customerInfo: customerInfo,
+        commodityInfo: commodityInfo,
     },
 };
 </script>
 <style lang="less" rel="stylesheet/less">
 #form {
-    .content {
+    .serial_number {
+        //编号&时间
         padding: 0 1%;
-        .serial_number {
-            margin: 90px 0 0 0;
-            border-bottom: 3px dashed #6A2727;
-            .right_tag {
-                font-size: 20px;
-                background-color: #8391a5;
-                padding: 0 5px;
-                height: 35px;
-                line-height: 32px;
-                color: #fff;
-                border-radius: 4px;
-                box-sizing: border-box;
-                border: 1px solid transparent;
-                white-space: nowrap;
-                display: inline-block;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                cursor: default;
-                margin: 0 20px 8px 0;
-                float: right;
-                & span {
-                    color: darken(#f20d59, 10%);
-                }
-            }
-            .clear {
-                clear: right;
+        margin: 90px 0 0 0;
+        border-bottom: 3px dashed #6A2727;
+        .right_tag {
+            font-size: 20px;
+            background-color: #8391a5;
+            padding: 0 5px;
+            height: 35px;
+            line-height: 32px;
+            color: #fff;
+            border-radius: 4px;
+            box-sizing: border-box;
+            border: 1px solid transparent;
+            white-space: nowrap;
+            display: inline-block;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            cursor: default;
+            margin: 0 20px 8px 0;
+            float: right;
+            & span {
+                color: darken(#f20d59, 10%);
             }
         }
-        .wrapperContainer {
-            height: 636px;
-            .firstWrapper {
-                height: 38%;
+        .clear {
+            clear: right;
+        }
+    }
+    .list_content {
+        //列表信息开始
+        height: 636px;
+        .customer_info {
+            height: 38%;
+        }
+        .commodity_info {
+            height: 40%;
+        }
+        .footer_info {
+            height: 120px;
+            box-sizing: content-box;
+        }
+        .customer_info,
+        .commodity_info, //公共信息
+        .footer_info {
+            display: flex;
+            overflow: hidden;
+            border-bottom: 5px ridge #D4C8CC;
+            .content_lable {
+                //列表左侧的lable
+                font-size: 20px;
+                width: 20px;
+                line-height: 24px;
+                flex: 1;
+                letter-spacing: 2px;
+                text-align: center;
+                writing-mode: tb-rl;
+                cursor: default;
+                padding-right: 11px;
+                border-right: 3.5px solid #815C5C;
             }
-            .secondWrapper {
-                height: 40%;
+            .form_cover {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background: rgba(190, 190, 190, 0.7);
+                z-index: 300;
+                cursor: not-allowed;
             }
-            .footer {
-                height: 25%;
+            .inner_content {
+                //三个格子中的内容
+                position: relative;
+                flex: 90;
+                height: 100%;
+                padding: 6px 0 0;
+                zoom: 0.7;
+                cursor: pointer;
+                /*调整缩略图*/
+                .tool {
+                    padding-top: 100px;
+                }
+                .linkman {
+                    display: none;
+                }
+                #back_btn {
+                    display: none;
+                }
+                .searchBar {
+                    margin: 0 auto;
+                }
+                .customerTable {
+                    flex: 1.8;
+                    padding-left: 25px;
+                    .el-table {
+                        font-size: 22px;
+                        width: 99%;
+                    }
+                }
+                .commodityTable {
+                    margin: 33px auto;
+                }
+                /*调整缩略图*/
             }
-            .firstWrapper,
-            .secondWrapper,
-            .footer {
-                display: flex;
-                overflow: hidden;
-                &:nth-child(3n+1) {
-                    border-bottom: 5px ridge #D4C8CC;
-                }
-                &:nth-child(3n+2) {
-                    border-bottom: 5px ridge #D7D5E7;
-                }
-                &:nth-child(3n+3) {
-                    border-bottom: 5px ridge #cccccc;
-                }
-                .form_lable {
-                    font-size: 20px;
-                    width: 20px;
-                    line-height: 24px;
-                    flex: 1;
-                    letter-spacing: 2px;
-                    text-align: center;
-                    writing-mode: tb-rl;
-                    user-select: none;
-                    cursor: default;
-                    padding-right: 11px;
-                    border-right: 3.5px solid #815C5C;
-                }
-                .form_cover {
-                    width: 100%;
-                    height: 100%;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    bottom: 0;
-                    right: 0;
-                    background: rgba(190, 190, 190, 0.7);
-                    z-index: 300;
-                    cursor: not-allowed;
-                }
-                .shrinkForm {
+            .inner_content_blur {
+                //不可点击时模糊阴影（由于模糊是作用在元素上的 所以要给需要模糊的元素添加）
+                filter: blur(2px);
+            }
+            .footer_container {
+                //footer中右边的内容
+                flex: 90;
+                .step_container {
                     position: relative;
-                    flex: 90;
-                    height: 100%;
-                    padding: 6px 0 0;
-                    zoom: 0.7;
-                    cursor: pointer;
-                    /*调整缩略图*/
-                    .tool {
-                        padding-top: 100px;
-                    }
-                    .linkman {
-                        display: none;
-                    }
-                    #back_btn {
-                        display: none;
-                    }
-                    .searchBar {
-                        margin: 0 auto;
-                    }
-                    .customerTable {
-                        flex: 1.8;
-                        padding-left: 25px;
-                        .el-table {
-                            font-size: 22px;
-                            width: 99%;
-                        }
-                    }
-                    .commodityTable {
-                        margin: 33px auto;
-                    }
-                    /*调整缩略图*/
-                }
-                .shrinkForm_blur {
-                    filter: blur(2px);
-                }
-                .footer_content {
-                    flex: 90;
-                    .step_container {
-                        position: relative;
-                        padding: 16px 60px 3px;
-                        .seal {
-                            width: 185px;
-                            height: 194px;
-                            border-radius: 50%;
-                            background: url('../../static/img/seal.png') no-repeat;
-                            background-size: 500px 500px;
-                            background-position: -45px 0;
-                            position: absolute;
-                            top: 0;
-                            right: 300px;
-                            zoom: 0.55;
-                        }
-                    }
-                    .success_btn {
-                        padding-left: 50%;
-                        margin-left: -100px;
+                    padding: 16px 60px 3px;
+                    .seal {
+                        //盖章的图片
+                        width: 185px;
+                        height: 194px;
+                        border-radius: 50%;
+                        background: url('../../static/img/seal.png') no-repeat;
+                        background-size: 500px 500px;
+                        background-position: -45px 0;
+                        position: absolute;
+                        top: 0;
+                        right: 300px;
+                        zoom: 0.55;
                     }
                 }
-            }
-            .footer {
-                height: 120px;
-                box-sizing: content-box;
+                .success_btn {
+                    //按钮
+                    padding-left: 50%;
+                    margin-left: -100px;
+                }
             }
         }
     }
+    //列表信息缩略图结束
     .enlargeForm {
         height: 756px;
         border: 5px ridge #cccccc;
         overflow: hidden;
     }
+    //旋转显示效果
     .lazyShow-enter-active,
     .lazyShow-leave-active {
         transition: opacity .5s linear, transform .3s ease-in-out;
@@ -438,28 +438,5 @@ export default {
     }
 }
 
-body {
-    .el-scrollbar .el-select-dropdown__item {
-        font-size: 18px;
-        text-align: center;
-    }
-    #printTable {
-        font-size: 1px;
-        .table,
-        td,
-        th {
-            text-align: center;
-            border: 1px solid black;
-        }
-        td,
-        th {
-            width: 20%;
-        }
-        .table {
-            width: 100%;
-            margin: 0 auto;
-            border-collapse: collapse;
-        }
-    }
-}
+
 </style>

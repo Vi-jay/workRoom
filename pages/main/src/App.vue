@@ -2,7 +2,7 @@
     <div id="main" v-loading="loading" element-loading-text="玩命加载中....">
         <transition name="lazyShow">
             <template v-if="openOrder">
-                <mian :sellerForm="sellerForm"></mian>
+                <homePage :sellerForm="sellerForm"></homePage>
             </template>
         </transition>
         <div class="messageContainer" v-if="showMessageContainer">
@@ -50,7 +50,7 @@
     </div>
 </template>
 <script type="text/ecmascript-6">
-let mian = require('./main_form/form.vue');
+let homePage = require('./main_form/homePage.vue');
 export default {
     data() {
             return {
@@ -62,7 +62,7 @@ export default {
                     sellerName: "测试员",
                     sellerAddress: "速成科技",
                     sellerPhone: "123165465",
-                    sellerArea: "中央政府",
+                    sellerArea: "枪支",
                 }
             }
         },
@@ -74,13 +74,13 @@ export default {
         methods: {
             loadCompent: function() {
                 let timmers = [];
-                let MessageContainerTimer={
+                let MessageContainerTimer = {
                     fun: () => {
                         this.showMessageContainer = true;
                     }, //show  MessageContainer
                     time: 800
                 }
-                 let LoadingTimer={
+                let LoadingTimer = {
                     fun: () => {
                         let blanceScales = this.$refs.blanceScales;
                         blanceScales.setAttribute("src", "../static/img/yibiaocheng.jpg"); //loadding blanceScales
@@ -92,7 +92,7 @@ export default {
                 }
                 timmers.push(MessageContainerTimer);
                 timmers.push(LoadingTimer);
-                this.lazyLoad(timmers);     //Batch processing timmers
+                this.lazyLoad(timmers); //Batch processing timmers
                 let sellerName = localStorage.sellerName;
                 if (!sellerName) {
                     this.sellerDialog = true;
@@ -118,7 +118,7 @@ export default {
 
         },
         components: {
-            mian: mian
+            homePage: homePage
         }
 }
 </script>
@@ -129,76 +129,127 @@ body {
     height: 100%;
     background: url("../static/img/bg.jpg");
     overflow: hidden;
+    user-select: none;
+    /*重写一些element框架插件的字体大小*/
     .el-message .el-message__group p {
         font-size: 22px;
     }
-    #main {
+    .el-scrollbar .el-select-dropdown__item {
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 3px;
+        text-align: center;
+    }
+    .el-alert__content {
+        .el-alert__title,
+        .el-alert__description,
+        .el-alert__icon {
+            font-size: 24px;
+        }
+    }
+    .el-dialog__title {
+        font-size: 25px;
+    }
+    .el-form-item__label {
+        font-size: 26px;
+        text-align: center;
+        padding: 12px 0 0 50px;
+    }
+    /*重写一些element框架插件的字体大小*/
+    /*打印机页面样式*/
+    #printTable {
+        font-size: 1px;
+        .table,
+        td,
+        th {
+            text-align: center;
+            border: 1px solid black;
+        }
+        td,
+        th {
+            width: 20%;
+        }
+        .table {
+            width: 100%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+    }
+    /*打印机*/
+}
+
+#main {
+    width: inherit;
+    height: inherit;
+    overflow: hidden;
+    .messageContainer {
+        display: flex;
         width: inherit;
         height: inherit;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        .blanceScales {
+            width: 491px;
+            height: 312px;
+            padding: 3px;
+            background: #f0f0f0;
+        }
+        .button {
+            text-align: center;
+            margin: 0 auto;
+            font-size: 25px;
+        }
+        .el-button--large {
+            font-size: 50px;
+        }
+        .el-alert .el-alert__description {
+            font-size: 25px;
+        }
+    }
+    /*弹层样式*/
+    .dialogTool {
         overflow: hidden;
-        .messageContainer {
-            display: flex;
-            width: inherit;
-            height: inherit;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            .blanceScales {
-                width: 491px;
-                height: 312px;
-                padding: 3px;
-                background: #f0f0f0;
-            }
-            .button {
-                text-align: center;
-                margin: 0 auto;
-                font-size: 25px;
-            }
-            .el-button--large {
-                font-size: 50px;
-            }
-            .el-alert .el-alert__description {
+        .el-form-item__label {
+            font-size: 25px;
+        }
+        .el-input {
+            width: 230px;
+            max-width: 230px;
+            margin-left: 30px;
+        }
+        .el-input__inner {
+            height: 50px;
+            width: 230px;
+            max-width: 230px;
+            font-size: 26px;
+        }
+        .dialog_search {
+            margin-left: 154px;
+            .container {
+                margin-left: 30px;
                 font-size: 25px;
             }
         }
-        .dialogTool {
-            overflow: hidden;
-            .el-form-item__label {
-                font-size: 25px;
-            }
-            .el-input {
-                width: 230px;
-                max-width: 230px;
-                margin-left: 30px;
-            }
-            .el-input__inner {
-                height: 50px;
-                width: 230px;
-                max-width: 230px;
-                font-size: 26px;
-            }
-            .dialog_search {
-                margin-left: 154px;
-                .container {
-                    margin-left: 30px;
-                    font-size: 25px;
-                }
-            }
-            .el-switch {
-                margin-left: 30px;
-            }
+        .el-switch {
+            margin-left: 30px;
         }
     }
-    .lazyShow-enter-active,
-    .lazyShow-leave-active {
-        transition: opacity .5s linear, transform .5s ease-in-out;
-    }
-    .lazyShow-enter {
-        opacity: 0.3;
-        transform: translate(-100%, 0);
-    }
-    .lazyShow-leave-active {
-        display: none;
-    }
+    /*弹层样式*/
+    
+}
+
+.lazyShow-enter-active,
+.lazyShow-leave-active {
+    transition: opacity .5s linear, transform .5s ease-in-out;
+}
+
+.lazyShow-enter {
+    opacity: 0.3;
+    transform: translate(-100%, 0);
+}
+
+.lazyShow-leave-active {
+    display: none;
 }
 </style>

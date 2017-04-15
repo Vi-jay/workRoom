@@ -1,8 +1,12 @@
 <template>
-    <div id="secondForm">
-        <slot name="cover"></slot>
-        <el-button type="warning" id="back_btn" @click="backhome('secondForm')"><i class="el-icon-d-arrow-left"></i><span style="margin-left:10px">返回</span></el-button>
-        <div class="commodityTable">
+    <div id="commodityInfo">
+        <!-- 返回键 -->
+        <el-button type="warning" id="back_btn" @click="backhome('secondForm')">
+            <i class="el-icon-d-arrow-left"></i><span style="margin-left:10px">返回</span>
+        </el-button>
+        <!-- 返回键 -->
+        <div class="commodityContent">
+            <!-- 商品清单 -->
             <el-table stripe :data="commodityData" border style="width: 98%" height="425">
                 <el-table-column label="订单商品条目">
                     <el-table-column fixed prop="variety" label="品种">
@@ -26,17 +30,19 @@
                     </el-table-column>
                 </el-table-column>
             </el-table>
-            <div class="tool">
+            <!-- 下面的金额和+号 -->
+            <div class="footerInfo">
                 <span class="totalMoney">总金额:
                 <span >{{totalMoney}}</span>元
                 </span>
                 <span class="totalWeight">总重量:<span >{{totalWeight}}</span> 斤
                 </span>
                 <el-tooltip class="item" effect="dark" content="添加新商品" placement="left-start">
-                    <img src="../../static/img/addKey.jpg" class="addKey" @click="dialogFormVisible=true" alt="" width="60" height="60">
+                    <img src="../../static/img/addkey.jpg" class="addIcon" @click="dialogFormVisible=true" alt="" width="60" height="60">
                 </el-tooltip>
             </div>
-            <div class="btn">
+            <!-- 下面的按钮 -->
+            <div class="footer_button">
                 <el-button type="info" @click="dialogFormVisible=true">添加商品</el-button>
                 <el-button type="success" size="large" @click="nextStep('secondForm')" v-bind:disabled="commodityData.length === 0">确认提交
                 </el-button>
@@ -46,7 +52,7 @@
             </el-alert>
         </div>
         <!-- dialog填写表单 -->
-        <el-dialog title="添加商品" v-model="dialogFormVisible" class="dialogTool">
+        <el-dialog title="添加商品" v-model="dialogFormVisible" class="adding_goods">
             <el-form :model="commodityForm" v-loading="loading" element-loading-text="拼命加载中....">
                 <el-form-item label="商品名称">
                     <el-input v-model="commodityForm.variety"></el-input>
@@ -83,7 +89,7 @@
             </div>
         </el-dialog>
         <!-- dialog提示表单 -->
-        <el-dialog v-model="dialogTip" class="dialogTool" style="z-index: 2012" :close-on-click-modal=false :close-on-press-escape=false :show-close=false>
+        <el-dialog v-model="dialogTip" class="goods" style="z-index: 2012" :close-on-click-modal=false :close-on-press-escape=false :show-close=false>
             <el-alert title="提示" type="info" description="请将商品放置仪表秤上,点击'开始称重'按钮,并等待系统获取到准确数值(约2~3秒)~~">
             </el-alert>
             <div slot="footer" class="dialog-footer">
@@ -149,17 +155,19 @@ export default {
         },
         clearAll() {
             this.commodityData.splice(0, this.commodityData.length);
-        },extendCopy(obj){
+        },
+        extendCopy(obj) {
             let c = {};
             for (let i in obj) {
                 c[i] = obj[i];
             }
             return c;
-        },clearObjAttr(obj){
+        },
+        clearObjAttr(obj) {
             for (let i in obj) {
-                 obj[i]=null;
+                obj[i] = null;
             }
-            obj.serialNumber=parseInt(Math.random() * 1234123);
+            obj.serialNumber = parseInt(Math.random() * 1234123);
         },
         /*称重*/
         getWeight() {
@@ -169,50 +177,48 @@ export default {
             });
             var that = this;
             setTimeout(function() {
-                        that.loading = false;
-                        that.$http.get("http://localhost:80/SendCMD?idx=1&CMD=R")
-                        .then(function(response) {
+                that.loading = false;
+                that.$http.get("http://localhost:80/SendCMD?idx=1&CMD=R")
+                    .then(function(response) {
+                        if (response.data.success) {
+                            that.$http.get("http://localhost:80/GetBuffer?idx=1").then(function(response) {
                                 if (response.data.success) {
-                                    that.$http.get("http://localhost:80/GetBuffer?idx=1").then(function(response) {
-                                            if (response.data.success) {
-                                                let re=/^wn([^kg]*)kg/g;
-                                                let result=parseFloat(re.exec(response.data.buffer)[1])*2;
-                                                that.commodityForm.weight = result;
-                                                that.$message("成功获取重量~~");
-                                                that.commodityForm.sumMoney = Number((that.commodityForm.weight * that.commodityForm.unitPrice).toFixed(2));
-                                            }
-                                        }).catch(function () {
-                                        that.$message.error("获取重量失败~~");
-                                    });
-                                    }
-                                }).catch(function () {
-                            that.$message.error("请求无响应,请检查设备~~");
-                        });
+                                    let re = /^wn([^kg]*)kg/g;
+                                    let result = parseFloat(re.exec(response.data.buffer)[1]) * 2;
+                                    that.commodityForm.weight = result;
+                                    that.$message("成功获取重量~~");
+                                    that.commodityForm.sumMoney = Number((that.commodityForm.weight * that.commodityForm.unitPrice).toFixed(2));
+                                }
+                            }).catch(function() {
+                                that.$message.error("获取重量失败~~");
+                            });
+                        }
+                    }).catch(function() {
+                        that.$message.error("请求无响应,请检查设备~~");
+                    });
 
-                        }, 500);
-
-
-                },
-                getMoney() {
-                    this.$message('以自动获取金额 如果未获取再点击此按钮');
-                },
-                nextStep(formName) {
-                    if (this.commodityData.length > 0) {
-                        this.$emit('complete', formName, "commodityData", this.commodityData);
-                    } else {
-                        this.$message({
-                            showClose: true,
-                            message: '请至少添加一条商品信息!!',
-                            type: 'warning'
-                        });
-                    }
-                }
+            }, 500);
         },
-        components: {}
-    };
+        getMoney() {
+            this.$message('以自动获取金额 如果未获取再点击此按钮');
+        },
+        nextStep(formName) {
+            if (this.commodityData.length > 0) {
+                this.$emit('complete', formName, "commodityData", this.commodityData);
+            } else {
+                this.$message({
+                    showClose: true,
+                    message: '请至少添加一条商品信息!!',
+                    type: 'warning'
+                });
+            }
+        }
+    },
+    components: {}
+};
 </script>
 <style lang="less" rel="stylesheet/less">
-#secondForm {
+#commodityInfo {
     height: inherit;
     #back_btn {
         margin: 0 1px;
@@ -221,17 +227,6 @@ export default {
             font-size: 30px;
         }
     }
-    .el-alert__content {
-        .el-alert__title,
-        .el-alert__description,
-        .el-alert__icon {
-            font-size: 24px;
-        }
-    }
-    .el-table__header th .cell:first-child {
-        padding: 1%;
-        text-align: center;
-    }
     .el-alert {
         width: 50%;
         margin: 12px auto;
@@ -239,7 +234,8 @@ export default {
             font-size: 30px;
         }
     }
-    .commodityTable {
+    //正文
+    .commodityContent {
         margin-top: 30px;
         width: 100%;
         padding: 0 10px;
@@ -250,7 +246,13 @@ export default {
                 font-size: 24px;
             }
         }
-        .tool {
+        //第一行标题栏
+        .el-table__header th .cell:first-child {
+            padding: 1%;
+            text-align: center;
+        }
+        //下面的金额 数量等信息
+        .footerInfo {
             position: relative;
             vertical-align: middle;
             top: 0;
@@ -269,7 +271,7 @@ export default {
                     color: red;
                 }
             }
-            .addKey {
+            .addIcon {
                 float: right;
                 margin-right: 60px;
                 border-radius: 50%;
@@ -279,7 +281,7 @@ export default {
                 }
             }
         }
-        .btn {
+        .footer_button {
             display: flex;
             justify-content: center;
             padding: 10px;
@@ -288,7 +290,7 @@ export default {
             }
         }
     }
-    .dialogTool {
+    .adding_goods {
         overflow: hidden;
         margin-top: -100px;
         .el-form-item__label {
@@ -329,13 +331,13 @@ export default {
             font-size: 23px;
             position: absolute;
             top: 3px;
-            left: 140px;
+            left: 180px;
             color: darkred;
             background: #cccccc;
             padding: 3px;
             border-radius: 5px;
         }
-        .el-alert{
+        .el-alert {
             width: auto;
         }
         .getMoney,
