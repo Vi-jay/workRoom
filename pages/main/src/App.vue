@@ -62,7 +62,7 @@ export default {
                     sellerName: "测试员",
                     sellerAddress: "速成科技",
                     sellerPhone: "123165465",
-                    sellerArea: "枪支",
+                    sellerArea: "后街",
                 }
             }
         },
@@ -140,12 +140,28 @@ body {
         letter-spacing: 3px;
         text-align: center;
     }
+    .el-message-box{
+        .el-message-box__header .el-message-box__title{
+            font-size: 20px;
+        }
+    .el-message-box__content{
+        font-size: 24px;
+    }
+    .el-button{
+        font-size: 20px;
+
+    }
+    }
     .el-alert__content {
         .el-alert__title,
         .el-alert__description,
         .el-alert__icon {
             font-size: 24px;
         }
+    }
+    .el-autocomplete-suggestion li{
+        font-size: 22px;
+        text-align: center;
     }
     .el-dialog__title {
         font-size: 25px;
@@ -154,6 +170,16 @@ body {
         font-size: 26px;
         text-align: center;
         padding: 12px 0 0 50px;
+    }
+    .el-cascader-menu{
+        padding:0;
+    .el-cascader-menu__item{
+        font-size: 18px;
+        height: auto;
+    }}
+    .el-cascader__label{
+        line-height: 42px;
+        font-size: 25px;
     }
     /*重写一些element框架插件的字体大小*/
     /*打印机页面样式*/
