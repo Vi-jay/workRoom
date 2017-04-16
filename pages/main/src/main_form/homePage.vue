@@ -63,7 +63,7 @@
                                 <div class="inner_content" :class="{ 'cover':cover[1].secondForm }">
                                     <div class="inner_content_commodityInfo">
 
-                                        <el-table stripe :data="commodityData" border style="width: 99%" height="300">
+                                        <el-table stripe :data="commodityData" border style="width: 99%;margin-bottom: 15px" height="300">
                                             <el-table-column label="订单商品条目">
                                                 <el-table-column fixed prop="variety" label="品种">
                                                 </el-table-column>
