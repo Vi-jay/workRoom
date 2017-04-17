@@ -1,9 +1,7 @@
 <template>
     <div id="main" v-loading="loading" element-loading-text="玩命加载中....">
         <transition name="lazyShow">
-            <template v-if="openOrder">
-                <homePage :sellerForm="sellerForm"></homePage>
-            </template>
+                <homePage v-show="openOrder" :sellerForm="sellerForm"></homePage>
         </transition>
         <div class="messageContainer" v-if="showMessageContainer">
             <el-card :body-style="{ padding: '0px' }">
@@ -86,6 +84,15 @@ export default {
                         blanceScales.setAttribute("src", "../static/img/yibiaocheng.jpg"); //loadding blanceScales
                         blanceScales.onload = () => {
                             this.loading = false; //close loading
+                            let sellerName = localStorage.sellerName;
+                            if (!sellerName) {
+                                this.sellerDialog = true;
+                            } else {
+                                setTimeout(() => { //if user is loagin  show welcome!
+                                    this.$message("欢迎您  :  " + sellerName);
+                                    delete localStorage.sellerName;
+                                }, 1000);
+                            }
                         }
                     },
                     time: 1000
@@ -93,14 +100,7 @@ export default {
                 timmers.push(MessageContainerTimer);
                 timmers.push(LoadingTimer);
                 this.lazyLoad(timmers); //Batch processing timmers
-                let sellerName = localStorage.sellerName;
-                if (!sellerName) {
-                    this.sellerDialog = true;
-                } else {
-                    setTimeout(() => { //if user is loagin  show welcome!
-                        this.$message("欢迎您  :  " + sellerName)
-                    }, 1000);
-                }
+
             },
             lazyLoad: function(arrary) {
                 arrary.forEach(function(cur) {
@@ -111,6 +111,9 @@ export default {
                 if (this.sellerForm.sellerName && this.sellerForm.sellerAddress && this.sellerForm.sellerArea && this.sellerForm.sellerPhone) {
                     localStorage.sellerName = this.sellerForm.sellerName;
                     this.sellerDialog = false;
+                    setTimeout(() => { //if user is loagin  show welcome!
+                        this.$message("欢迎您  :  " + localStorage.sellerName);
+                    }, 0);
                 } else {
                     this.$message.error('请填写完整的信息');
                 }
@@ -140,17 +143,16 @@ body {
         letter-spacing: 3px;
         text-align: center;
     }
-    .el-message-box{
-        .el-message-box__header .el-message-box__title{
+    .el-message-box {
+        .el-message-box__header .el-message-box__title {
             font-size: 20px;
         }
-    .el-message-box__content{
-        font-size: 24px;
-    }
-    .el-button{
-        font-size: 20px;
-
-    }
+        .el-message-box__content {
+            font-size: 24px;
+        }
+        .el-button {
+            font-size: 20px;
+        }
     }
     .el-alert__content {
         .el-alert__title,
@@ -159,7 +161,7 @@ body {
             font-size: 24px;
         }
     }
-    .el-autocomplete-suggestion li{
+    .el-autocomplete-suggestion li {
         font-size: 22px;
         text-align: center;
     }
@@ -171,13 +173,14 @@ body {
         text-align: center;
         padding: 12px 0 0 50px;
     }
-    .el-cascader-menu{
-        padding:0;
-    .el-cascader-menu__item{
-        font-size: 18px;
-        height: auto;
-    }}
-    .el-cascader__label{
+    .el-cascader-menu {
+        padding: 0;
+        .el-cascader-menu__item {
+            font-size: 18px;
+            height: auto;
+        }
+    }
+    .el-cascader__label {
         line-height: 42px;
         font-size: 25px;
     }
@@ -262,17 +265,15 @@ body {
         }
     }
     /*弹层样式*/
-    
 }
 
 .lazyShow-enter-active,
 .lazyShow-leave-active {
-    transition: opacity .5s linear, transform .5s ease-in-out;
+    transition: transform .3s ease-in-out;
 }
 
 .lazyShow-enter {
-    opacity: 0.3;
-    transform: translate(-100%, 0);
+    transform: scale3d(0.3,0.3,0);
 }
 
 .lazyShow-leave-active {
