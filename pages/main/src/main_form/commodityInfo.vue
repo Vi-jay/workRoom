@@ -875,6 +875,7 @@
                     border-color: transparent;
                     margin: 0;
                     padding: 0;
+                    height: 52px;
                     font-size: 23px;
                 }
             }
