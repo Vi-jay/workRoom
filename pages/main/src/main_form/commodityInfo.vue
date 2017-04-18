@@ -43,7 +43,7 @@
                 <span class="totalWeight">总重量:<span>{{totalWeight}}</span> 斤
                 </span>
                 <el-tooltip class="item" effect="dark" content="添加新商品" placement="left-start">
-                    <img src="../../static/img/addkey.jpg" class="addIcon" @click="dialogFormVisible=true" alt=""
+                    <img src="../../static/img/addkey.jpg" class="addIcon" @click="showDialog" alt=""
                          width="60" height="60">
                 </el-tooltip>
             </div>
@@ -93,7 +93,7 @@
                     <span class="serialNumber">{{commodityForm.serialNumber}}</span>
                 </el-form-item>
                 <el-form-item label="商品金额">
-                    <el-input disabled v-model="commodityForm.sumMoney" id="appendInput">
+                    <el-input disabled v-model="goodSumMoney" id="appendInput">
                         <el-button slot="append" @click="getMoney" :disabled="whetherShowButton">获取金额</el-button>
                     </el-input>
                 </el-form-item>
@@ -118,35 +118,39 @@
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click="dialogGoodsManage = false">取 消</el-button>
-                <el-button type="primary" @click="addGoods" :disabled="whetherAdding">确 定</el-button>
+                    <el-button  type="primary" @click="addGoods" :disabled="whetherAdding">确 定</el-button>
             </div>
         </el-dialog>
         <!-- dialog称重系统 -->
         <el-dialog title="获取重量" size="large" :close-on-click-modal=false :close-on-press-escape=false :show-close=false
                    v-model="dialogGetWeight" class="get_weight_dialog">
-            <div class="title"><span class="titleHeightLight">净重称重</span>|<span>去皮称重</span>|<span>累计称重</span></div>
+            <div class="title"><span class="titleHeightLight">净重称重</span>|<span :class="{titleHeightLight : goodsWeight.Peeled>0}">去皮称重</span>|<span :class="{titleHeightLight : goodsWeight.cumulativeWeight !=='未开启'}">累计称重</span></div>
             <el-form :model="goodsWeight">
                 <el-form-item label="去皮设置">
-                    <el-input disabled v-model="goodsWeight.Peeled">
-                        <el-button slot="append" @click="getPeeledWeight">重设去皮</el-button>
+                    <el-input disabled v-model="goodsWeight.Peeled" class="append">
+                        <el-button slot="append" @click="getPeeledWeight">点击重设去皮</el-button>
                     </el-input>
                 </el-form-item>
                 <el-form-item label="当前物重(净重)">
                     <el-input disabled v-model="goodsWeight.netWeight">
+                        <template slot="append">单位 ： 斤</template>
+
                     </el-input>
                 </el-form-item>
-                <el-form-item label="累计重量">
-                    <el-input disabled v-model="goodsWeight.cumulativeWeight">
+                <el-form-item label="累计重量" :class="{disabledLabel : !isAddingUp}">
+                    <el-input disabled v-model="goodsWeight.cumulativeWeight" :class="{disableCumulative : !isAddingUp}">
+                        <template slot="append">单位 ： 斤</template>
                     </el-input>
                 </el-form-item>
                 <el-form-item class="button">
-                    <el-button type="success">称取重量</el-button>
-                    <el-button @click="executeAddUpHandler" :class="{highLight : isAddingUp}">{buttonText}</el-button>
+                    <!--获取净重-->
+                    <el-button type="success" @click="getNetWeight">称取重量</el-button>
+                    <el-button @click="executeAddUpHandler" :class="{highLight : isAddingUp}">{{buttonText}}</el-button>
                 </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
-                <el-button @click="dialogGetWeight = false">放 弃</el-button>
-                <el-button type="primary" @click="dialogGetWeight = false" :disabled="whetherAdding">提 交</el-button>
+                <el-button @click="closeDialogGetWeight">放 弃</el-button>
+                <el-button type="primary" @click="submitDialogGetWeight" :disabled="!(goodsWeight.cumulativeWeight>0 || goodsWeight.netWeight>0)">提 交</el-button>
             </div>
         </el-dialog>
     </div>
@@ -161,9 +165,10 @@
                 goodsWeight: {
                     Peeled: 0,
                     netWeight: 0,
-                    cumulativeWeight: 0
+                    cumulativeWeight: "未开启"
                 },
-                buttonText:"开启累计",
+                isEdit:false,
+                buttonText: "开启累计",
                 isAddingUp: false, //是否开启累计模式
                 dialogGetWeight: false,
                 goodsManage: {
@@ -301,9 +306,22 @@
             },
             addressOptions() {
                 return this.palceOfProduction[this.commodityForm.variety];
-            }
+            },
+            goodSumMoney(){
+                this.commodityForm.sumMoney=Number(this.commodityForm.weight*Number(this.commodityForm.unitPrice));
+               return this.commodityForm.sumMoney;
+            },
+
         },
         methods: {
+            submitDialogGetWeight(){
+                this.dialogGetWeight=false;
+                if(this.goodsWeight.cumulativeWeight>0){
+                    this.commodityForm.weight=this.goodsWeight.cumulativeWeight;
+                }else{
+                    this.commodityForm.weight=this.goodsWeight.netWeight;
+                }
+            },
             executeAddUpHandler(){
                 if (!this.isAddingUp) {
                     this.$confirm('此操作将开启“累计模式”,之后秤取的重量都将会被累计,如需取消“累计模式”再次点击即可', '提示', {
@@ -312,7 +330,8 @@
                         type: 'info'
                     }).then(() => {
                         this.isAddingUp = true;
-                        this.buttonText="关闭累计";
+                        this.buttonText = "关闭累计";
+                        this.goodsWeight.cumulativeWeight= this.goodsWeight.netWeight;
                         this.$message({
                             type: 'success',
                             message: '开启累计模式...'
@@ -323,14 +342,15 @@
                             message: '已取消累计操作....'
                         });
                     });
-                }else{
-                    this.$confirm('您已开启累计模式,是否确定关闭累计模式?', '提示', {
+                } else {
+                    this.$confirm('注意:"之前累计重量将会清除!!!!!"您已开启累计模式,是否确定关闭累计模式?', '提示', {
                         confirmButtonText: '确定',
                         cancelButtonText: '取消',
-                        type: 'info'
+                        type: 'warning'
                     }).then(() => {
                         this.isAddingUp = false;
-                        this.buttonText="开启累计";
+                        this.buttonText = "开启累计";
+                        this.goodsWeight.cumulativeWeight=`未开启`;
                         this.$message({
                             type: 'success',
                             message: '关闭累计模式...'
@@ -344,10 +364,60 @@
 
                 }
             },
+            //获取净重
+            getNetWeight(){
+                this.$confirm(`请将需要“称重的物体”放置仪表秤上,点击"我已放好"按钮,并等待系统获取到准确数值(约2~3秒)~~`, '提示', {
+                    confirmButtonText: '我已放好',
+                    cancelButtonText: '放弃称重',
+                    type: 'warning'
+                }).then(() => {
+                    this.$message({
+                        showClose: true,
+                        message: '正在获取重量      :)',
+                    });
+                    var that = this;
+                    setTimeout(function () {
+                        that.loading = false;
+                        that.$http.get("http://localhost:80/SendCMD?idx=1&CMD=R")
+                            .then(function (response) {
+                                if (response.data.success) {
+                                    that.$http.get("http://localhost:80/GetBuffer?idx=1").then(function (response) {
+                                        if (response.data.success) {
+                                            let re = /^wn([^kg]*)kg/g;
+                                            let result = parseFloat(re.exec(response.data.buffer)[1]) * 2;
+                                            result -=that.goodsWeight.Peeled;
+                                            if(that.isAddingUp){
+                                                that.goodsWeight.cumulativeWeight+=result;
+                                            }
+                                            that.goodsWeight.netWeight = result;
+                                            that.$message("成功获取物体重量     :)");
+                                        }
+                                    }).catch(function () {
+                                        that.$message.error("获取重量失败  :(");
+                                    });
+                                }
+                            }).catch(function () {
+                            let result=100;
+                            result -=that.goodsWeight.Peeled;
+                            if(that.isAddingUp){
+                                    that.goodsWeight.cumulativeWeight+=result;
+                                }
+                            that.goodsWeight.netWeight = result;
+                            that.$message.error("请求无响应,请检查设备  :(");
+                        });
+
+                    }, 500);
+                }).catch(() => {
+                    this.$message({
+                        type: 'error',
+                        message: '放弃称重操作   :('
+                    });
+                });
+            },
             //获取去皮重量
             getPeeledWeight(){
-                this.$confirm(`请将需要去掉重量的物体放置仪表秤上,点击"获取去皮重量"按钮,并等待系统获取到准确数值(约2~3秒)~~`, '提示', {
-                    confirmButtonText: '获取去皮重量',
+                this.$confirm(`请将需要去掉重量的物体放置仪表秤上,点击"我已放好"按钮,并等待系统获取到准确数值(约2~3秒)~~`, '提示', {
+                    confirmButtonText: '我已放好',
                     cancelButtonText: '放弃去皮',
                     type: 'warning'
                 }).then(() => {
@@ -373,6 +443,7 @@
                                     });
                                 }
                             }).catch(function () {
+                            that.goodsWeight.Peeled = 9;
                             that.$message.error("请求无响应,请检查设备  :(");
                         });
 
@@ -383,6 +454,17 @@
                         message: '放弃去皮操作   :('
                     });
                 });
+            },
+            closeDialogGetWeight(){
+                this.dialogGetWeight=false;
+                this.isAddingUp=false;
+                this.buttonText="开启累计";
+                for(let key in this.goodsWeight){
+                    this.goodsWeight[key]=0;
+                    if(key === "cumulativeWeight"){
+                        this.goodsWeight[key]="未开启";
+                    }
+                }
             },
             addGoods() {
                 var variety = this.goodsManage.variety;
@@ -414,6 +496,7 @@
                 rows.splice(index, 1);
             },
             editRow(index, rows) {
+                this.isEdit=true;
                 this.dialogFormVisible = true;
                 this.whetherShowButton = true;
                 let row = rows.slice(index, index + 1)[0];
@@ -445,9 +528,24 @@
                 this.commodityForm.serialNumber = parseInt(Math.random() * 1234123);
             },
             addItem() {
-
+            if(!this.isEdit){
                 this.commodityData.push(this.extendCopy(this.commodityForm));
                 this.dialogFormVisible = false;
+            }else{
+                for(let i=0;i< this.commodityData.length;i++){
+                    if(this.commodityForm.serialNumber == this.commodityData[i].serialNumber){
+                        this.isEdit=false;
+                        this.commodityData.splice(i,1,this.extendCopy(this.commodityForm));
+                        this.clearObjAttr(this.commodityForm);
+                        this.commodityForm.weight = 0;
+                        this.commodityForm.sumMoney = 0;
+                        this.commodityForm.serialNumber = parseInt(Math.random() * 1234123);
+                        this.dialogFormVisible = false;
+                    }
+                }
+
+            }
+
             },
             clearAll() {
                 this.commodityData.splice(0, this.commodityData.length);
@@ -604,6 +702,9 @@
             .el-table {
                 font-size: 24px;
                 text-align: center;
+                .el-table__body-wrapper {
+                    overflow-x: hidden;
+                }
                 .cell .el-button--small {
                     font-size: 24px;
                     display: block;
@@ -661,7 +762,7 @@
             .el-form-item__label {
                 font-size: 25px;
             }
-            .el-button {
+            .el-button, .el-input-group__append {
                 font-size: 20px;
                 color: #ffffff;
                 background: #20a0ff;
@@ -669,7 +770,7 @@
                 &.is-disabled {
                     background-color: #eef1f6;
                     border-color: #d1dbe5;
-                    color: #bfcbd9;
+                    color: lighten(black,40%);
                     cursor: not-allowed;
                 }
             }
@@ -740,57 +841,90 @@
                 font-size: 25px;
             }
         }
-        .get_weight_dialog{
-            .title{//标题
+        .get_weight_dialog {
+            .el-dialog {
+                background: url("../../static/img/bg.jpg");
+            }
+            .title { //标题
                 margin: 0 auto;
                 font-size: 25px;
-                span{
+                text-shadow: 5px 5px 2px #cccccc;
+                span {
                     margin: 0 10%;
                 }
-                .titleHeightLight{
+                .titleHeightLight {
                     font-weight: bold;
-                    color: black;
+                    color: lighten(red, -13%);
                 }
             }
-            .el-form{
+            .el-form {
                 margin-top: 50px;
             }
             /*内容*/
-            .el-form-item__label{
-                margin:10px  15px 0 35px;
-
+            .el-form-item__label {
+                margin: 10px 15px 0 35px;
+                font-size: 32px;
             }
-            .el-input-group .el-input-group__append{
-                 color: #1f2d3d;
-                background: #90bfff ;
-                border-radius:0 8px 8px 0;
+            .el-input-group .el-input-group__append {
+                color: #ffffff;
+                background: transparent;
+                border-radius: 0 8px 8px 0;
+                font-size: 23px;
+                cursor: not-allowed;
+                .el-button {
+                    border-color: transparent;
+                    margin: 0;
+                    padding: 0;
+                    font-size: 23px;
+                }
             }
-            .el-input{
+            .el-input {
                 position: absolute;
                 width: 400px;
                 height: 50px;
-                left: 300px;
-                margin:10px 0;
+                left: 330px;
+                margin: 10px 0;
                 font-size: 28px;
-                .el-input__inner{
+                border-radius: 3%;
+                background: linear-gradient(30deg, lighten(black, 80%) 55%, lighten(black, 70%) 45%);
+                .el-input__inner {
                     height: 50px;
-                    color: red;
+                    color: lighten(red, -10%);
+                    padding-left: 20px;
+                    background: transparent;
+                    border-color: transparent;
                 }
-                .el-button{font-size: 25px}
+                .el-button {
+                    font-size: 25px;
+                }
             }
-            .button{
+            .append {
+                background: linear-gradient(30deg, lighten(black, 80%) 55%, lighten(#20a0ff, 10%) 45%);
+            }
+            .button {
                 text-align: center;
-                .el-button{
+                .el-button {
                     margin: 30px 0 0 50px;
                     font-size: 28px;
                 }
             }
-            .highLight{
+            .highLight {
                 color: red;
-                background: lighten(#cccccc,10%);
+                background: lighten(#cccccc, 10%);
             }
-            .dialog-footer{
-                .el-button{
+            .disableCumulative{
+                opacity: 0.4;
+                    .el-input__inner {
+                    color: lighten(red, -30%);
+                }
+            }
+            .disabledLabel .el-form-item__label{
+                color: lighten(#cccccc,-10%);
+                cursor: not-allowed;
+
+            }
+            .dialog-footer {
+                .el-button {
                     margin-left: 50px;
                     font-size: 30px;
                 }

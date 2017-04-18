@@ -198,14 +198,14 @@ export default {
                 unitPrice: 5,
                 weight: 12,
                 sumMoney: 60,
-                serialNumber: 200334
+                serialNumber: 204334
             }, {
                 variety: '机关枪',
                 origin: '中央兵库',
                 unitPrice: 5,
                 weight: 13,
                 sumMoney: 65,
-                serialNumber: 200335
+                serialNumber: 220335
             }, {
                 variety: '手榴弹',
                 origin: '中央兵库',
@@ -219,14 +219,14 @@ export default {
                 unitPrice: 5,
                 weight: 16,
                 sumMoney: 80,
-                serialNumber: 200336
+                serialNumber: 100336
             }, {
                 variety: '原子弹',
                 origin: '中央兵库',
                 unitPrice: 5,
                 weight: 19,
                 sumMoney: 95,
-                serialNumber: 200337
+                serialNumber: 204337
             }],
             cover: [{
                 firstForm: false
