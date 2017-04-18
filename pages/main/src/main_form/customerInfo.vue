@@ -318,6 +318,7 @@ export default {
 <style lang="less" rel="stylesheet/less">
 #customerInfo {
     height: inherit;
+    overflow: hidden;
     th .el-checkbox__inner {
         //隐藏table第一栏的checkbox
         display: none;
@@ -370,6 +371,7 @@ export default {
             justify-content: space-between;
             flex-direction: column;
             padding: 2% 0 -2% 0;
+            overflow: hidden;
             .customer_search_form,
             .customerTable {
                 box-sizing: border-box;

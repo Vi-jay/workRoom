@@ -1,7 +1,7 @@
 <template>
     <div id="main" v-loading="loading" element-loading-text="玩命加载中....">
         <transition name="lazyShow">
-                <homePage v-show="openOrder" :sellerForm="sellerForm"></homePage>
+                <homePage v-if="openOrder" :sellerForm="sellerForm"></homePage>
         </transition>
         <div class="messageContainer" v-if="showMessageContainer">
             <el-card :body-style="{ padding: '0px' }">
@@ -269,11 +269,11 @@ body {
 
 .lazyShow-enter-active,
 .lazyShow-leave-active {
-    transition: transform .3s ease-in-out;
+    transition: opacity .5s ease-in-out;
 }
 
 .lazyShow-enter {
-    transform: scale3d(0.3,0.3,0);
+        opacity: 0.2
 }
 
 .lazyShow-leave-active {
