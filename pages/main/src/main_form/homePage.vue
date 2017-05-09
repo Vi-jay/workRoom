@@ -58,7 +58,7 @@
                             <el-tooltip class="item" effect="dark" content="新增商品条目" placement="bottom">
                                 <div class="inner_content" :class="{ 'cover':cover[1].secondForm }">
                                     <div class="inner_content_commodityInfo">
-                                        <el-table stripe :data="commodityData" border style="width: 99%;margin-bottom: 15px" height="300">
+                                        <el-table stripe :data="commodityData" border style="width: 99%" height="300">
                                             <el-table-column label="订单商品条目">
                                                 <el-table-column fixed prop="variety" label="品种">
                                                 </el-table-column>
@@ -70,7 +70,7 @@
                                                 </el-table-column>
                                                 <el-table-column prop="serialNumber" label="编号">
                                                 </el-table-column>
-                                                <el-table-column prop="sumMoney" label="金额(元)">
+                                                <el-table-column prop="sumMoney" label="金额">
                                                 </el-table-column>
                                             </el-table-column>
                                             </el-table-column>
@@ -427,12 +427,15 @@ export default {
                 width: 20px;
                 line-height: 24px;
                 flex: 1;
-                letter-spacing: 2px;
+                letter-spacing: 5px;
+                color: lighten(black, 25%);
+                font-weight: bold;
                 text-align: center;
                 writing-mode: tb-rl;
                 cursor: default;
                 padding: 0 11px;
                 border-right: 3.5px solid #815C5C;
+                    text-shadow: -7px 5px 10px #C2A6A6;
             }
             .cover {
                 background: rgba(190, 190, 190, 0.7);
@@ -454,6 +457,9 @@ export default {
                     display: flex;
                     align-items: center;
                 }
+                .inner_content_customerInfo{
+                    margin:0 0 0 40px;
+                }
                 .inner_content_tip {
                     flex: 1;
                     margin: 0 20px;
@@ -464,6 +470,10 @@ export default {
                 .el-table__body-wrapper {
                     overflow-y: auto;
                     overflow-x: hidden;
+                    font-weight:600; 
+                    font-size: 18px;
+                    color: lighten(black, 30%);
+                    text-align: center;
                     tr {
                         background: transparent;
                     }
@@ -475,9 +485,12 @@ export default {
                     font-size: 21px;
                     line-height: 8px;
                     font-weight: bold;
+                    text-shadow: 7px 5px 10px lighten(#C2A6A6, 5%);
                 }
                 .el-table__header th .cell:first-child {
-                    font-weight: bold;
+                    font-weight: 900;
+                    font-size: 20px;
+                    text-align: center;
                 }
                 .el-input__inner {
                     height: 35px;
@@ -502,13 +515,13 @@ export default {
                 flex: 90;
                 .step_container {
                     position: relative;
-                    padding: 16px 60px 3px;
+                    padding: 3px 60px 5px;
                     .seal {
                         //盖章的图片
                         width: 185px;
                         height: 194px;
                         border-radius: 50%;
-                        background: url('../../static/img/seal.png') no-repeat;
+                        background: url('../asset/img/seal.png') no-repeat;
                         background-size: 500px 500px;
                         background-position: -45px 0;
                         position: absolute;
@@ -521,6 +534,10 @@ export default {
                     //按钮
                     padding-left: 50%;
                     margin-left: -100px;
+                    .el-button {
+                        font-weight: bold;
+                        font-size:18px;
+                    }
                 }
             }
         }

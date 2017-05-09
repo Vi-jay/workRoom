@@ -57,7 +57,7 @@
             <div class="right_content">
                 <el-alert title="小提示:" type="info" :closable="false" description="点击下面的图像按钮可添加新的用户哦~~">
                 </el-alert>
-                <img src="../../static/img/linkman.png" alt="" width="250" height="300" class="linkman" @click="dialogFormVisible = true">
+                <img src="../asset/img/linkman.png" alt="" width="250" height="300" class="linkman" @click="dialogFormVisible = true">
             </div>
         </div>
         <!-- dialog表单 -->

@@ -30,7 +30,7 @@ export default {
                                 let re=/^wn([^kg]*)kg/g;
                                 let result=parseFloat(re.exec(response.data.buffer)[1])*2;
                                 that.$message("成功获取重量~~");
-                                that.weight =result;
+                                that.weight =Number(result.toFixed(1));
                             }
                         }).catch(function(){
                             that.$message.error("获取重量失败~~");

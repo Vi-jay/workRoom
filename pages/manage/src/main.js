@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import axios from 'axios';
 let ElementUI = require('element-ui'),
     App = require('./App.vue'),
-    Estate_message = require('./manages/Estate_message/message.vue');
+    Estate_message = require('./manages/message.vue');
 Vue.use(ElementUI);
 Vue.prototype.$http = axios;
 Vue.use(VueRouter);

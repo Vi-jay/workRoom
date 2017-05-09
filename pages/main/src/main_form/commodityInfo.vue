@@ -43,7 +43,7 @@
                 <span class="totalWeight">总重量:<span>{{totalWeight}}</span> 斤
                 </span>
                 <el-tooltip class="item" effect="dark" content="添加新商品" placement="left-start">
-                    <img src="../../static/img/addkey.jpg" class="addIcon" @click="showDialog" alt=""
+                    <img src="../asset/img/addkey.jpg" class="addIcon" @click="showDialog" alt=""
                          width="60" height="60">
                 </el-tooltip>
             </div>
@@ -387,9 +387,10 @@
                                             let result = parseFloat(re.exec(response.data.buffer)[1]) * 2;
                                             result -=that.goodsWeight.Peeled;
                                             if(that.isAddingUp){
-                                                that.goodsWeight.cumulativeWeight+=result;
+                                                let a=that.goodsWeight.cumulativeWeight+Number(result.toFixed(1));
+                                                that.goodsWeight.cumulativeWeight=Number(a.toFixed(1));
                                             }
-                                            that.goodsWeight.netWeight = result;
+                                            that.goodsWeight.netWeight = Number(result.toFixed(1));
                                             that.$message("成功获取物体重量     :)");
                                         }
                                     }).catch(function () {
@@ -435,7 +436,7 @@
                                         if (response.data.success) {
                                             let re = /^wn([^kg]*)kg/g;
                                             let result = parseFloat(re.exec(response.data.buffer)[1]) * 2;
-                                            that.goodsWeight.Peeled = result;
+                                            that.goodsWeight.Peeled = Number(result.toFixed(1));
                                             that.$message("成功获取去皮重量     :)");
                                         }
                                     }).catch(function () {
@@ -843,7 +844,7 @@
         }
         .get_weight_dialog {
             .el-dialog {
-                background: url("../../static/img/bg.jpg");
+                background: url("../asset/img/bgc.jpg");
             }
             .title { //标题
                 margin: 0 auto;

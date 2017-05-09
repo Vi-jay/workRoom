@@ -46,6 +46,6 @@
         }
 
         body {
-                background: url("../static/img/bg.jpg");
+                background: url("./asset/img/bg.jpg");
         }
 </style>
